@@ -145,10 +145,10 @@ If this Fourier series converges describe the function to which it converges.
 \end{align*}
 \begin{align*}
     b_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx) dx \\
-    &= \frac{1}{\pi}\Bigg[ 3\int_{-\pi}^{\pi}\sin(kx) dx + \int_{-\pi}^{\pi}x\sin(kx) dx \Bigg] \\
-    &= \frac{1}{\pi}\Bigg[ \int_{-\pi}^{0}x\sin(kx) dx \Bigg] \: \: \: [\text{Since $x$ and sin odd}] \\
+    &= \frac{3}{\pi}\Bigg[ \int_{-\pi}^{\pi}\sin(kx) dx + \int_{-\pi}^{\pi}x\sin(kx) dx \Bigg] \\
+    &= \frac{3}{\pi}\Bigg[ \int_{0}^{\pi}x\sin(kx) dx \Bigg] \: \: \: [\text{Since $x$ and sin odd}] \\
     &\text{Let $u = x, du = 1 dx, dv = \sin(kx) dx, v = -\frac{\cos(kx)}{k}$} \\
-    &= \frac{1}{\pi}\Bigg[ -\frac{1}{k}\Big[x\cos(kx)\Big]_{-\pi}^{0} + \frac{1}{k}\int_{-\pi}^{0}\cos(kx)dx \Bigg] \\
+    &= \frac{3}{\pi}\Bigg[ -\frac{1}{k}\Big[x\cos(kx)\Big]^{\pi}_{0} + \frac{1}{k}\int^{\pi}_{0}\cos(kx)dx \Bigg] \\
 \end{align*}
 \item $[a,b] = [0, 2\pi]$
 \end{enumerate}
