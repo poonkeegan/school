@@ -143,6 +143,12 @@ If this Fourier series converges describe the function to which it converges.
     &= \frac{6}{\pi}\Big[\sin(kx)\Big]_{0}^{\pi} \: \: \: [\text{Since $x$ odd and cos even}] \\
     &= 0
 \end{align*}
+\begin{align*}
+    b_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx) dx \\
+    &= \frac{1}{\pi}\Bigg[ 3\int_{-\pi}^{\pi}\sin(kx) dx + \int_{-\pi}^{\pi}x\sin(kx) dx \Bigg] \\
+    &= \frac{1}{\pi}\Bigg[ \int_{-\pi}^{0}x\sin(kx) dx \Bigg] \: \: \: [\text{Since $x$ and sin odd}] \\
+    &= \frac{1}{\pi}\Bigg[ \int_{-\pi}^{0}x\sin(kx) dx \Bigg] \\
+\end{align*}
 \item $[a,b] = [0, 2\pi]$
 \end{enumerate}
 
