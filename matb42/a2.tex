@@ -158,6 +158,32 @@ If this Fourier series converges describe the function to which it converges.
     Linear functions are infinitely differentiable so it will converge to $f(x)$ within the interval, and coverges to 3 at the endpoints.
 \item $[a,b] = [0, 2\pi]$
 
+\begin{multicols}{2}
+\noindent
+\begin{align*}
+    a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x) dx \\
+    &= \frac{1}{\pi} \int_{-\pi}^{\pi}3 + 3x dx \\
+    &= \frac{1}{\pi} \Bigg[6\pi +  \frac{3}{2}\Big[x^2\Big]^{\pi}_{-\pi}\Bigg] \\
+    &= \frac{1}{\pi} \Bigg[6\pi + 0 \Bigg] \\
+    &= 6\\
+\end{align*}
+\begin{align*}
+    a_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx) dx \\
+    &= \frac{1}{\pi}\Bigg[ 3\int_{-\pi}^{\pi}\cos(kx) dx + \int_{-\pi}^{\pi}x\cos(kx) dx \Bigg] \\
+    &= \frac{6}{\pi}\Big[\sin(kx)\Big]_{0}^{\pi} \: \: \: [\text{Since $x$ odd and cos even}] \\
+    &= 0
+\end{align*}
+\begin{align*}
+    b_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx) dx \\
+    &= \frac{3}{\pi}\Bigg[ \int_{-\pi}^{\pi}\sin(kx) dx + \int_{-\pi}^{\pi}x\sin(kx) dx \Bigg] \\
+    &= \frac{6}{\pi}\Bigg[ \int_{0}^{\pi}x\sin(kx) dx \Bigg] \: \: \: [\text{Since $x$ and sin odd}] \\
+    &\text{Let $u = x, du = 1 dx, dv = \sin(kx) dx, v = -\frac{\cos(kx)}{k}$} \\
+    &= \frac{6}{\pi}\Bigg[ -\frac{1}{k}\Big[x\cos(kx)\Big]^{\pi}_{0} + \frac{1}{k}\int^{\pi}_{0}\cos(kx)dx \Bigg] \\
+    &= \frac{6}{k\pi}\Bigg[ \pi(-1)^{k+1} +  \frac{1}{k}\Big[\sin(kx)\Big]^{\pi}_{0} \Bigg] \\
+    &= \frac{6(-1)^{k+1}}{k}\\ 
+    \end{align*} 
+    \end{multicols}
+    Linear functions are infinitely differentiable so it will converge to $f(x)$ within the interval, and coverges to $3+3\pi$ at the endpoints.
 \end{enumerate}
 
 \item Find the Fourier series for the restriction of the function $f(x) = x(x-2\pi)$ and extended from this with period $2\pi$ to all of $\mathbb{R}$. Use symbolic algebra software to graph the $4^{th}$ degree Fourier polynomial together with the original function.
