@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\graphicspath{ {images/} }
+\pagestyle{empty}
+\fancyhf{}
+\cfoot{\thepage}
+
+\newtheorem*{lemma}{Lemma}
+
+\lhead{MATC44: Assignment \#1 }
+\rhead{
+Poon, Keegan\\
+1002423727}
+
+\renewcommand{\headrulewidth}{0pt}
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{enumerate}
+\item Prove that given $n+1$ natural numbers, there are always two of them such that their difference is a multiple of n.
+
+\begin{proof}
+    Given S, a set of $n+1$ natural numbers, their remainders relative to $n$ must be from 0 to $n$. Considering the set of remainders, there must be $n+1$ remainders, but only $n$ distinct remainders. By the Pigeonhole principle,  there must be two elements with the same remainders. If we take the difference of the two, then their remainder must then be 0 mod $n$.
+\end{proof}
+
+
+\item Prove that there is a natural number composed with the digits 0 and 5 and divisible by 2018.
+\begin{proof}
+    Consider the set $S$ of integers whose digits are only 5 e.g. 5, 55, 555, ..., etc. with that have length $\leq 2019$. If we say $S'$ is the set of their remainders mod 2018, then there is 2019 remainders of elements, but 2018 possible remainders, by Pigeonhole principle there must be 2 elements with the same remainder. If we take the difference of the two, then since the numbers are only consecutive fives, the resulting number is of the form 55...500...0 of consecutive 5s and consecutive 0s. This also has the property of being congruent 0 mod 2018 since the previous elements were congruent mod n. Therefore this difference is of the wanted form and is divisible by 2018.
+\end{proof}
+\item Over a 30 day period, George will walk his cat at least once per day and a total of 45 times in all. Prove that there is a period of consecutive days in which he walks the cat exactly 14 times.
+
+\begin{proof}
+Let $w_1, \ w_2, \ \dots, \ w_{30}$ be the hours he walks a day. 
+
+First suppose, $\exists w_k$ s.t. $w_k \geq 14$. Note that there are only 2 extra hours where he walks his dog aside from the one hour a day. Because there is at least 14 hours in one day, then there is a period of 15 consecutive days either before or after $w_k$ that are 1, 2 or 3 hours. Since there are only 2 extra hours, elements can be removed from the edge of the sequence as needed to get a length 14 sequence.
+
+Second, consider the case when there isn't an element with more than 13 hours walked, then let $W$ be the set of sequences of $\{\{w_1\}, \{w_1, w_2\}, \dots \{w_1,\dots , w_{29}\}\}$, so the first 29 sequences. Then consider the remainders of the sum of the sequences mod 14. There are 14 possible remainders: 0, 1, $\dots$, 13. Since $29 = 2(14) + 1$, by Pigeonhole principle, there must be at least 3 elements with the same remainder. But from 0 to 30, there are can only be 3 elements with the same remainder mod 14, since 3(14) = 42. This means that subtracting one of those from the other will result in exactly 14, and subtracting one of these sequences from another, will give another valid sequence, and its length is exactly 14, which has length $>$ 1 since no element is greater than 14.
+\end{proof}
+
+\item Consider the set
+\[
+ A = \{2,5,8,11,14,17,20,23,26,29,32,35\}
+\]
+which consists of all natural numbers of the form $3k + 2$ which are less or equal to 35. What is the smallest number $n$ that has the following property: if we choose $n$ numbers from A randomly, then there will always be a pair of numbers (in these $n$ numbers) such that their sum is 37.
+
+The number $n$ must be $\geq 7$ since the subset $\{2,8,14,32,26,20\}$ has no pairs summing to 37. I will show that it is exactly 7.
+
+\begin{proof}
+    Consider the 6 subsets of pairs of elements who sum to 37, and whose union is $A$. Namely $\{ \{2,35\}, \{5,32\}, \{8,29\}, \{11,26\},\{14,23\}, \{17,20\} \}$. Now there are 6 pairs, and if we pick 7 distinct elements from $A$, then by Pigeonhole principle, there will be at least 2 elements in the 1 of the 2 pairs, so there will always be 2 elements whose sum is 37.
+\end{proof}
+
+
+\item A party is attended by 2018 people. Prove that there will always be two people in attendance who have the same number of friends at the party. (Assume that the relation is a friend of is symmetric, that is if $x$ is a friend of $y$ then $y$ is a friend of $x$.)
+
+\begin{proof}
+There are 2018 people at the party and the range of possible friends a person can have ranges from 0 to 2017. Since the relation is symmetric, there cannot be a person with 2017 friends and another with 0, since the one with 2017 would be friends with the person that doesn't have any friens. This means that the possible ranges are 0 to 2016 or 1 to 2017 for any given group. The sizes of these ranges are both 2017, with 2018. Therefore by Pigeonhole principle there must be at least one person who is friends with the same number of people as another.
+\end{proof}
+\end{enumerate}
+\end{document}
