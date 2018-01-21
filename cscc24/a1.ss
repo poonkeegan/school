@@ -17,12 +17,13 @@
                 [(equal? `neg x) (negop x (rest lst))]
                 [(number? x) (cons x (rest lst))]
                 [else `(syntax-error)]))]))
+
 (define (binop x lst)
   (let ([a (pn-calc-hlp lst)])
     (cond
-      [(and (not (null? a)) (number? (car a))) (let ([b (pn-calc-hlp (rest a))])
+      [(number? (car a)) (let ([b (pn-calc-hlp (rest a))])
                      (cond
-                       [(and (not (null? b)) (number? (car b))) (cons (eval (list x (car a) (car b))) (rest b))]
+                       [(number? (car b)) (cons (eval (list x (car a) (car b))) (rest b))]
                        [else `(syntax-error)]))]
       [else `(syntax-error)])))
 
@@ -62,5 +63,5 @@
   (cond
     [(branch? tree)
      (let ([x (blt-foldl a0 binop (branch-left tree))])
-       (blt-foldl x binop (branch-right tree)))]
+      (blt-foldl x binop (branch-right tree)))]
     [(leaf? tree) (- a0 (leaf-datum tree))]))
