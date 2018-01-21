@@ -3,65 +3,36 @@
 ; Question 1.
 (define (pn-calc lst)
     (let ([x (pn-calc-hlp lst)])
-      (if (or (equal? x `syntax-error) (null? (cdr x)))
-        x
-        `syntax-error)))
+      (if (equal? (car x) `syntax-error) 
+        `syntax-error
+        x)))
 
 (define (pn-calc-hlp lst)
-  (cond 
-    [(null? lst) `syntax-error]
-    [else (match (first lst)
-        [ `+ (pn-calc-add (rest lst))]
-        [ `- (pn-calc-sub (rest lst))]
-        [ `* (pn-calc-mul (rest lst))]
-        [ `/ (pn-calc-div (rest lst))]
-        [ `neg (pn-calc-neg (rest lst))]
-        [? (number? (first lst)) (cons (first lst) (rest lst))]
-        [ _ `syntax-error])]))
-
-(define (pn-calc-add lst)
   (cond
-    [(or (null? lst) (null? (cdr lst))) `syntax-error]
-    [else (let ([x (pn-calc-hlp lst)])
-        (let ([y (pn-calc-hlp (cdr x))])
-          (cond
-            [(and (number? (car x)) (number? (car y))) (cons (+ (car x) (car y)) (cdr y))]
-            [else `syntax-error])))]))
-
-(define (pn-calc-sub lst)
-  (cond
-    [(or (null? lst) (null? (cdr lst))) `syntax-error]
-    [else (let ([x (pn-calc-hlp lst)])
-        (let ([y (pn-calc-hlp (cdr x))])
-          (cond
-            [(and (number? (car x)) (number? (car y))) (cons (- (car x) (car y)) (cdr y))]
-            [else `syntax-error])))]))
-
-(define (pn-calc-mul lst)
-  (cond
-    [(or (null? lst) (null? (cdr lst))) `syntax-error]
-    [else (let ([x (pn-calc-hlp lst)])
-        (let ([y (pn-calc-hlp (cdr x))])
-          (cond
-            [(and (number? (car x)) (number? (car y))) (cons (* (car x) (car y)) (cdr y))]
-            [else `syntax-error])))]))
-
-(define (pn-calc-div lst)
-  (cond
-    [(or (null? lst) (null? (cdr lst))) `syntax-error]
-    [else (let ([x (pn-calc-hlp lst)])
-        (let ([y (pn-calc-hlp (cdr x))])
-          (cond
-            [(and (number? (car x)) (number? (car y))) (cons (/ (car x) (car y)) (cdr y))]
-            [else `syntax-error])))]))
-
-(define (pn-calc-neg lst)
-  (cond
-    [(null? lst) `syntax-error]
-    [else (let ([x (pn-calc-hlp lst)])
+    [(null? lst) `(syntax-error)]
+    [else (let ([x (first lst)])
             (cond
-              [(number? (car x)) (cons (- (car x)) (cdr x))]
-              [else `syntax-error]))]))
+                [(ormap (lambda (y) (equal? x y)) `(+ - * /))
+                 (binop x (rest lst))]
+                [(equal? `neg x) (negop x (rest lst))]
+                [(number? x) (cons x (rest lst))]
+                [else `(syntax-error)]))]))
+(define (binop x lst)
+  (let ([a (pn-calc-hlp lst)])
+    (cond
+      [(and (not (null? a)) (number? (car a))) (let ([b (pn-calc-hlp (rest a))])
+                     (cond
+                       [(and (not (null? b)) (number? (car b))) (cons (eval (list x (car a) (car b))) (rest b))]
+                       [else `(syntax-error)]))]
+      [else `(syntax-error)])))
+
+(define (negop x lst)
+  (let ([a (pn-calc-hlp lst)])
+    (cond
+      [(number? (car a)) (cons (- (car a)) (rest a))]
+      [else `(syntax-error)]
+      )))
+   
 
 ; Binary leafy tree.
 (struct branch (left right) #:transparent)
@@ -88,4 +59,8 @@
 
 ; Question 3.
 (define (blt-foldl a0 binop tree)
-  'TO-DO)
+  (cond
+    [(branch? tree)
+     (let ([x (blt-foldl a0 binop (branch-left tree))])
+       (blt-foldl x binop (branch-right tree)))]
+    [(leaf? tree) (- a0 (leaf-datum tree))]))
