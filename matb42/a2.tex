@@ -252,16 +252,17 @@ If this Fourier series converges describe the function to which it converges.
     &= -\frac{4\pi^2}{3} \\
 \end{align*} 
 Therefore the Fourier series of $f$ is 
-\[ -\frac{2\pi^2}{3} + \sum_{k=1}^{\infty} \frac{8}{k^2}\cos(kx) \]
+\[F(x) = -\frac{2\pi^2}{3} + \sum_{k=1}^{\infty} \frac{8}{k^2}\cos(kx) \]
 
 \item Let $f(x)$ be defined on $[0,2\pi]$ by $f(x) = x(x-2\pi)$.
 \begin{enumerate}
 \item Find the Fourier cosine series of $f$.
 
 From question 4, we can see that the function is already even, hence the fourier series of the function itself is a cosine series of $f$. Namely 
-\[ -\frac{2\pi^2}{3} + \sum_{k=1}^{\infty} \frac{8}{k^2}\cos(kx) \]
+\[ F(x) -\frac{2\pi^2}{3} + \sum_{k=1}^{\infty} \frac{8}{k^2}\cos(kx) \]
 
 \item Find the Fourier sine series of $f$.
+To extend this as an odd function, define the $f$ on the range $[-2\pi,0]$ as $f(x) = -((x + 2\pi)((x + 2\pi)-2\pi)) = -x(x + 2\pi)$. Note that this definition of $f$ now has a period of $4\pi$.
 \item Use symbolic algebra software to graph the $4^{th}$ degree Fourier polynomials from parts (a) and (b) together with the original function.
 \end{enumerate}
 \item Find the Fourier series for the following functions:
