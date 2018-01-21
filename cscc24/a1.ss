@@ -60,8 +60,8 @@
     [(null? lst) `syntax-error]
     [else (let ([x (pn-calc-hlp lst)])
             (cond
-              [(number? (car x)) (cons (- (car x)) (cdr x))
-              [else `syntax-error]]))))
+              [(number? (car x)) (cons (- (car x)) (cdr x))]
+              [else `syntax-error]))]))
 
 ; Binary leafy tree.
 (struct branch (left right) #:transparent)
@@ -78,7 +78,12 @@
 
 ; Question 2.
 (define (blt-fold binop f tree)
-  'TO-DO)
+  (cond
+    [(branch? tree) 
+     (binop 
+       (blt-fold binop f (branch-left tree)) 
+       (blt-fold binop f (branch-right tree)))]
+    [(leaf? tree) (f (leaf-datum tree))]))
 
 
 ; Question 3.
