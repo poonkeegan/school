@@ -331,8 +331,10 @@ The Fourier sine series is thusly
 \begin{align*}
 \cos^7x &= (1/2)^7(e^{ix} + e^{-ix})^7 \\
 &= (1/128)(e^{7ix} + 7e^{6ix-ix} + 21e^{5ix-2ix}+35e^{4ix-3ix} \\
-& \: \: \: + 35e^{3ix-4ix} + 21e^{2ix-5ix} + 7e^{ix-6ix} + e^{-7ix} \\
-&= (1/128)(35e^{ix} + 35e^{-ix} + 21e^{3ix}+21e^{-3ix} +7e^{5ix} + 7e^{-5ix}+ e^{7ix} + e^{-7ix} \\
+& \: \: \: + 35e^{3ix-4ix} + 21e^{2ix-5ix} + 7e^{ix-6ix} + e^{-7ix} )\\
+&= (1/128)(35e^{ix} + 35e^{-ix} + 21e^{3ix}+21e^{-3ix} +7e^{5ix} + 7e^{-5ix}+ e^{7ix} + e^{-7ix} )\\
+&= (1/64)(35\cos(x) + 21\cos(3x) + 7\cos(5x) + \cos(7x))\\
+&= \frac{35}{64}\cos(x) + \frac{21}{64}\cos(3x) + \frac{7}{64}\cos(5x) + \frac{1}{64}\cos(7x))\\
 \end{align*}
 ( \textit{Hint:} Recall that $\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$ and $\sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$)
 \end{enumerate}
