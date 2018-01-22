@@ -33,7 +33,7 @@ Jan 23rd 2018}
     \begin{align*}
     & \int_{-\pi}^{\pi} \sin (kx) \sin (nx) dx \\ &= \frac{1}{2}\int_{-\pi}^{\pi} \cos (kx - nx) - \cos (kx + nx) dx & \big[ \sin(A)\sin(B) = \frac{1}{2}[\cos(A-B) - \cos(A+B)]\big]\\ 
     &= \frac{1}{2}\Bigg[\int_{-\pi}^{\pi} \cos ((k - n)x)dx -\int_{-\pi}^{\pi} \cos ((k + n)x) dx \Bigg]\\
-    &= \frac{1}{2}\Bigg[ \frac{1}{k-n}\Big[sin(kx)\Big]^\pi_{-\pi} - \frac{1}{k-n}\Big[sin(kx)\Big]^\pi_{-\pi} \Bigg] & \big[\text{Since cos is even}\big] \\
+        &= \frac{1}{2}\Bigg[ \frac{1}{k-n}\Big[\sin((k - n)x)\Big]^\pi_{-\pi} - \frac{1}{k+n}\Big[\sin((k + n)x)\Big]^\pi_{-\pi} \Bigg] & \big[\text{Since cos is even}\big] \\
     & k,n \in \mathbb{Z} \implies (k \pm n) \in \mathbb{Z}, \ \text{but } \forall z \in \mathbb{Z}, \ \sin(z\pi) = 0 \\
     &= 0
     \end{align*}
@@ -253,7 +253,7 @@ Jan 23rd 2018}
     
     Therefore the Fourier series for $f(x)$ is 
         \[
-        F(x) = - \frac{8}{3} + \sum_{k=1}^{\infty} \frac{16(-1)^k}{k^2\pi^2}\cos(kx)
+            F(x) = - \frac{8}{3} + \sum_{k=1}^{\infty} \frac{16(-1)^k}{k^2\pi^2}\cos\Big(\frac{k\pi x}{2}\Big)
         \]
     \newpage
     \item
@@ -348,7 +348,7 @@ Jan 23rd 2018}
     \end{align*}
         Therefore the even Fourier expansion for $f(x)$ is 
         \[
-        F_N = \frac{2}{\pi} + \sum_{k=2}^{\infty} 2\frac{(-1)^{(k+1)} -1}{\pi(k^2 - 1)}
+            F_N = \frac{2}{\pi} + \sum_{k=2}^{\infty} 2\frac{(-1)^{(k+1)} -1}{\pi(k^2 - 1)}\cos(kx)
         \]
 
     \end{multicols}
