@@ -308,10 +308,10 @@ The Fourier sine series is thusly
 
         \includegraphics[width=10cm]{b42-a2-5b}
 \end{enumerate}
+\newpage
 \item Find the Fourier series for the following functions:
 \begin{enumerate}
 \item $f(x) = \sin^2x + \sin^3x$
-
 \begin{align*} 
 \sin^2x + \sin^3x &= (1/2i)^2(e^{ix}-e^{-ix})^2 + (1/2i)^3(e^{ix}-e^{-ix})^3 \\
 &= (-1/4)(e^{2ix} -2(e^{(ix-ix)}) + e^{-2ix}) + (-1/8i)(e^{3ix} -3(e^{(2ix-ix)}) +3(e^{(ix-2ix)}) - e^{-3ix}) \\
@@ -328,7 +328,10 @@ The Fourier sine series is thusly
     &= \frac{3}{8} - \frac{1}{2}\cos(2x) + \frac{1}{8}\cos(4x) \\
 \end{align*}
 \item $f(x) = \cos^7x$
-
+\begin{align*}
+\cos^7x &= (1/2)^7(e^{ix} + e^{-ix})^7 \\
+&= (1/128)(e^{7ix} + 7e^{6ix-ix} + 21e^{5ix-2ix}+35e^{4ix-3ix}
+\end{align*}
 ( \textit{Hint:} Recall that $\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$ and $\sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$)
 \end{enumerate}
 
