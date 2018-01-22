@@ -26,7 +26,7 @@ Jan 30th 2018}
 \item Let $\displaystyle f(x) = 
 \begin{cases}
         0, &- \pi < x < -\frac{\pi}{2} \\
-        2, &- \frac{\pi}{2}\leq 2 < \frac{\pi}{2} \\
+        2, &- \frac{\pi}{2}\leq x < \frac{\pi}{2} \\
         0, & \frac{\pi}{2} \leq x < \pi
 \end{cases}
 $
@@ -60,7 +60,7 @@ This is 0 for even elements, and alternating between 1 and -1 for odd elements.
 
 Therefore the Fourier polynomial (for the non-zero terms) is 
 \[
-    1 + \sum_{l=1}^{\infty} \Bigg[ \frac{4(-1)^l}{(2l+1)\pi}\cos((2l+1)x)\Bigg]
+    1 + \sum_{l=1}^{\infty} \Bigg[ \frac{4(-1)^{l+1}}{(2l-1)\pi}\cos((2l-1)x)\Bigg]
 \]
 \item Determine if the Fourier series in part (a) converges. If it does converge, what are the values to which it converges (on $[-\pi, \pi]$).
 
