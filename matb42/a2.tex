@@ -311,10 +311,15 @@ The Fourier sine series is thusly
 \item Find the Fourier series for the following functions:
 \begin{enumerate}
 \item $f(x) = \sin^2x + \sin^3x$
+
+\[ 
+\sin^2x + \sin^3x = (1/2i)^2(e^{ix}-e^{-ix}) + (1/2i)^3(e^{ix}-e^{-ix}) = (-1/4)(e^{2ix} -2(e^{(ix-ix)}) + e^{-2ix}) + (-1/8i)(e^{3ix} -3(e^{(2ix-ix)}) +3(e^{(ix-2x)}) - e^{-3ix}) =(-1/4)(e^{2ix} + e^{-2ix} -2(e^{(ix-ix)})) + (-1/8i)(e^{3ix} - e^{-3ix} -3(e^{(2ix-ix)}) +3(e^{(ix-2x)})) = =(-1/4)(\cos(2x) -2) + (-1/8i)(e^{3ix} - e^{-3ix} -3(e^{(2ix-ix)}) +3(e^{(ix-2x)}))
+
+\]
 \item $f(x) = \sin^4x$
 \item $f(x) = \cos^7x$
 
-( \textit{Hint:} Recall that $\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$ and $\sin \theta = \frac{e^{i\theta} + e^{-i\theta}}{2i}$)
+( \textit{Hint:} Recall that $\cos \theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$ and $\sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$)
 \end{enumerate}
 
 The next question is for those among you who have previously seen complex numbers. It gives another approach to Fourier series.
