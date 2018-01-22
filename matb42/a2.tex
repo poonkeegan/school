@@ -262,7 +262,16 @@ From question 4, we can see that the function is already even, hence the fourier
 \[ F(x) -\frac{2\pi^2}{3} + \sum_{k=1}^{\infty} \frac{8}{k^2}\cos(kx) \]
 
 \item Find the Fourier sine series of $f$.
+
 To extend this as an odd function, define the $f$ on the range $[-2\pi,0]$ as $f(x) = -((x + 2\pi)((x + 2\pi)-2\pi)) = -x(x + 2\pi)$. Note that this definition of $f$ now has a period of $4\pi$.
+
+\begin{multicols}{2} 
+\begin{align*}
+    a_0 &= \frac{1}{2\pi} \int_{-2\pi}^{2\pi}f(x) dx \\
+    &= \frac{1}{2\pi} \int_{-2\pi}^{2\pi}f(x)dx \\
+    &= \frac{1}{2\pi} \Bigg[ -\int_{-2\pi}^{0} x(x+2\pi)dx + \int_{0}^{2\pi} x(x-2\pi)dx \\
+\end{align*} 
+\end{multicols}
 \item Use symbolic algebra software to graph the $4^{th}$ degree Fourier polynomials from parts (a) and (b) together with the original function.
 \end{enumerate}
 \item Find the Fourier series for the following functions:
