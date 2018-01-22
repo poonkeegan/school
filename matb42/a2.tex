@@ -279,11 +279,12 @@ To extend this as an odd function, define the $f$ on the range $[-2\pi,0]$ as $f
 \end{align*} 
 \begin{align*}
     a_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx) dx \\
-    &= 0 [\text{Since $f$ is defined odd}]
+    &= 0 \: \: \: [\text{Since $f$ is defined odd}]
 \end{align*} 
 \begin{align*}
     b_k &= \frac{1}{\pi} \int_{-2\pi}^{2\pi}f(x)\sin(kx) dx \\
-    b_k &= \frac{1}{\pi} \Bigg[ \int_{-2\pi}^{0}x(x+2\pi)\sin(kx) dx \int_{0}^{2\pi}x(x-2\pi)\sin(kx) dx \Bigg] \\
+    &= \frac{1}{\pi} \Bigg[ \int_{-2\pi}^{0}x(x+2\pi)\sin(kx) dx + \int_{0}^{2\pi}x(x-2\pi)\sin(kx) dx \Bigg] \\
+    &= \frac{1}{\pi} \Bigg[ \int_{-2\pi}^{0}x(x+2\pi)\sin(kx) dx \Bigg] \\
 \end{align*} 
 \end{multicols}
 \item Use symbolic algebra software to graph the $4^{th}$ degree Fourier polynomials from parts (a) and (b) together with the original function.
