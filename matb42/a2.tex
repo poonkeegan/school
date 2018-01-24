@@ -368,7 +368,7 @@ When $n \not = k$
     \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx &= C_n\int_{-\pi}^{\pi}e^{i(n-k)x}dx \\
     &= C_n \frac{1}{i(n-k)}\Big[ e^{i(n-k)x}\Big]_{-\pi}^{\pi} \\
     &= C_n \frac{2}{(n-k)}\frac{1}{2i}\Big[ e^{i(n-k)\pi} - e^{-i(n-k)\pi}\Big]_{-\pi}^{\pi} \\
-    &= C_n \frac{2}{(n-k)}\sin((n-k)\pi) = 0
+    &= C_n \frac{2}{(n-k)}\sin((n-k)\pi)= 0
 \end{align*}
 When $n = k$
 \begin{align*}
@@ -376,6 +376,12 @@ When $n = k$
     &=C_n(2\pi)dx \\
 \end{align*}
 \end{multicols}
+So that means 
+\begin{align*}
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
+    &= 2\pi C_k \\
+    \implies \frac{1}{2\pi}\int_{-\pi}^{\pi}e^{-ikx}f(x) dx  &= C_k
+\end{align*}
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
 \end{enumerate}
