@@ -8,31 +8,31 @@
         x)))
 
 (define (pn-calc-hlp lst)
-  (cond
-    [(null? lst) `(syntax-error)]
-    [else (let ([x (first lst)])
-            (cond
-                [(ormap (lambda (y) (equal? x y)) `(+ - * /))
-                 (binop x (rest lst))]
-                [(equal? `neg x) (negop x (rest lst))]
-                [(number? x) (cons x (rest lst))]
-                [else `(syntax-error)]))]))
+    (match lst
+        [(list head tail ...)
+            (match head
+                [(or `+ `- `* `/) (binop head tail)]
+                [`neg (negop tail)]
+                [(? number?) lst]
+                [_ `(syntax-error)])]
+        [_ `(syntax-error)]))
 
-(define (binop x lst)
-  (let ([a (pn-calc-hlp lst)])
-    (cond
-      [(number? (car a)) (let ([b (pn-calc-hlp (rest a))])
-                     (cond
-                       [(number? (car b)) (cons (eval (list x (car a) (car b))) (rest b))]
-                       [else `(syntax-error)]))]
-      [else `(syntax-error)])))
+(define (binop op lst)
+    (match lst
+        [(list head ...)
+            (let ([x (pn-calc-hlp head)])
+                (let ([y (pn-calc-hlp (cdr x))])
+                (match (list (car x) (car y))
+                    [(list (? number?) (? number?))
+                        (cons (eval (list op (car x) (car y))) (rest y))]
+                    [_ `(syntax-error)])))]
+        [_ `(syntax-error)]))
 
-(define (negop x lst)
+(define (negop lst)
   (let ([a (pn-calc-hlp lst)])
-    (cond
-      [(number? (car a)) (cons (- (car a)) (rest a))]
-      [else `(syntax-error)]
-      )))
+    (match a
+      [(? number?) (cons (- (car a)) (rest a))]
+      [_ `(syntax-error)])))
    
 
 ; Binary leafy tree.
@@ -50,18 +50,15 @@
 
 ; Question 2.
 (define (blt-fold binop f tree)
-  (cond
-    [(branch? tree) 
-     (binop 
-       (blt-fold binop f (branch-left tree)) 
-       (blt-fold binop f (branch-right tree)))]
-    [(leaf? tree) (f (leaf-datum tree))]))
-
+    (match tree
+        [(leaf data) (f data)]
+        [(branch left right)
+         (binop (blt-fold binop f left) 
+                (blt-fold binop f right))]))
 
 ; Question 3.
 (define (blt-foldl a0 binop tree)
-  (cond
-    [(branch? tree)
-     (let ([x (blt-foldl a0 binop (branch-left tree))])
-      (blt-foldl x binop (branch-right tree)))]
-    [(leaf? tree) (- a0 (leaf-datum tree))]))
+    (match tree
+        [(leaf data) (- a0 data)]
+        [(branch left right) 
+         (blt-foldl (blt-foldl a0 binop left) binop right)]))

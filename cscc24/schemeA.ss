@@ -20,9 +20,9 @@
 ; It is OK to use the "reverse" function to help you.
 ; Also recall the "map" function from the first lecture.
 (define (deep-reverse nlst)
-  (cond
-    [(number? nlst) nlst]
-    [else (reverse (map deep-reverse nlst))]))
+  (match nlst
+    [(? number?) nlst]
+    [_ (reverse (map deep-reverse nlst))]))
 
 
 ; Take 3 parameters: a comparator and two lists.
@@ -39,13 +39,11 @@
 ; Example: (sorted-merge string>=? '("tea" "donut") '("waffle" "jello" "cake"))
 ; answer: '("waffle" "tea" "jello" "donut" "cake")
 (define (sorted-merge cmp lstA lstB)
-    (cond
-        [(null? lstA) lstB]
-        [(null? lstB) lstA]
-        [(cmp (car lstA) (car lstB)) 
-         (cons (car lstA) (sorted-merge cmp (cdr lstA) lstB))]
-        [else 
-         (cons (car lstB) (sorted-merge cmp lstA (cdr lstB)))]))
+  (match (list lstA lstB)
+    [(or (list (? null?) _) (list _ (? null?))) (append lstA lstB)]
+    [_ (if (cmp (car lstA) (car lstB))
+           (cons (car lstA) (sorted-merge cmp (cdr lstA) lstB))
+           (cons (car lstB) (sorted-merge cmp lstA (cdr lstB))))]))
 
 
 ; The next two functions work on binary trees. So here is the record type of a
@@ -82,29 +80,11 @@
     (bst-hlp cmp tree +inf.0 -inf.0))
 
 (define (bst-hlp cmp tree mx mn)
-    (cond
-        [(equal? `nil tree) #t]
-        [else 
-            (and
-                (and 
-                    (cmp mn (node-key tree)) 
-                    (cmp (node-key tree) mx))
-                (and
-                    (bst-hlp
-                    cmp
-                    (node-left tree)
-                    (node-key tree)
-                    mn)
-                    (bst-hlp
-                    cmp
-                    (node-right tree)
-                    mx
-                    (node-key tree))))]))
-                    
-                    
-
-
-
-
-
-             
+    (match tree
+        [`nil #t]
+        [_  (and (and (cmp mn (node-key tree)) 
+                      (cmp (node-key tree) mx))
+                 (and (bst-hlp cmp (node-left tree) 
+                               (node-key tree) mn)
+                      (bst-hlp cmp (node-right tree) 
+                               mx (node-key tree))))]))
