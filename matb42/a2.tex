@@ -393,7 +393,7 @@ a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)dx \\
 \begin{align*}
 a_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx)dx \\
 &= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2i}\int_{-\pi}^{\pi}e^{inx}(e^{ikx} - e^{-ikx})dx \\
-&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \Big[ \frac{1}{2i}\int_{-\pi}^{\pi}e^{i(n+k)x}dx - \int_{-\pi}^{\pi}e^{-ikx}dx \Big] \\
+&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \Big[ \frac{1}{2i}\int_{-\pi}^{\pi}e^{i(n+k)x}dx - \int_{-\pi}^{\pi}e^{-i(k - n)x}dx \Big] \\
 \end{align*}
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
 \end{enumerate}
