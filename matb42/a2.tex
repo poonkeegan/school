@@ -385,8 +385,9 @@ So that means
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
 
 \begin{align*}
-a_0 &= \frac{1}{\pi} \int_{-pi}^{\pi}f(x)dx \\
-&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \int_{-pi}^{\pi}e^{inx}dx \\
+a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)dx \\
+&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \int_{-\pi}^{\pi}e^{inx}dx \\
+&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}-\frac{i}{n}C_n \Big[e^{inx}\Big]_{-\pi}^{\pi} \\
 \end{align*}
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
 \end{enumerate}
