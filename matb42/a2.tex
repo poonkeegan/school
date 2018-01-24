@@ -313,7 +313,7 @@ The Fourier sine series is thusly
 \begin{enumerate}
 \item $f(x) = \sin^2x + \sin^3x$
 \begin{align*} 
-\sin^2x + \sin^3x &= (1/2i)^2(e^{ix}-e^{-ix})^2 + (1/2i)^3(e^{ix}-e^{-ix})^3 \\
+\sin^2x + \sin^3x &= (1/2i)^2(e^{ix}-e^{-ix})^2 + (1/2i)^3(e^{ix}-e^{-ix})^3 [\text{Binomial Theorem}]\\
 &= (-1/4)(e^{2ix} -2(e^{(ix-ix)}) + e^{-2ix}) + (-1/8i)(e^{3ix} -3(e^{(2ix-ix)}) +3(e^{(ix-2ix)}) - e^{-3ix}) \\
 &=(-1/4)(e^{2ix} + e^{-2ix} -2) + (-1/8i)(e^{3ix} - e^{-3ix} -3(e^{(ix)}) +3(e^{(-ix)})) \\
 &=(-1/2)(\cos(2x) -2) + (-1/4)(\sin(3x) -3\sin(x)) \\
@@ -321,7 +321,7 @@ The Fourier sine series is thusly
 \end{align*}
 \item $f(x) = \sin^4x$
 \begin{align*}
-    \sin^4{x} &= (1/2i)^4(e^{ix} - e^{-ix})^4 \\
+    \sin^4{x} &= (1/2i)^4(e^{ix} - e^{-ix})^4 [\text{Binomial Theorem}]\\
     &= (1/16)(e^{4ix} - 4e^{3ix-ix} + 6e^{2ix-2ix} - 4e^{ix-3ix} +e^{4ix}) \\
     &= (1/16)(6 - 4e^{2ix} - 4e^{-2ix}+ e^{4ix}  +e^{4ix}) \\
     &= (1/8)(3 - 4\cos(2x) + \cos(4x)) \\
@@ -330,7 +330,7 @@ The Fourier sine series is thusly
 \item $f(x) = \cos^7x$
 \begin{align*}
 \cos^7x &= (1/2)^7(e^{ix} + e^{-ix})^7 \\
-&= (1/128)(e^{7ix} + 7e^{6ix-ix} + 21e^{5ix-2ix}+35e^{4ix-3ix} \\
+[\text{Binomial Theorem}]&= (1/128)(e^{7ix} + 7e^{6ix-ix} + 21e^{5ix-2ix}+35e^{4ix-3ix} \\
 & \: \: \: + 35e^{3ix-4ix} + 21e^{2ix-5ix} + 7e^{ix-6ix} + e^{-7ix} )\\
 &= (1/128)(35e^{ix} + 35e^{-ix} + 21e^{3ix}+21e^{-3ix} +7e^{5ix} + 7e^{-5ix}+ e^{7ix} + e^{-7ix} )\\
 &= (1/64)(35\cos(x) + 21\cos(3x) + 7\cos(5x) + \cos(7x))\\
