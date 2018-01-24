@@ -401,7 +401,7 @@ a_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx)dx \\
 \begin{align*}
 b_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\cos(kx)dx \\
 &= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2}\int_{-\pi}^{\pi}e^{inx}(e^{ikx} + e^{-ikx})dx \\
-&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2i}\Big[ \int_{-\pi}^{\pi}e^{i(n+k)x}dx - \int_{-\pi}^{\pi}e^{-i(k - n)x}dx \Big] \\
+&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2}\Big[ \int_{-\pi}^{\pi}e^{i(n+k)x}dx + \int_{-\pi}^{\pi}e^{-i(k - n)x}dx \Big] \\
 &\text{Again the integrals are $2\pi$ respectively when $n = \pm k$ and 0 otherwise} \\
 &= -\frac{i}{2\pi} \Bigg[2\pi C_{-k} - 2\pi C_{k} \Bigg] \\
 &= -i\Big[C_{-k} - C_{k} \Big] \\
