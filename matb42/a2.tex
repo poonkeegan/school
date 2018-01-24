@@ -357,9 +357,23 @@ The next question is for those among you who have previously seen complex number
 Multiplying by $e^{-ikx}$ on both sides (where $k \in \mathbb{Z}$) gives the expression:
 \begin{align*}
  e^{-ikx}f(x) &= \sum_{n=-\infty}^\infty C_ne^{inx}e^{-ikx} \\
- \implies \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &= \int_{-\pi}^{\pi}\sum_{n=-\infty}^\infty C_ne^{(inx - ikx}dx \\
+ \implies \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &= \int_{-\pi}^{\pi}\sum_{n=-\infty}^\infty C_ne^{inx - ikx}dx \\
  \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \: \: \: [\text{Due to the term by term theorem}] \\
 \end{align*}
+Now there are two cases to consider as $n \in (-\infty, \infty)$
+\begin{mulicols}{2}
+\noindent
+When $n = k$
+\begin{align*}
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n\int_{-\pi}^{\pi}e^{0}dx \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n(2\pi)dx \\
+\end{align*}
+When $n \not = k$
+\begin{align*}
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
+\end{align*}
+\end{multicols}
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
 \end{enumerate}
