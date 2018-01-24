@@ -387,13 +387,13 @@ So that means
 \begin{align*}
 a_0 &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)dx \\
 &= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \int_{-\pi}^{\pi}e^{inx}dx \\
- &= 2C_0 \: \: [\text{From (a), if $n = 0$, integral is 2$\pi$, o/w 0}]
+ &= 2C_0 \: \: \: [\text{From (a), if $n = 0$, integral is 2$\pi$, o/w 0}]
 \end{align*}
 
 \begin{align*}
 a_k &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x)\sin(kx)dx \\
 &= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2i}\int_{-\pi}^{\pi}e^{inx}(e^{ikx} - e^{-ikx})dx \\
- &= 2C_0 \: \: [\text{From (a), if $n = 0$, integral is 2$\pi$, o/w 0}]
+&= \frac{1}{\pi} \sum_{n=-\infty}^{\infty}C_n \frac{1}{2i}\int_{-\pi}^{\pi}e^{i(n+k)x}dx - \frac{1}{2i}\int_{-\pi}^{\pi}e^{-ikx}dx \\
 \end{align*}
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
 \end{enumerate}
