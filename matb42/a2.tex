@@ -354,9 +354,11 @@ The next question is for those among you who have previously seen complex number
 
 \item Express the $C_n$ as integrals involving $f$.
 
-Multiplying by $e^{-ikx}$ on both sides (where $k \in \mathbb{Z}$)
+Multiplying by $e^{-ikx}$ on both sides (where $k \in \mathbb{Z}$) gives the expression:
 \begin{align*}
- f(x) = \sum_{n=-\infty}^\infty C_ne^{inx}
+ e^{ikx}f(x) &= \sum_{n=-\infty}^\infty C_ne^{inx}e^{ikx} \\
+ \implies \int_{-\pi}^{\pi}e^{ikx}f(x) dx &= \int_{-\pi}^{\pi}\sum_{n=-\infty}^\infty C_ne^{inx}e^{ikx}dx \\
+ \int_{-\pi}^{\pi}e^{ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{inx}e^{ikx}dx \: \: \: [\text{Due to the term by term theorem}] \\
 \end{align*}
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
 \item Find the $C_n$ in terms of the Fourier coefficients of $f$.
