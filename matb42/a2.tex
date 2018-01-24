@@ -365,13 +365,14 @@ Now there are two cases to consider as $n \in (-\infty, \infty)$
 \noindent
 When $n = k$
 \begin{align*}
-    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
-    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n\int_{-\pi}^{\pi}e^{0}dx \\
-    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n(2\pi)dx \\
+    \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx &= C_n\int_{-\pi}^{\pi}e^{0}dx \\
+    &=C_n(2\pi)dx \\
 \end{align*}
 When $n \not = k$
 \begin{align*}
     \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n\int_{-\pi}^{\pi}e^{i(n-k)x}dx \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n\frac{1}{i(n-k)x}e^{i(n-k)x} \\
 \end{align*}
 \end{multicols}
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
