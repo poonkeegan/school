@@ -372,8 +372,8 @@ When $n \not = k$
 \begin{align*}
     \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty \int_{-\pi}^{\pi}C_ne^{i(n-k)x}dx \\
     \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n\int_{-\pi}^{\pi}e^{i(n-k)x}dx \\
-    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n \Big[\frac{1}{i(n-k)x}e^{i(n-k)x}\Big]_{-\pi}^{\pi} \\
-    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n \Big[\frac{1}{i(n-k)x}e^{i(n-k)x}\Big]_{-\pi}^{\pi} \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n [\frac{1}{i(n-k)}\Big[ e^{i(n-k)x}\Big]_{-\pi}^{\pi} \\
+    \int_{-\pi}^{\pi}e^{-ikx}f(x) dx &=  \sum_{n=-\infty}^\infty C_n [\frac{1}{i(n-k)}\Big[ e^{i(n-k)\pi} - e^{-i(n-k)\pi}\Big]_{-\pi}^{\pi} \\
 \end{align*}
 \end{multicols}
 \item Find the Fourier coefficients of $f$ in terms of the $C_n$.
