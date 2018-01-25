@@ -22,10 +22,10 @@
         [(list head ...)
             (let ([x (pn-calc-hlp head)])
                 (let ([y (pn-calc-hlp (cdr x))])
-                (match (list (car x) (car y))
-                    [(list (? number?) (? number?))
-                        (cons (eval (list op (car x) (car y))) (rest y))]
-                    [_ `(syntax-error)])))]
+                    (match (list (car x) (car y))
+                        [(list (? number?) (? number?))
+                            (cons (eval (list op (car x) (car y))) (rest y))]
+                        [_ `(syntax-error)])))]
         [_ `(syntax-error)]))
 
 (define (negop lst)

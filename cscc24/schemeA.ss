@@ -61,11 +61,10 @@
 ; Example: (bt-height (node 5 'nil (node 6 (node 7 'nil 'nil) 'nil)))
 ; answer: 3
 (define (bt-height tree)
-  (cond 
-    [(equal? `nil tree) 0]
-    [else (+ 1 (max (bt-height (node-left tree)) 
-                    (bt-height (node-right tree))))]))
-
+  (match tree
+    [`nil 0]
+    [(node _ l r) (+ 1 (max (bt-height l) (bt-height r)))]
+    [_ 0]))
 
 ; Take a comparator and a binary tree. Determine whether the tree is a binary
 ; search tree according to the comparator.
@@ -82,9 +81,9 @@
 (define (bst-hlp cmp tree mx mn)
     (match tree
         [`nil #t]
-        [_  (and (and (cmp mn (node-key tree)) 
-                      (cmp (node-key tree) mx))
-                 (and (bst-hlp cmp (node-left tree) 
-                               (node-key tree) mn)
-                      (bst-hlp cmp (node-right tree) 
-                               mx (node-key tree))))]))
+        [(node key left right)
+            (and (cmp mn key) 
+                 (cmp key mx)
+                 (bst-hlp cmp left key mn)
+                 (bst-hlp cmp right mx key))]
+        [_ #f]))
