@@ -2,38 +2,33 @@
 
 ; Question 1.
 (define (pn-calc lst)
+    (define (pn-calc-hlp lst)
+        (match lst
+            [(list head tail ...)
+                (let* ([x (pn-calc-hlp tail)]
+                       [y (pn-calc-hlp (cdr x))]
+                       [felmt (car x)]
+                       [selmt (car y)])
+                      (match head
+                          [(or `+ `- `* `/) 
+                              (match (list felmt selmt)
+                                  [(list (? number?) (? number?))
+                                      (cons (eval 
+                                                (list head felmt selmt))
+                                                (rest y))]
+                                  [_ `(syntax-error)])]
+                          [`neg 
+                              (match felmt
+                                  [(? number?) (cons (- felmt) (rest x))]
+                                  [_ `(syntax-error)])]
+                          [(? number?) lst]
+                          [_ `(syntax-error)]))]
+                [_ `(syntax-error)]))
     (let ([x (pn-calc-hlp lst)])
       (if (equal? (car x) `syntax-error) 
         `syntax-error
         x)))
 
-(define (pn-calc-hlp lst)
-    (match lst
-        [(list head tail ...)
-            (match head
-                [(or `+ `- `* `/) (binop head tail)]
-                [`neg (negop tail)]
-                [(? number?) lst]
-                [_ `(syntax-error)])]
-        [_ `(syntax-error)]))
-
-(define (binop op lst)
-    (match lst
-        [(list head ...)
-            (let ([x (pn-calc-hlp head)])
-                (let ([y (pn-calc-hlp (cdr x))])
-                    (match (list (car x) (car y))
-                        [(list (? number?) (? number?))
-                            (cons (eval (list op (car x) (car y))) (rest y))]
-                        [_ `(syntax-error)])))]
-        [_ `(syntax-error)]))
-
-(define (negop lst)
-  (let ([a (pn-calc-hlp lst)])
-    (match a
-      [(? number?) (cons (- (car a)) (rest a))]
-      [_ `(syntax-error)])))
-   
 
 ; Binary leafy tree.
 (struct branch (left right) #:transparent)
@@ -62,3 +57,12 @@
         [(leaf data) (- a0 data)]
         [(branch left right) 
          (blt-foldl (blt-foldl a0 binop left) binop right)]))
+
+
+;(pn-calc `(+ 10 4))
+;(pn-calc `(+ * 3 2 - 7 5))
+;(pn-calc `(* * 6 - 7 5 + 4 1))
+;(pn-calc `(neg 5))
+;(pn-calc `(* neg 3 neg 5))
+;(pn-calc `(3 neg 5))
+;(pn-calc `(neg 3 neg 5))

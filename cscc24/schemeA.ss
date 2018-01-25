@@ -76,14 +76,24 @@
 ; Example: (bst? >= (node 5 'nil (node 7 (node 6 'nil 'nil) 'nil)))
 ; answer: #f
 (define (bst? cmp tree)
-    (bst-hlp cmp tree +inf.0 -inf.0))
+    (define (helper cmp tree mx mn)
+        (match tree
+            [`nil #t]
+            [(node key left right)
+                 (and (cmp mn key) (cmp key mx)
+                      (helper cmp left key mn)
+                      (helper cmp right mx key))]
+            [_ #f]))
+    (helper cmp tree +inf.0 -inf.0))
 
-(define (bst-hlp cmp tree mx mn)
-    (match tree
-        [`nil #t]
-        [(node key left right)
-            (and (cmp mn key) 
-                 (cmp key mx)
-                 (bst-hlp cmp left key mn)
-                 (bst-hlp cmp right mx key))]
-        [_ #f]))
+
+;(bst? <= 'nil)
+;(bst? <= (node 5 'nil 'nil))
+;(bst? >= (node 5 (node 7 (node 6 'nil 'nil) 'nil) 'nil))
+;(bst? <= (node 5 (node 6 (node 7 (node 6 (node 7 'nil 'nil) 'nil) 'nil) 'nil) (node 6 (node 7 'nil 'nil) 'nil)))
+;(bst? <= (node 5 'nil (node 6 (node 7 'nil 'nil) 'nil)))
+;(bst? <= (node 5 'nil (node 7 (node 6 'nil 'nil) 'nil)))
+;(bst? >= (node 5 'nil (node 7 (node 6 'nil 'nil) 'nil)))
+;(bst? <= (node 3 (node 2 (node 1 'nil 'nil) (node 4 'nil 'nil))(node 5 (node 2 'nil 'nil) (node 7 'nil 'nil))))
+;(bst? <= (node 17 (node 5 (node 2 (node 1 'nil 'nil)(node 3 'nil 'nil)) (node 7 (node 6 'nil 'nil)(node 16 'nil 'nil)))(node 24 (node 20 (node 18 'nil 'nil)(node 23 'nil 'nil)) (node 26 (node 25 'nil 'nil)(node 27 'nil 'nil)))))
+;(bst? <= (node 17 (node 5 (node 2 (node 1 'nil 'nil)(node 3 'nil 'nil)) (node 7 (node 6 'nil 'nil)(node 16 'nil 'nil)))(node 24 (node 20 (node 16 'nil 'nil)(node 23 'nil 'nil)) (node 26 (node 25 'nil 'nil)(node 27 'nil 'nil)))))
