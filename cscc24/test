@@ -1,0 +1,2 @@
+(bst? <= (node 3 (node 2 (node 1 'nil 'nil) (node 4 'nil 'nil))(node 5 (node 2 'nil 'nil) (node 7 'nil 'nil))))
+(bst? <= (node 3 (node 2 (node 1 'nil 'nil) (node 4 'nil 'nil))(node 5 (node 2 'nil 'nil) (node 7 'nil 'nil))))
