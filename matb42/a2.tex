@@ -64,7 +64,7 @@ Therefore the Fourier polynomial (for the non-zero terms) is
 \]
 \item Determine if the Fourier series in part (a) converges. If it does converge, what are the values to which it converges (on $[-\pi, \pi]$).
 
-The function is continuous on its partitions (they are constant functions), so by the theorem the polynomial converges to $f(x)$ on the continuous intervals. On the discontinuities, it converges to 0 at $\frac{\pi}{2}$ and $\frac{-\pi}{2}$ from the Fundemental theorem, and to 0 at $\pi$ and $-\pi$.
+The function is continuous on its partitions (they are constant functions), so by the fundemendatl theorem the polynomial converges to $f(x)$ on the continuous intervals. On the discontinuities, it converges to 0 at $\frac{\pi}{2}$ and $\frac{-\pi}{2}$ and to 1 at $\pi$ and $-\pi$ since the theorem states that it converges to the average of the limits around the points. Being continuous functions, it is simply the evaluation of the functions at those points.
 \item Use symbolic algeba software to sketch $f(x)$ and its $4^{th}$ degree Fourier polynomial over the interval $[-3\pi,3\pi]$.
 
         \includegraphics[width=\textwidth]{b42-a2-2c}
@@ -111,7 +111,7 @@ If this Fourier series converges describe the function to which it converges.
         F(x) = \frac{\pi}{4} + \sum^{\infty}_{k=1}\Bigg[ \frac{(-1)^k-1}{k^2\pi}\cos(kx) + \frac{(-1)^{k+1}}{k} \sin(kx) \Bigg]
         \]
         \end{multicols}
-        Since $f$ is piecewise very smooth (0, $x$ are infinitely differentiable), the series converges to $f$ on $(-\pi,\pi)$ and on both endpoints, it converges to $\frac{\pi}{2}$.
+        Since $f$ is piecewise very smooth (0, $x$ are infinitely differentiable), by the fundemental theorem, the series converges to $f$ on $(-\pi,\pi)$, on both endpoints it converges to $\frac{\pi}{2}$ and at 0, it converges to 0 since the theorem states that it converges to the average of the limits around the points. Being continuous functions, it is simply the evaluation of the functions at those points.
         
 \item Using the series from part (a) show that 
 \[
@@ -162,7 +162,7 @@ If this Fourier series converges describe the function to which it converges.
     \[
         F(x) = 3 + \sum_{k=1}^{\infty}\frac{6(-1)^{k+1}}{k}\sin(kx)
     \]
-    Linear functions are infinitely differentiable so it will converge to $f(x)$ within the interval, and coverges to 3 at the endpoints.
+    Linear functions are infinitely differentiable so by the fundemental theorem it will converge to $f(x)$ within the interval, and coverges to 3 at the endpoints since the theorem states that it converges to the average of the limits around the points. Being continuous functions, it is simply the evaluation of the functions at those points.
     \end{multicols}
     \newpage
 \item $[a,b] = [0, 2\pi]$
@@ -197,7 +197,7 @@ If this Fourier series converges describe the function to which it converges.
     \[
         F(x) = 3(\pi + 1) - \sum_{k=1}^{\infty}\frac{6}{k}\sin(kx)
     \]
-    Linear functions are infinitely differentiable so it will converge to $f(x)$ within the interval, and coverges to $3+3\pi$ at the endpoints.
+    Linear functions are infinitely differentiable so by the fundemental theorem it will converge to $f(x)$ within the interval, and coverges to $3+3\pi$ at the endpoints since the function is continuous, so that is the result of averaging the evaluation of the function at its endpoints.
 \end{enumerate}
 
 \newpage
