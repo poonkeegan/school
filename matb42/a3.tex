@@ -241,23 +241,23 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{multicols}
 \end{enumerate}
 \newpage
-\item Find the average value of the following functions over the helix $\gamma(t) = (\sin t, \cos t, t)$, $0\leq t \leq 2\pi$.
+\item Find the average value of the following functions over the helix $\boldsymbol{\gamma}(t) = (\sin t, \cos t, t)$, $0\leq t \leq 2\pi$.
 \begin{align*}
-    \gamma'(t) &= ( \cos t, - \sin t, 1) \\
-    \norm{\gamma'(t)} &= \sqrt{ \sin^2t + \cos^2t +1} \\ 
+    \boldsymbol{\gamma}'(t) &= ( \cos t, - \sin t, 1) \\
+    \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{ \sin^2t + \cos^2t +1} \\ 
     &= \sqrt{2} \\
 \end{align*}
-The length of the curve $\gamma$ is:
+The length of the curve $\boldsymbol{\gamma}$ is:
 \begin{align*}
-    \int_\gamma ds &= \int_0^{2\pi} \norm{\gamma'(t)} dt \\
+    \int_{\boldsymbol{\gamma}} ds &= \int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)} dt \\
     &= \sqrt{2} \int_0^{2\pi} 1 dt \\
     &= 2\sqrt{2}\pi \\
 \end{align*}
-So the average value of the function should just be: $\displaystyle \frac{\text{path integral}}{\text{length of }\gamma}$
+So the average value of the function should just be: $\displaystyle \frac{\text{path integral}}{\text{length of }\boldsymbol{\gamma}}$
 \begin{enumerate}
     \item $f(x,y,z) = y\sin z$
     \begin{align*} 
-        \frac{1}{\int_0^{2\pi} \norm{\gamma'(t)}dt}  \int_{\gamma}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \frac{1}{\int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)}dt}  \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} \cos t \sin t dt \\
         &\text{Let } u = \sin(t),\: du = \cos(t)dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^0 udu \\
@@ -265,7 +265,7 @@ So the average value of the function should just be: $\displaystyle \frac{\text{
     \end{align*}
     \item $f(x,y,z) = x^3 + \cos^2 z$
     \begin{align*} 
-        \frac{1}{\int_0^{2\pi} \norm{\gamma'(t)}dt}  \int_{\gamma}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \frac{1}{\int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)}dt}  \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} \sin^3t + \cos^2t dt  \\
         &= \frac{1}{2\sqrt{2}\pi} \Big( \int_0^{2\pi} (\sin t)\frac{1 - \cos^2t}{2} dt + \int_0^{2\pi} \frac{1+\cos 2t}{2} dt  \Big) \\
         &\text{Let } u = \cos(t),\: du = -\sin(t)dt \\
