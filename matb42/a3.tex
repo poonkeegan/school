@@ -23,20 +23,20 @@ Feb 6th 2018}
 \thispagestyle{fancy}
 
 \begin{enumerate}
-\item A particle moving on the curve $\boldsymbol{\gamma}(t) = (3t^2, -\sin t, -e^t)$ is released at time $t=\frac{1}{2}$ and flies off on a tangent. What are its coordinates at time $t=1$.  xa
+\item A particle moving on the curve $\boldsymbol{\gamma}(t) = (3t^2, -\sin t, -e^t)$ is released at time $t=\frac{1}{2}$ and flies off on a tangent. What are its coordinates at time $t=1$. 
 
 Calculate the direction of the tangent.
 \begin{align*} 
-    \boldsymbol{\gamma}'(t) &= (3(2t), -\cos(t), -e^t) = (6t,-\cos(t), -e^t) \\
-    \boldsymbol{\gamma}'\Big(\frac{1}{2}\Big) &= \Big(3, -\cos\Big(\frac{1}{2}\Big), -\sqrt{e}\Big)\\
+    \gamma'(t) &= (3(2t), -\cos(t), -e^t) = (6t,-\cos(t), -e^t) \\
+    \gamma'\Big(\frac{1}{2}\Big) &= \Big(3, -\cos\Big(\frac{1}{2}\Big), -\sqrt{e}\Big)\\
 \end{align*}
 
 Calculate the position of the particle at $t=\frac{1}{2}$.
 \begin{align*} 
-    \boldsymbol{\gamma}\Big(\frac{1}{2}\Big) &= \Big(3\Big(\frac{1}{4}\Big), -\sin\Big(\frac{1}{2}\Big), -\sqrt{e}\Big) = \Big(\Big(\frac{3}{4}\Big), -\sin\Big(\frac{1}{2}\Big), -\sqrt{e}\Big)\\
+    \gamma\Big(\frac{1}{2}\Big) &= \Big(3\Big(\frac{1}{4}\Big), -\sin\Big(\frac{1}{2}\Big), -\sqrt{e}\Big) = \Big(\Big(\frac{3}{4}\Big), -\sin\Big(\frac{1}{2}\Big), -\sqrt{e}\Big)\\
 \end{align*}
 
-This means the particle should be at position $\displaystyle \boldsymbol{\gamma} \Big(\frac{1}{2}\Big) + \frac{1}{2} \boldsymbol{\gamma}' \Big( \frac{1}{2} \Big)$ which is equal to:
+This means the particle should be at position $\displaystyle \gamma \Big(\frac{1}{2}\Big) + \frac{1}{2} \gamma' \Big( \frac{1}{2} \Big)$ which is equal to:
 
 \begin{align*} 
     & \Big(\Big(\frac{3}{4}\Big), -\sin\Big(\frac{1}{2}\Big), -\sqrt{e}\Big) + \frac{1}{2}\Big(3, -\cos\Big(\frac{1}{2}\Big), -\sqrt{e}\Big) \\
@@ -55,47 +55,47 @@ Taking the rate of change we get
 \end{align*}
 So the velocity is $\cos(-2) + \cos(4)$
 \newpage
-\item Find paths $\boldsymbol{\gamma}(t)$ which represent
+\item Find paths $\gamma(t)$ which represent
 \begin{enumerate}
     \item the straight line segment in $\mathbb{R}$ from (1,2,3) to (4,-5,6).
-        We want $\boldsymbol{\gamma}_1$ to range over 1 to 4, so we can take $\boldsymbol{\gamma}_1(t)=$
-        \[ \boldsymbol{\gamma}(t) = \Big(t+1,2-\frac{7t}{3}, t+3 \Big),\: 0 \leq t \leq 3 \]
+        We want $\gamma_1$ to range over 1 to 4, so we can take $\gamma_1(t)=$
+        \[ \gamma(t) = \Big(t+1,2-\frac{7t}{3}, t+3 \Big),\: 0 \leq t \leq 3 \]
     \item the curve $\{(x,y)\in \mathbb{R}^2|3x^2+25y^2=4\}$
-        \[ \boldsymbol{\gamma}(t) = \Big(\frac{2}{\sqrt{3}} \sin(t), \frac{2}{5}\cos(t)\Big), \: 0 \leq t \leq 2\pi \]
+        \[ \gamma(t) = \Big(\frac{2}{\sqrt{3}} \sin(t), \frac{2}{5}\cos(t)\Big), \: 0 \leq t \leq 2\pi \]
     \item the curve of intersection of the cone $z=\sqrt{x^2 + y^2}$ and the sphere $x^2+y^2+z^2 = 2x$.
-        \[ \boldsymbol{\gamma}(t) = \Big( \frac{\sin(t) + 1}{2}, \frac{\cos(t)}{2}, \frac{\sin(t) + 1}{2} \Big), \: 0 \leq t \leq 2\pi \]
+        \[ \gamma(t) = \Big( \frac{\sin(t) + 1}{2}, \frac{\cos(t)}{2}, \frac{\sin(t) + 1}{2} \Big), \: 0 \leq t \leq 2\pi \]
 \end{enumerate}
 
 \newpage
 \item Find the arclength of the following curves.
 \begin{enumerate}
-    \item $\displaystyle \boldsymbol{\gamma}(t) = \Bigg(t,\frac{1}{\sqrt{2}}t^2,\frac{1}{3}t^3 \Bigg)$ between the origin and $\displaystyle \Bigg(2,2\sqrt{2},\frac{8}{3}\Bigg)$.
+    \item $\displaystyle \gamma(t) = \Bigg(t,\frac{1}{\sqrt{2}}t^2,\frac{1}{3}t^3 \Bigg)$ between the origin and $\displaystyle \Bigg(2,2\sqrt{2},\frac{8}{3}\Bigg)$.
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= \Big(1, \sqrt{2}t, t^2 \Big) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{1 + 2t^2 + t^4 } \\
+        \gamma'(t) &= \Big(1, \sqrt{2}t, t^2 \Big) \\
+        \norm{\gamma'(t)} &= \sqrt{1 + 2t^2 + t^4 } \\
         &= \sqrt{(t^2 + 1)^2 } \\ 
         &= (t^2 + 1) \
     \end{align*}
     \begin{align*}
-        \int_\boldsymbol{\gamma} ds &= \int_0^2 \norm{\boldsymbol{\gamma}'(t)} dt \\
+        \int_\gamma ds &= \int_0^2 \norm{\gamma'(t)} dt \\
         &= \int_0^2 t^2 dt + \int_0^2 1 dt \\
         &= \frac{8}{3} + 2 \\
         &= 4 + \frac{2}{3}
     \end{align*}
 
     \end{multicols}
-    \item $\displaystyle \boldsymbol{\gamma}(t) = (\cos 3t ,\sin 3t ,2t^{\frac{3}{2}}),$ $0 \leq t \leq 2$.
+    \item $\displaystyle \gamma(t) = (\cos 3t ,\sin 3t ,2t^{\frac{3}{2}}),$ $0 \leq t \leq 2$.
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (-3\sin3t,3\cos3t,3t^\frac{1}{2}) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= 3\sqrt{\sin^23t+\cos^23t+t} \\
+        \gamma'(t) &= (-3\sin3t,3\cos3t,3t^\frac{1}{2}) \\
+        \norm{\gamma'(t)} &= 3\sqrt{\sin^23t+\cos^23t+t} \\
         &= 3\sqrt{t + 1} \\
     \end{align*}
     \begin{multicols}{2} 
     \noindent
     \begin{align*}
-        \int_\boldsymbol{\gamma} ds &= \int_0^2 \norm{\boldsymbol{\gamma}'(t)} dt \\
+        \int_\gamma ds &= \int_0^2 \norm{\gamma'(t)} dt \\
         &= 3\int_0^2 \sqrt{t+1} dt \\
         &\text{Let } u = t + 1,\: du = dt \\
         &= 3\int_1^3 \sqrt{u} du \\
@@ -106,50 +106,50 @@ So the velocity is $\cos(-2) + \cos(4)$
         &= 6\sqrt{3} - 2 \\
     \end{align*}
     \end{multicols}
-    \item $\displaystyle \boldsymbol{\gamma}(t) = (t^2, \sin t - t\cos t, \cos t + t\sin t),$ $0 \leq t \leq \pi$
+    \item $\displaystyle \gamma(t) = (t^2, \sin t - t\cos t, \cos t + t\sin t),$ $0 \leq t \leq \pi$
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (2t,\cos t-\cos t+t\sin t, -\sin t+\sin t+t\cos t) \\
+        \gamma'(t) &= (2t,\cos t-\cos t+t\sin t, -\sin t+\sin t+t\cos t) \\
         &= (2t,t\sin t,t\cos t) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= t\sqrt{4 + \sin^2t+\cos^2t} \\
+        \norm{\gamma'(t)} &= t\sqrt{4 + \sin^2t+\cos^2t} \\
         &= \sqrt{5}t \\
     \end{align*}
     \begin{align*}
-        \int_\boldsymbol{\gamma} ds &= \int_0^\pi \norm{\boldsymbol{\gamma}'(t)} dt \\
+        \int_\gamma ds &= \int_0^\pi \norm{\gamma'(t)} dt \\
         &= \sqrt{5}\int_0^\pi t dt \\
         &= \frac{\sqrt{5}\pi^2}{2}
     \end{align*}
     \end{multicols}
 \end{enumerate}
 \newpage
-\item Evaluate the path integral $\displaystyle \int_{\boldsymbol{\gamma}}f(x,y,z)ds$, where
+\item Evaluate the path integral $\displaystyle \int_{\gamma}f(x,y,z)ds$, where
 \begin{enumerate}
-    \item $f(x,y,z) = x^2 - y + 3z$ and $\boldsymbol{\gamma}$ is a parameterization of the line segment from the origin to (1,2,1).
+    \item $f(x,y,z) = x^2 - y + 3z$ and $\gamma$ is a parameterization of the line segment from the origin to (1,2,1).
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \boldsymbol{\gamma}(t) &= (t,2t,t) \text{ from } 0 \leq t \leq 1 \\
-        \boldsymbol{\gamma}'(t) &= (1, 2, 1) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{6} \\
+        \gamma(t) &= (t,2t,t) \text{ from } 0 \leq t \leq 1 \\
+        \gamma'(t) &= (1, 2, 1) \\
+        \norm{\gamma'(t)} &= \sqrt{6} \\
     \end{align*}
     \begin{align*} 
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^1 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \int_{\gamma}f(x,y,z)ds &= \int_0^1 f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= \sqrt{6} \int_0^1 t^2 - 2t + 3 t dt = \sqrt{6} \int_0^1 t^2 + t dt \\
         &= \sqrt{6} \Big(\frac{1}{3} + \frac{1}{2}\Big) \\
         &= \frac{5}{\sqrt{6}} \\
     \end{align*}
     \end{multicols}
-    \item $f(x,y,z) = xyz$ and $\boldsymbol{\gamma}(t) = (-\sin 2t, \sqrt{2} \cos 2t, \sin 2t)$, $\displaystyle 0 \leq t \leq \frac{\pi}{4}$
+    \item $f(x,y,z) = xyz$ and $\gamma(t) = (-\sin 2t, \sqrt{2} \cos 2t, \sin 2t)$, $\displaystyle 0 \leq t \leq \frac{\pi}{4}$
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (-2\cos 2t, -2\sqrt2\sin 2t, 2\cos 2t) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{4\cos^22t+8\sin^22t+4\cos^22t} \\
+        \gamma'(t) &= (-2\cos 2t, -2\sqrt2\sin 2t, 2\cos 2t) \\
+        \norm{\gamma'(t)} &= \sqrt{4\cos^22t+8\sin^22t+4\cos^22t} \\
         &= \sqrt{8} = 2\sqrt{2}
     \end{align*}
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^{\frac{\pi}{4}} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \int_{\gamma}f(x,y,z)ds &= \int_0^{\frac{\pi}{4}} f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= -2\sqrt{2}\sqrt{2} \int_0^{\frac{\pi}{4}} \sin^22t \cos 2t dt = \\
         &\text{Let } u = \sin(2t),\: du = 2\cos(2t)dt \\
         &= -2 \int_0^{\sin(\frac{\pi}{4})} u^2 dt \\
@@ -161,33 +161,33 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{align*}
     \end{multicols}
     
-    \item $f(x,y,z) = xyz$ and $\boldsymbol{\gamma}(t) = (t,2t,3t)$, $0\leq t \leq 2$.
+    \item $f(x,y,z) = xyz$ and $\gamma(t) = (t,2t,3t)$, $0\leq t \leq 2$.
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (1,2,3) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{1 + 4 + 9} \\
+        \gamma'(t) &= (1,2,3) \\
+        \norm{\gamma'(t)} &= \sqrt{1 + 4 + 9} \\
         &= \sqrt{14}
     \end{align*}
     \begin{align*} 
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \int_{\gamma}f(x,y,z)ds &= \int_0^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= 6\sqrt{14} \int_0^2 t^3 dt\\
         &= \frac{6}{4}\sqrt{14}(2^4) \\ 
         &= 24\sqrt{14}
     \end{align*}
     \end{multicols}
 
-    \item $f(x,y,z) = 3x + xy + z^3$ and $\boldsymbol{\gamma}(t) = ( \cos 4t, \sin 4t, 3t)$, $0 \leq t \leq 2\pi$.
+    \item $f(x,y,z) = 3x + xy + z^3$ and $\gamma(t) = ( \cos 4t, \sin 4t, 3t)$, $0 \leq t \leq 2\pi$.
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (-4 \sin 4t, 4 \cos 4t, 3) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{16( \sin^24t + \cos^24t) + 9} \\
+        \gamma'(t) &= (-4 \sin 4t, 4 \cos 4t, 3) \\
+        \norm{\gamma'(t)} &= \sqrt{16( \sin^24t + \cos^24t) + 9} \\
         &= \sqrt{25} \\
         &= 5 \\
     \end{align*}
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \int_{\gamma}f(x,y,z)ds &= \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= 5 \int_0^{2\pi} 3\cos 4t + \sin 4t \cos 4t + 27t^3 dt\\
         &= 5 \int_0^{2\pi} (3 + \sin 4t) \cos 4t dt \\ 
         &\: +5 \int_0^{2\pi} + 27t^3 dt\\
@@ -201,16 +201,16 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{align*}
     \end{multicols}
     
-    \item $f(x,y,z) = z \cos y$ and $\boldsymbol{\gamma}(t) = (-2t,3t,t)$, $0\leq t \leq 2$.
+    \item $f(x,y,z) = z \cos y$ and $\gamma(t) = (-2t,3t,t)$, $0\leq t \leq 2$.
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= (-2,3,1) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{4 + 9 + 1} \\
+        \gamma'(t) &= (-2,3,1) \\
+        \norm{\gamma'(t)} &= \sqrt{4 + 9 + 1} \\
         &= \sqrt{14} \\
     \end{align*}
     \begin{align*} 
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \int_{\gamma}f(x,y,z)ds &= \int_0^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= \sqrt{14} \int_0^2 t \cos 3t dt \\
     \end{align*}
     \begin{align*} 
@@ -221,12 +221,12 @@ So the velocity is $\cos(-2) + \cos(4)$
         &= \frac{2\sqrt{14}}{3}\sin 6 + \frac{\sqrt{14}}{9}\cos 6 -\frac{\sqrt{14}}{9} \\
     \end{align*}
     \end{multicols}
-    \item $f(x,y,z) = x + z^2 $ and $\boldsymbol{\gamma}(t) = (t,\ln t, 2\sqrt{2t})$, $1\leq t \leq 2$.
+    \item $f(x,y,z) = x + z^2 $ and $\gamma(t) = (t,\ln t, 2\sqrt{2t})$, $1\leq t \leq 2$.
     \begin{multicols}{2} 
     \begin{align*} 
-        \boldsymbol{\gamma}'(t) &= \Big( 1,\frac{1}{t},\sqrt{\frac{2}{t}} \Big) \\
-        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } \\
-        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_1^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \gamma'(t) &= \Big( 1,\frac{1}{t},\sqrt{\frac{2}{t}} \Big) \\
+        \norm{\gamma'(t)} &= \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } \\
+        \int_{\gamma}f(x,y,z)ds &= \int_1^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= \int_1^2 (t + 8t) \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} }dt \\
         &= \int_1^2 9t \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } dt \\
         &= 9 \int_1^2 \sqrt{t^2 + 2t +  1} dt \\
@@ -241,23 +241,23 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{multicols}
 \end{enumerate}
 \newpage
-\item Find the average value of the following functions over the helix $\boldsymbol{\gamma}(t) = (\sin t, \cos t, t)$, $0\leq t \leq 2\pi$.
+\item Find the average value of the following functions over the helix $\gamma(t) = (\sin t, \cos t, t)$, $0\leq t \leq 2\pi$.
 \begin{align*}
-    \boldsymbol{\gamma}'(t) &= ( \cos t, - \sin t, 1) \\
-    \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{ \sin^2t + \cos^2t +1} \\ 
+    \gamma'(t) &= ( \cos t, - \sin t, 1) \\
+    \norm{\gamma'(t)} &= \sqrt{ \sin^2t + \cos^2t +1} \\ 
     &= \sqrt{2} \\
 \end{align*}
-The length of the curve $\boldsymbol{\gamma}$ is:
+The length of the curve $\gamma$ is:
 \begin{align*}
-    \int_\boldsymbol{\gamma} ds &= \int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)} dt \\
+    \int_\gamma ds &= \int_0^{2\pi} \norm{\gamma'(t)} dt \\
     &= \sqrt{2} \int_0^{2\pi} 1 dt \\
     &= 2\sqrt{2}\pi \\
 \end{align*}
-So the average value of the function should just be: $\displaystyle \frac{\text{path integral}}{\text{length of }\boldsymbol{\gamma}}$
+So the average value of the function should just be: $\displaystyle \frac{\text{path integral}}{\text{length of }\gamma}$
 \begin{enumerate}
     \item $f(x,y,z) = y\sin z$
     \begin{align*} 
-        \frac{1}{\int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)}dt}  \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \frac{1}{\int_0^{2\pi} \norm{\gamma'(t)}dt}  \int_{\gamma}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} \cos t \sin t dt \\
         &\text{Let } u = \sin(t),\: du = \cos(t)dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^0 udu \\
@@ -265,7 +265,7 @@ So the average value of the function should just be: $\displaystyle \frac{\text{
     \end{align*}
     \item $f(x,y,z) = x^3 + \cos^2 z$
     \begin{align*} 
-        \frac{1}{\int_0^{2\pi} \norm{\boldsymbol{\gamma}'(t)}dt}  \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
+        \frac{1}{\int_0^{2\pi} \norm{\gamma'(t)}dt}  \int_{\gamma}f(x,y,z)ds &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
         &= \frac{1}{2\sqrt{2}\pi} \int_0^{2\pi} \sin^3t + \cos^2t dt  \\
         &= \frac{1}{2\sqrt{2}\pi} \Big( \int_0^{2\pi} (\sin t)\frac{1 - \cos^2t}{2} dt + \int_0^{2\pi} \frac{1+\cos 2t}{2} dt  \Big) \\
         &\text{Let } u = \cos(t),\: du = -\sin(t)dt \\
