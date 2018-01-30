@@ -142,14 +142,14 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{multicols}
     \item $f(x,y,z) = xyz$ and $\boldsymbol{\gamma}(t) = (-\sin 2t, \sqrt{2} \cos 2t, \sin 2t)$, $\displaystyle 0 \leq t \leq \frac{\pi}{4}$
     \begin{align*} 
-        \gamma'(t) &= (-2\cos 2t, -2\sqrt2\sin 2t, 2\cos 2t) \\
-        \norm{\gamma'(t)} &= \sqrt{4\cos^22t+8\sin^22t+4\cos^22t} \\
+        \boldsymbol{\gamma}'(t) &= (-2\cos 2t, -2\sqrt2\sin 2t, 2\cos 2t) \\
+        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{4\cos^22t+8\sin^22t+4\cos^22t} \\
         &= \sqrt{8} = 2\sqrt{2}
     \end{align*}
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \int_{\gamma}f(x,y,z)ds &= \int_0^{\frac{\pi}{4}} f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^{\frac{\pi}{4}} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= -2\sqrt{2}\sqrt{2} \int_0^{\frac{\pi}{4}} \sin^22t \cos 2t dt = \\
         &\text{Let } u = \sin(2t),\: du = 2\cos(2t)dt \\
         &= -2 \int_0^{\sin(\frac{\pi}{4})} u^2 dt \\
@@ -161,33 +161,33 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{align*}
     \end{multicols}
     
-    \item $f(x,y,z) = xyz$ and $\gamma(t) = (t,2t,3t)$, $0\leq t \leq 2$.
+    \item $f(x,y,z) = xyz$ and $\boldsymbol{\gamma}(t) = (t,2t,3t)$, $0\leq t \leq 2$.
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \gamma'(t) &= (1,2,3) \\
-        \norm{\gamma'(t)} &= \sqrt{1 + 4 + 9} \\
+        \boldsymbol{\gamma}'(t) &= (1,2,3) \\
+        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{1 + 4 + 9} \\
         &= \sqrt{14}
     \end{align*}
     \begin{align*} 
-        \int_{\gamma}f(x,y,z)ds &= \int_0^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= 6\sqrt{14} \int_0^2 t^3 dt\\
         &= \frac{6}{4}\sqrt{14}(2^4) \\ 
         &= 24\sqrt{14}
     \end{align*}
     \end{multicols}
 
-    \item $f(x,y,z) = 3x + xy + z^3$ and $\gamma(t) = ( \cos 4t, \sin 4t, 3t)$, $0 \leq t \leq 2\pi$.
+    \item $f(x,y,z) = 3x + xy + z^3$ and $\boldsymbol{\gamma}(t) = ( \cos 4t, \sin 4t, 3t)$, $0 \leq t \leq 2\pi$.
     \begin{align*} 
-        \gamma'(t) &= (-4 \sin 4t, 4 \cos 4t, 3) \\
-        \norm{\gamma'(t)} &= \sqrt{16( \sin^24t + \cos^24t) + 9} \\
+        \boldsymbol{\gamma}'(t) &= (-4 \sin 4t, 4 \cos 4t, 3) \\
+        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{16( \sin^24t + \cos^24t) + 9} \\
         &= \sqrt{25} \\
         &= 5 \\
     \end{align*}
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \int_{\gamma}f(x,y,z)ds &= \int_0^{2\pi} f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^{2\pi} f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= 5 \int_0^{2\pi} 3\cos 4t + \sin 4t \cos 4t + 27t^3 dt\\
         &= 5 \int_0^{2\pi} (3 + \sin 4t) \cos 4t dt \\ 
         &\: +5 \int_0^{2\pi} + 27t^3 dt\\
@@ -201,16 +201,16 @@ So the velocity is $\cos(-2) + \cos(4)$
     \end{align*}
     \end{multicols}
     
-    \item $f(x,y,z) = z \cos y$ and $\gamma(t) = (-2t,3t,t)$, $0\leq t \leq 2$.
+    \item $f(x,y,z) = z \cos y$ and $\boldsymbol{\gamma}(t) = (-2t,3t,t)$, $0\leq t \leq 2$.
     \begin{multicols}{2} 
     \noindent
     \begin{align*} 
-        \gamma'(t) &= (-2,3,1) \\
-        \norm{\gamma'(t)} &= \sqrt{4 + 9 + 1} \\
+        \boldsymbol{\gamma}'(t) &= (-2,3,1) \\
+        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{4 + 9 + 1} \\
         &= \sqrt{14} \\
     \end{align*}
     \begin{align*} 
-        \int_{\gamma}f(x,y,z)ds &= \int_0^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_0^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= \sqrt{14} \int_0^2 t \cos 3t dt \\
     \end{align*}
     \begin{align*} 
@@ -221,12 +221,12 @@ So the velocity is $\cos(-2) + \cos(4)$
         &= \frac{2\sqrt{14}}{3}\sin 6 + \frac{\sqrt{14}}{9}\cos 6 -\frac{\sqrt{14}}{9} \\
     \end{align*}
     \end{multicols}
-    \item $f(x,y,z) = x + z^2 $ and $\gamma(t) = (t,\ln t, 2\sqrt{2t})$, $1\leq t \leq 2$.
+    \item $f(x,y,z) = x + z^2 $ and $\boldsymbol{\gamma}(t) = (t,\ln t, 2\sqrt{2t})$, $1\leq t \leq 2$.
     \begin{multicols}{2} 
     \begin{align*} 
-        \gamma'(t) &= \Big( 1,\frac{1}{t},\sqrt{\frac{2}{t}} \Big) \\
-        \norm{\gamma'(t)} &= \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } \\
-        \int_{\gamma}f(x,y,z)ds &= \int_1^2 f(\gamma(t)) \norm{\gamma'(t)}dt \\
+        \boldsymbol{\gamma}'(t) &= \Big( 1,\frac{1}{t},\sqrt{\frac{2}{t}} \Big) \\
+        \norm{\boldsymbol{\gamma}'(t)} &= \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } \\
+        \int_{\boldsymbol{\gamma}}f(x,y,z)ds &= \int_1^2 f(\boldsymbol{\gamma}(t)) \norm{\boldsymbol{\gamma}'(t)}dt \\
         &= \int_1^2 (t + 8t) \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} }dt \\
         &= \int_1^2 9t \sqrt{1 + \frac{2}{t} + \frac{1}{t^2} } dt \\
         &= 9 \int_1^2 \sqrt{t^2 + 2t +  1} dt \\
