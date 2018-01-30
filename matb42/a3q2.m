@@ -5,7 +5,8 @@ z1 = sqrt(xx.^2+yy.^2);
 z2 = sqrt(-xx.^2-yy.^2.+2*xx);
 figure;
 hold on;
-plot3((1/2).*sin(t).+(1/2), (1/2).*cos(t), (1/2).*(sin(t).+1))
+#plot3((1/2).*sin(t).+(1/2), (1/2).*cos(t), (1/2).*(sin(t).+1))
+plot3((1/2).*sin(t).+(1/2), (1/2).*cos(t), sqrt((1/2).*(sin(t).+1)))
 mesh(x, y, z1);
 ellipsoid(1, 0, 0, 1, 1, 1)
 xlim([-5,5]);
