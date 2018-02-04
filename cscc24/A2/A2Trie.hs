@@ -53,6 +53,9 @@ n = TrieOf (Just 7) (emptyMap)
 o = TrieOf Nothing (charMapInsert 'p' p2 (initMap 'n' n))
 t2 = TrieOf Nothing (initMap 'o' o)
 root = TrieOf Nothing (charMapInsert 'p' p (initMap 't' t2))
+buildlist = [("pit", 9), ("pi", 1), ("top", 5), ("tin", 7)]
+loadIns tuple = trieInsert (fst tuple) (snd tuple)
+root2 = foldr loadIns emptyTrie buildlist
 
 test str = trieLookup str root
 
