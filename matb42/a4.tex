@@ -219,21 +219,7 @@ Feb 13th 2018}
                 \begin{align*}
                     \int_{\gam} \boldsymbol{F} \cdot ds &= \int^{2\pi}_0 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
                     &= \int^{2\pi}_0 2(4 \sin t \cos t)(2 \sin t)(4 (\cos^2t-\sin^2t)) + 4 (2 \sin t)( 2 \cos t) + (4 \cos t \sin t)^2(-2\sin t) \ dt \\
-                    &= \int^{2\pi}_0 16\sin t\cos^2 t - 16 \cos t \sin t  + 16 \sin^2 t \cos^2t - 16 \sin^4t \ dt \\
-                    &= \int^{2\pi}_0 16(\cos^2 t - \cos t)\sin t  \ dt + \int^{2\pi}_0 16 \sin^2 t \cos^2t - 16 \sin^4t \ dt \\
-                    &\text{Let $u = \cos t, \ du = -\sin t$} \\
-                    &= -\int^{\cos 2\pi}_{\cos{0}} 16(u^2 - u)  \ dt + \int^{2\pi}_0 16 \sin^2 t \cos^2t - 16 \sin^4t \ dt \\
-                    &= -\int^{1}_{1} 16(u^2 - u)  \ dt + \int^{2\pi}_0 16 \sin^2 t \cos^2t - 16 \sin^4t \ dt \\
-                    &=  \int^{2\pi}_0 16 \sin^2 t \cos^2t - 16 \sin^4t \ dt \\
-                    &=  \int^{2\pi}_0 16 \Big(\frac{(1 - \cos 2t)(1 + \cos 2t)}{4} \Big) - 16\Big(\frac{(1- \cos 2t)^2}{4} \Big) \ dt \\
-                    &=  \int^{2\pi}_0 4 \Big(1 - \cos^2 2t \Big) - 4\Big(1 - 2\cos 2t+ \cos^2 2t \Big) \ dt \\
-                    &=  \int^{2\pi}_0 - 8\cos^2 2t  + 8\cos 2t \ dt \\
-                    &= -8 \int^{2\pi}_0 \cos^2 2t \ dt + 8 \int^{2\pi}_0 \cos 2t \ dt \\
-                    &= -8 \int^{2\pi}_0 \cos^2 2t \ dt + 4 \Big[ \sin 2t\Big]_0^{2\pi} \\
-                    &= -8 \int^{2\pi}_0 \cos^2 2t \ dt \\
-                    &= -4 \int^{2\pi}_0 1 + \cos 4t  \ dt \\
-                    &= -8\pi - \int^{2\pi}_0  \cos 4t  \ dt \\
-                    &= -8\pi\\
+                    &= \int^{2\pi}_0 16\sin^2 t \cos t(\cos^2t-\sin^2t)) + 4 (2 \sin t)( 2 \cos t) + (4 \cos t \sin t)^2(-2\sin t) \ dt \\
                 \end{align*}
         \end{enumerate}
 \end{enumerate}
