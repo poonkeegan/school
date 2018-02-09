@@ -221,6 +221,13 @@ poonkeeg\\
      $PA = LU$ will not work for minimizing the norm. If the reason for $QR$ factorization working is examined, we see that $\twonorm{QRx - b} = \twonorm{Q^T[QRx-b]}$ which leads to $\twonorm{Ax-b} = {Rx-\tilde{b}}$. However, in the case of $LU$ factorization, we cannot multiply the equation by an inverse of $L$ and expect the norm to stay the same, this only worked since $Q$ orthogonal. This means that reducing the equation to $Ux = \tilde{b}$ will change the norm, and thus have no bearing on the original equation, so solving $LUx = \tilde{b}$ does not minimize the 2 norm of the original equation.
       
       \item Given that the $PA = LU$ factorization of $A \in \mathbb{R}^{m \times n}$ , $m > n$ exists, \textbf{either} show how to use the factorization to solve the null space problem $\min_x \twonorm{Ax - b}$, \textbf{or} argue why the $PA = LU$ factorization \textbf{cannot} be used. (Recall that in the null space problem, $A \in \mathbb{R}^{m \times n}, m > n$ arises by transposing the original coefficient matrix in the undetermined system.)
+
+      The factorization cannot be used since again, the orthogonality of $Q$ is essential in the solution. If we examine the proof for the validity of the $QR$ factorization, and re create it for $PA = LU$ we get, 
+      \begin{align*}
+        PA &= LU \\
+        (PA)^T &= U^TL^T \\
+        (PA)^T L^{-1}^T &= U^T \\
+      \end{align*}
   \end{enumerate}
   \item Consider the overdetermined linear system:
   \[ Ax = b,\: a \in \rdim{m}{n}, \; b \in \mathbb{R}^m,\: x \in \mathbb{R}^n, \: m > n.\]
