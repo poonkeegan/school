@@ -67,6 +67,6 @@ listCross f lst1 lst2 = foldl binop [] lst1
 --
 -- Hint: Think of "foo x y = ..." as "foo x = \y -> ..."
 myfoldl :: (b -> a -> b) -> [a] -> b -> b
-myfoldl f (x:xs) a = foldr binop f xs a x
-    where binop param func = \x y -> func (f x y) param
-myfoldl f [] a = a
+myfoldl f xs = foldr (\param func x -> func (f x param))
+                     (\a -> a)
+                     xs
