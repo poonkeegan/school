@@ -6,6 +6,8 @@
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{amsthm}
+\usepackage{pgfplotstable}
+\usepackage{longtable}
 \graphicspath{ {images/} }
 \pagestyle{empty}
 \fancyhf{}
@@ -200,6 +202,7 @@ poonkeeg\\
     = 0\]
     Which is equivalent to the arbitrary $x_k$ system shown above for $S(x)$ when expanded to $k \in [1,n]$
   }
+  \newpage
   \item In CSCC37 we saw how to compute the $PA = LU$ factorization of $A \in \mathbb{R}^{n\times n}$. The algorithm involved pre-multiplying $A$ with $n-1$ permutation matrices $\mathcal{P}_i$ interleaved with $n-1$ Gauss transforms $\mathcal{L}_i$, where $\mathcal{P}_i$, $\mathcal{L}_i \in \mathbb{R}^{n\times n}$, $i= 1,\dots,n-1$. This transformation triangularizes $A$, producing the upper-triangular matrix $U \in \mathbb{R}^{n \times n}$. The unit-lower triangular matrix $L \in \mathbb{R}^{n \times n}$ is later computed by a sequence of algebraic manipulations on  $\mathcal{P}_i$, $\mathcal{L}_i $, $i = 1, \dots, n-1$.
   \begin{enumerate}
     \newcommand{\calP}{\mathcal{P}}
@@ -230,10 +233,26 @@ poonkeeg\\
       \end{align*}
       and here we see that ${L^{-1}}^T$ is what is being multiplied by, but the transpose negates the structure of $L_1$ $L_2$ that was exploited in $QR$ since the inverse was simply transpose, we get $Q$ back again. This does not hold for $LU$ and gives us a bogus system that does not help for solving. 
   \end{enumerate}
+  \newpage
   \item Consider the overdetermined linear system:
   \[ Ax = b,\: a \in \rdim{m}{n}, \; b \in \mathbb{R}^m,\: x \in \mathbb{R}^n, \: m > n.\]
   In general there is no exact solution to this system and the best we can do to solve the problem is minimize the norm of the residual $Ax -b$. In certain cases, though, there \textit{is} an exact solution and the norm of the residual is zero. State the conditions required for this to happen and give an example.
   
+  For there to be an exact solution, we must have that $b$ is in the range of $A$, i.e. $b$ is a linear combination of the columns of $A$. If it isn't the case, then $Ax$ being a linear combination of said column vectors, will never be equal to $b$.
+
+  For examples, take
+  \[
+      A = [a_1, a_2, a_3] = 
+      \begin{bmatrix}
+          1 & 4 & 1 \\
+          2 & 3 & 1 \\
+          3 & 2 & 1 \\
+          4 & 1 & 2 \\
+      \end{bmatrix}, \:
+      b = \begin{bmatrix} 6\\ 6\\ 6\\ 8\\\end{bmatrix}
+  \]
+    Then, we can see that $b$ is a linear combination of the columns, given as $a_1 + a_2 + 2a_3$, giving a solution $x = [1, 1, 2]$. If $b$ was not in the range, (say $b = [6, 6, 6, 7]$) then it would be impossible to solve it, as it is not a linear combination.
+  \newpage
   \item In lecture we proved that the Householder transformation
   \newcommand{\calQ}{\mathcal{Q}}
   \[ \calQ = I - 2 \frac{vv^T}{v^Tv} \]
@@ -358,6 +377,7 @@ poonkeeg\\
     \end{bmatrix} \text{As wanted}
   \end{align*}
   }
+  \newpage
   \item Consider the overdetermined linear system $Ax = b$ where
   \[ A = 
   \begin{bmatrix}
@@ -683,5 +703,23 @@ poonkeeg\\
           \end{bmatrix}
       \end{align*}
   \end{enumerate}
+  \newpage
+  \item As can be seen from the figures, for sufficiently large $n$, the least squares method gives a very accurate polynomial approximation to the function, within the range of interpolation. The vast majority of points in the interpolation range have less than 1\% relative error, and the graphs when inspected visually converge very closely to the original functions. The only case when this isn't happening is for the degree 2 parabola being used for log $x$ when approaching one, the relative error grows largely. This is likely due however, to the not having a high enough degree to sufficiently estimate, and the fact that log $x$ approaches 0, so any error will be magnified.
+  
+  \pgfplotstableset{
+begin table=\begin{longtable},
+end table=\end{longtable},
+}
+  \includegraphics[width=\textwidth]{approx}
+  \includegraphics[width=\textwidth]{test}
+  \includegraphics[width=\textwidth]{figures}
+  \pgfplotstabletypeset[col sep=comma,
+    columns={xi,pxi,cos xi, RelativeError},]{costable.csv}
+  \pgfplotstabletypeset[col sep=comma,
+    columns={xi,pxi,exp xi, RelativeError},]{exptable.csv}
+  \pgfplotstabletypeset[col sep=comma,
+    columns={xi,pxi,log xi, RelativeError},]{logtable.csv}
+  \pgfplotstabletypeset[col sep=comma,
+    columns={xi,pxi,atan xi, RelativeError},]{atantable.csv}
 \end{enumerate}
 \end{document}
