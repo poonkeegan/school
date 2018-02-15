@@ -22,7 +22,7 @@ atomNeg (Neg str) = Pos str
 cnfSAT :: [[Atom]] -> Bool
 cnfSAT [] = True
 cnfSAT ([]:_) = False
-cnfSAT lst((x:_):_) = or (map cnfSAT [filtercnf lst x, filtercnf lst (atomNeg x)])
+cnfSAT lst@((x:_):_) = or (map cnfSAT [filtercnf lst x, filtercnf lst (atomNeg x)])
 
 atomInLst :: Atom -> [Atom] -> Bool
 atomInLst element lst = or (map (atomEq element) lst)

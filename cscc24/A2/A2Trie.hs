@@ -26,9 +26,12 @@ trieLookup (str)  (TrieOf val branches)
                         Just x -> trieLookup (tail str) x
     where mapElmt = charMapLookup (head str) branches
 
-emptyMap = IntMap.fromList []
-emptyTrie = TrieOf Nothing emptyMap
+-- Make short name for some default values
+empty = IntMap.empty
+emptyTrie = TrieOf Nothing empty
 
+-- Function to get a true value (empty Trie or Trie value)
+-- out of a Maybe Trie
 absTrie :: Maybe (Trie a) -> Trie a
 absTrie trie = case trie of
                 Nothing -> emptyTrie
@@ -38,18 +41,16 @@ trieInsert :: [Char] -> a -> Trie a -> Trie a
 trieInsert (str) newval (TrieOf val branches)
         | null (str) = TrieOf (Just newval) branches
         | otherwise = TrieOf val newbranches
-    where newbranches = (charMapInsert (head str) 
-                                       (trieInsert (tail str) 
-                                                    newval
-                                                   (absTrie (charMapLookup (head str) branches)))
-                                        branches)
-
-initMap char var = charMapInsert char var emptyMap
-t = TrieOf (Just 9) (emptyMap)
+    where newbranches = (charMapInsert (head str) trieToInsert branches)
+          trieToInsert = (trieInsert (tail str) newval trieChild)
+          trieChild = absTrie (charMapLookup (head str) branches)
+{-
+initMap char var = charMapInsert char var empty
+t = TrieOf (Just 9) empty
 i = TrieOf (Just 1) (initMap 't' t) 
 p = TrieOf Nothing (initMap 'i' i)
-p2 = TrieOf (Just 5) (emptyMap)
-n = TrieOf (Just 7) (emptyMap)
+p2 = TrieOf (Just 5) empty
+n = TrieOf (Just 7) empty
 o = TrieOf Nothing (charMapInsert 'p' p2 (initMap 'n' n))
 t2 = TrieOf Nothing (initMap 'o' o)
 root = TrieOf Nothing (charMapInsert 'p' p (initMap 't' t2))
@@ -63,3 +64,4 @@ testcases = ["p", "pi", "pit", "pot", [], "t", "to", "top", "ton"]
 testresult = map (\x -> (x, test x)) testcases
 main = do
   show testresult
+-}
