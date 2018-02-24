@@ -1,0 +1,248 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\graphicspath{ {images/} }
+\pagestyle{empty}
+\fancyhf{}
+\cfoot{\thepage}
+\pagenumbering{gobble}
+
+\lhead{MATB42: Assignment \#6 \\
+Bonus}
+\rhead{
+Poon, Keegan\\
+1002423727\\
+Mar 6th 2018}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\deriv}[1]{\frac{d}{d #1}}
+\newcommand{\parti}[1]{\frac{\partial}{\partial #1}}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\gam}{\boldsymbol{\gamma}}
+\begin{document}
+
+\thispagestyle{fancy}
+
+\begin{enumerate}
+    \item (For this question assume that all curves are of class $C^k$, some $k \geq 3$).
+
+        A curve $\gam : [a,b] \rightarrow \mathbb{R}^n$ is called \textit{regular} if $\gam'(t) \not = 0$ for any t. For a regular curve $\gam$, the vector $\displaystyle \boldsymbol{T} = \frac{\gam ' (t)}{\norm{\gam '(t)}}$ is called the \textit{unit tangent vector} to the curve.
+        \begin{enumerate}
+            \item If $\gam : [a,b] \rightarrow \mathbb{R}^3$ is a regular curve, show that $\boldsymbol{T}'(t) \cdot \boldsymbol{T}(t) = 0$.
+
+                (see page 235, \#16(a))
+
+                \begin{align*}
+                    \norm{\boldsymbol{T}(t)}^2 &= T_1^2 + T_2^2 + T_3^2 = 1\\
+                    \deriv{t} \norm{\boldsymbol{T}(t)}^2 &= 2 T_1T'_1 + 2T_2T'_2 + T_3T'_3 = \deriv{t}1\\
+                    2 (\boldsymbol{T}'(t) \cdot \boldsymbol{T}(t)) &= 2(T'_1T_1 + T'_2 T_2 + T'_3 T_3) = 0
+                \end{align*}
+        \end{enumerate}
+        A curve $\gam (s)$ is said to be \textit{parameterized by arclength} (or have \textit{unit speed}) if $\norm{\gam '(s)} = 1$. The \textit{curvature} $\kappa$ at a point $\gamma(s)$ of a unit speed curve is defined by $\kappa = \norm{\boldsymbol{T}'(s)}$
+        \begin{enumerate}[resume]
+            \item
+                \begin{enumerate}[label=(\roman*)]
+                    \item If $\gam : [a,b] \rightarrow \mathbb{R}^3$ is a unit speed curve, show that its length is $b - a$.
+
+                        The length of $\gam$ is $\displaystyle \int_{\gam} d \boldsymbol{s} = \int_a^b \norm{\gam ' (t)} \ dt$, but $\norm{\gam ' (t)}$ is 1 since $\gam$ has unit speed. Therefore, the integral is just $b-a$.
+
+                    \item Show that $\boldsymbol{\sigma}(t) = \frac{1}{\sqrt{2}}(\cos t, \sin t, t)$ is a unit speed curve and compute its curvature.
+                        
+                        (see page 235, \#17)
+
+                        \begin{align*}
+                            \frac{d}{dt} \boldsymbol{\sigma}(t) &= \frac{1}{\sqrt{2}}(\deriv{t} \cos t, \deriv{t} \sin t, \deriv{t} t) \\
+                            &= \frac{1}{\sqrt{2}}(- \sin t, \cos t, 1) \\
+                            \implies \norm{\deriv{t} \boldsymbol{\sigma}(t)} &= \frac{\sqrt{\sin^2t+\cos^2t+1}}{\sqrt{2}} \\
+                            &= \frac{\sqrt{2}}{\sqrt{2}} = 1 \quad \text{So $\boldsymbol{\sigma}(t)$ is in fact a unit curve.}
+                        \end{align*}
+
+                        Since $\boldsymbol{\sigma}(t)$ has unit speed, $\boldsymbol{T}(t)$ is just $\boldsymbol{\sigma}'(t)$, so $\boldsymbol{T}'(t)$ is $\boldsymbol{\sigma}^{(2)}(t)$.
+                        \begin{align*}
+                            \boldsymbol{T}'(t) &= \boldsymbol{\sigma}^{(2)}(t) \\
+                            &= \frac{1}{\sqrt{2}}(\deriv{t} - \sin t,\deriv{t}  \cos t, \deriv{t} 1) \\
+                            &= \frac{1}{\sqrt{2}}(- \cos t, - \sin t, 0) \\
+                            \implies \norm{\boldsymbol{T}'(t)} &= \frac{1}{\sqrt{2}} = \kappa \\
+                        \end{align*}
+                \end{enumerate}
+        \end{enumerate}
+        If $\displaystyle \boldsymbol{T}'(t) \not = 0, \: \boldsymbol{N}(t) = \frac{\boldsymbol{T}'(t)}{\norm{\boldsymbol{T}'(t)}}$ is perpendicular to $\boldsymbol{T}'(t)$ (by part (a)); $\boldsymbol{N}$ is called the \textit{principal normal vector.} The vector $\boldsymbol{B}$, defined by $\boldsymbol{B} = \boldsymbol{T} \times \boldsymbol{N}$, is called the \textit{binormal vector}.
+        \begin{enumerate}[resume] 
+            \item Show the following about the $\boldsymbol{T}, \boldsymbol{N}$ and $\boldsymbol{B}$ system
+
+                \begin{enumerate*}[label=(\roman*),itemjoin={\quad}]
+                    \item $\displaystyle \frac{d \boldsymbol{B}}{dt} \cdot \boldsymbol{B} = 0$
+                    \item $\displaystyle \frac{d \boldsymbol{B}}{dt} \cdot \boldsymbol{T} = 0$
+                    \item $\displaystyle \frac{d \boldsymbol{B}}{dt}$ is a scalar multiple of $\boldsymbol{N}$.
+                \end{enumerate*}
+
+                (see page 235, \#20)
+
+                \begin{enumerate}[label=(\roman*)]
+                    \item $\deriv{t} \boldsymbol{B} \cdot \boldsymbol{B} = \deriv{t}\norm{\boldsymbol{B}}^2$, but the norm of $\boldsymbol{N}$ and $\boldsymbol{T}$ are 1, so $\norm{\boldsymbol{B}}^2 = 1$ which means that $\deriv{t} 1 = 0$
+                    \item Because $\boldsymbol{B}$ is the cross product of $\boldsymbol{T}$ along with $\boldsymbol{N}$, $\boldsymbol{B} \cdot \boldsymbol {T}$ must be 0, so $\deriv{t}0 = 0$
+                    \item From the last two parts, $\deriv{t}\boldsymbol{B}$ is orthogonal to both $\boldsymbol{B}$ and $\boldsymbol{T}$. Since there are only 3 dimensions for $\mathbb{R}^3$, anything orthgonal to both of these must be parallel to each other. We know that $\boldsymbol{N}$ is orthgonal to $\boldsymbol{T}$ by (a), and by definition it is orthgonal to $\boldsymbol{B}$ so both are parallel, i.e. they are scalar multiples.
+                \end{enumerate}
+
+        \end{enumerate}
+        If $\gam(s)$ is a unit speed curve we can define the \textit{tortion} $\tau$ by $\frac{d \boldsymbol{B}}{ds} = - \tau \boldsymbol{N}$.
+        \begin{enumerate}[resume] 
+            \item Compute the torsion of $\boldsymbol{\sigma}(t) = \frac{1}{\sqrt{2}}(\cos t, \sin t, t)$.
+
+                (see page 235, \#21(c))
+
+                \begin{align*}
+                    \boldsymbol{T}(t) &= \frac{1}{\sqrt{2}}(- \sin t, \cos t, 1) \\
+                    \boldsymbol{N}(t) &= (- \cos t, - \sin t, 0) \\
+                    \boldsymbol{B}(t) &= (0 + \sin t, -\cos t - 0, \sin^2 t + \cos^2 t) \\
+                    \boldsymbol{B}(t) &= (\sin t, - \cos t, 1) \\
+                    \deriv{t} \boldsymbol{B}(t) &= (\cos t,  \sin t, 0) = - \boldsymbol{N} \implies \tau = 1 \\
+                \end{align*}
+        \end{enumerate}
+    \newpage
+    \item Sketch the following vector fields including a few flow lines.
+
+        \begin{enumerate*}[itemjoin={\quad}]
+            \item $\boldsymbol{F}(x,y) = (1,x^2)$
+            \item $\boldsymbol{F}(x,y) = (x^2,x)$
+            \item $\boldsymbol{F}(x,y) = (y,-2x)$
+        \end{enumerate*}
+    
+        \begin{enumerate}
+            \item
+            \begin{multicols}{3}
+            \begin{align*}
+                \gam(t) &= (x(t), y(t)) \\
+                \gam'(t) &= (x'(t), y'(t)) \\
+                \implies \frac{\frac{dy(t)}{dt}}{\frac{dx(t)}{dt}} &= \frac{y'(t)}{x'(t)} =  \frac{dy}{dx} \\
+                dy &= x^2, \: dx = 3 \\
+                \implies \frac{dy}{dx} &= x^2 \\
+                \implies y &= \frac{x^3}{3} + c
+            \end{align*}
+            \end{multicols}
+            \item $\boldsymbol{F}(x,y) = (x^2,x)$
+            \begin{multicols}{3}
+            \begin{align*}
+                dy &= x, \: dx = x^2 \\
+                \implies \frac{dy}{dx} &= \frac{1}{x} \\
+                \implies y &= \ln{|x|} + c \quad x \not = 0
+            \end{align*}
+            \end{multicols}
+            \item $\boldsymbol{F}(x,y) = (y,-2x)$
+            \begin{multicols}{3}
+            \begin{align*}
+                & dy = -2x, \: dx = y \\
+                \implies &\frac{dy}{dx} = \frac{-2x}{y} \\
+                \implies &y\ dy = -2x\ dx \\
+                \implies &\frac{y^2}{2} + x^2 = c \\
+            \end{align*}
+            \end{multicols}
+        \end{enumerate}
+
+    \newpage
+    \item Show that the curve $\boldsymbol{c}(t) = ( t^2, 2t -1, \sqrt{t}),\ t > 0$ is a flow line of the velocity vector field $\boldsymbol{F}(x,y,z) = (y + 1,2,1/2z)$
+
+        \[\boldsymbol{c}'(t) = \Big(2t, 2, \frac{1}{2\sqrt{t}}\Big) \]
+        \[ \boldsymbol{F}(\boldsymbol{c}(t)) = \Big(2t - 1 + 1, 2, \frac{1}{2\sqrt{t}}\Big) = \Big(2t, 2, \frac{1}{2\sqrt{t}}\Big) = \boldsymbol{c}'(t) \]
+        Therefore, $\boldsymbol{c}$ is a flow line of $\boldsymbol{F}$.
+
+    \newpage
+    \item Find the work done by the force field $\boldsymbol{F}(x,y,z) = (xy,yz,zx)$ in moving a particle along the twisted cubic, $\gam(t) = (t,t^2,t^3)$, from $t=0$ to $t=1$.
+        \begin{align*}
+            \int_{\gam} \boldsymbol{F} \cdot ds &= \int_0^1 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
+            &= \int_0^1 (t)(t^2)(1) + (t^2)(t^3)(2t) + (t^3)(t)(3t^2)dt \\
+            &= \int_0^1 t^3 + 2t^6 + 3t^6 dt\\
+            &= \int_0^1 t^3 + 5t^6 \\
+            &= \frac{1}{4}\Big[t^4\Big]_0^1 + \frac{5}{7}\Big[t^7\Big]_0^1\\
+            &= \frac{1}{4} + \frac{5}{7} = \frac{27}{28} \\
+        \end{align*}
+    \newpage
+    \item Evaluate each of the following integrals:
+        \begin{enumerate}
+                { \everymath{\displaystyle}
+                    \item $\int_{\gam}xy \ dx + y^2 dy, \quad \gam(t) = (\cos t, \sin t), 0 \leq t \leq \frac{\pi}{2}$.
+                        \begin{align*}
+                            \int_{\gam} \omega \cdot ds &= \int_0^\frac{\pi}{2} \sin t \cos t (-\sin t) + \sin^2t \cos t \ dt \\
+                            &= 0
+                        \end{align*}
+                    \item $\int_{\gam}\boldsymbol{F} \cdot d\boldsymbol{s}, \quad \boldsymbol{F}(x,y,z)=(y,z,x), \quad \gam(t) = \Big(t,-2t^2,\frac{1}{3}t^3\Big), \quad 0 \leq t \leq 1$.
+                        \begin{align*}
+                            \int_{\gam} \boldsymbol{F} \cdot ds &= \int_0^1 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
+                            &= \int_0^1 (-2t^2)(1) + (\frac{1}{3}t^3)(-4t) + (t)(t^2)dt \\
+                            &= \int_0^1 -2t^2 - \frac{4}{3}t^4 + t^3dt \\
+                            &= -\frac{2}{3}\Big[t^3\Big]_0^1 - \frac{4}{15}\Big[t^5\Big]_0^1 + \frac{1}{4}\Big[t^4\Big]_0^1 \\
+                            &= -\frac{10}{15}- \frac{4}{15}+ \frac{1}{4} = -\frac{56}{60} + \frac{15}{60} = -\frac{41}{60} \\
+                        \end{align*}
+                    \item $\int_{\gam}z \ dx -xyz\ dy + 2x^2\ dz, \quad \gam$ is the parabola $z = x^2, y=0$, from (-1,0,1) to (1,0,1).
+                        
+                        Can parameterize $\gam$ by $\gam(t) = (t,0,t^2), \: -1 \leq t \leq 1$, as on the parabola $y$ is constant 0, $x$ goes from $-1 \rightarrow 1$ and $z$ goes from $1 \rightarrow 0 \rightarrow 1$.
+                        \begin{align*}
+                            \int_{\gam} \omega \cdot ds &= \int_{-1}^{1} (t^2)(1) - (t)(0)(t^2)(0) + 2(t)^2(2t) \ dt \\
+                            &= \int_{-1}^{1} t^2 + 4t^3 \ dt\\
+                            &= \frac{2}{3}\Big[t^3\Big]_0^1 \quad \text{Exploiting even/odd} \\
+                            &= \frac{2}{3} \\
+                        \end{align*}
+                    \item $\int_{\gam}\boldsymbol{F} \cdot d\boldsymbol{s}, \quad \boldsymbol{F}(x,y,z)=(2xy,x^2+e^z,ye^z), \quad \gam$ consists of straight line segments joining, in order, the points (1,1,0), (2,0,5) and (0,3,0).
+
+                        Note: By inspection $g = x^2y + ye^z$ is a potential function for $\boldsymbol{F}$. Also, straight line segments, being linear functions are smooth. Furthermore, $F(x,y,z)$ is smooth since polynomials and exponential functions are each smooth. Therefore, GFTC applies, and $\int_{\gam} \boldsymbol{F} \cdot d \boldsymbol{s} = g(0,3,0) - g(1,1,0) =  ((0)^2(3)+(3)e^{(0)})- ((1)^2(1)+(1)e^{(0)}) = 3 - 2 = 1$.
+                }
+        \end{enumerate}
+    \newpage 
+    \item 
+        \begin{enumerate}
+            \item Let $\boldsymbol{F}(x,y) = (y,-x)$. Find $\displaystyle \int_{\gam} \boldsymbol{F} \cdot d\boldsymbol{s}$ from (1,0) to (0,-1) along
+                \begin{enumerate}[label=(\roman*)]
+                    \item the straight line segment joining these points
+
+                        Parameterize the path as $t \mapsto (1 - t, -t)$ where $0 \leq t \leq 1$.
+
+                        \begin{align*}
+                            \int_{\gam} \boldsymbol{F} \cdot ds &= \int_0^1 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
+                            &= \int_0^1 -(-t)(-1) + (1-t)(-1) \ dt \\
+                            &= \int_0^1 -1 \ dt = -1\\
+                        \end{align*}
+                    \item three-quarters of the unit circle centered at the origin traced in the counter-clockwise direction.
+
+                        Parameterize the path as $t \mapsto (\sin -t , \cos -t) = (-\sin t, \cos t)$ where $0 \leq t \leq \frac{3\pi}{2}$. Using $-t$ since it is counter-clockwise
+
+                        \begin{align*}
+                            \int_{\gam} \boldsymbol{F} \cdot ds &= \int^{\frac{3\pi}{2}}_0 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
+                            &= \int^{\frac{3\pi}{2}}_0 (\cos t)(-\cos t) - (-\sin t)(-\sin t) \ dt \\
+                            &= \int^{\frac{3\pi}{2}}_0 -1 \ dt = -\frac{3\pi}{2}\\
+                        \end{align*}
+
+                \end{enumerate}
+            \item Can your answers for part (a) help you determine if the 1-form $\omega = y\ dx - x \ dy$ is exact? Explain.
+
+                Yes, we can determine that it is not exact. If $\omega$ were to be exact then $\boldsymbol{F}$ would be conservative implying that the line integral would be independant of path. Since the integrals are different, this is evidently not the case.
+
+        \end{enumerate}
+    \newpage
+    \item Let $\boldsymbol{c}$ be the curve obtained by intersecting the cylinder $y^2 + z^2 = 4$ and the surface $x=yz$ in $\mathbb{R}^3$.
+        \begin{enumerate}
+            \item Give a parametrization, $\gam (t)$, of the curve $\boldsymbol{c}$.
+
+                The cylinder simply describes a circle of radius $2$ in 2 dimensions, so $y$ and $z$ can be parameterized as $t \mapsto (2 \sin t, 2 \cos t)$. To add the additional constraint of the surface, just check what $x$ is, given the $y$ and $z$. $x = (2\sin t)(2\cos t) = 4\sin t \cos t$.
+               
+                Given these conditions, $\gam(t)$ is given by $(4 \sin t \cos t, 2 \sin t, 2 \cos t), \: 0 \leq t \leq 2\pi$.
+            \item Evaluate $\displaystyle \int_{\boldsymbol{c}} \boldsymbol{F} \cdot d \boldsymbol{s}$, where $\boldsymbol{F}(x,y,z) = (2xy,4y,x^2)$.
+                \begin{align*}
+                    \int_{\gam} \boldsymbol{F} \cdot ds &= \int^{2\pi}_0 \boldsymbol{F}(\gam(t)) \cdot \gam'(t) \ dt \\
+                    &= \int^{2\pi}_0 2(4 \sin t \cos t)(2 \sin t)(4 (\cos^2t-\sin^2t)) + 4 (2 \sin t)( 2 \cos t) + (4 \cos t \sin t)^2(-2\sin t) \ dt \\
+                    &= \int^{2\pi}_0 16\sin^2 t \cos t(\cos^2t-\sin^2t) + 8\sin t \cos t - 32 \cos^2 t \sin^3 t \ dt \\
+                    &= \int^{2\pi}_0 16\sin^2 t \cos^3 t - 16 \sin^4t \cos t + 8\sin t \cos t - 32 \cos^2 t \sin^3 t \ dt \\
+                    &= \int^{2\pi}_0 16\sin^2 t (1 - \sin^2 t) \cos t - 16 \sin^4t \cos t + 8\sin t \cos t \ dt - 32\int_0^{2\pi} \cos^2 t (1 - \cos^2 t)\sin t \ dt \\
+                    &\text{Let }u = \sin t, \ du = \cos t \\
+                    &= \int^{0}_0 16 u^2 (1 - u^2) - 16 u^4 + 8u \ du - 32\int_0^{2\pi} \cos^2 t (1 - \cos^2 t)\sin t \ dt \\
+                    &= - 32\int_0^{2\pi} \cos^2 t (1 - \cos^2 t)\sin t \ dt \\
+                    &\text{Let }u = \cos t, \ du = -\sin t \\
+                    &=  32\int_1^{1} u^2 (1 - u^2 ) \ du \\
+                    &= 0
+                \end{align*}
+        \end{enumerate}
+\end{enumerate}
+\end{document}
