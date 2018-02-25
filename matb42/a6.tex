@@ -57,7 +57,7 @@ Mar 6th 2018}
     Note that the region $R$ that is being integrated over is the unit circle in $\mathbb{R}^2$. We can parametrize the boundary of said circle using the path $\gam(t):[0,2\pi] \rightarrow \mathbb{R}^2$ by $t \mapsto (\cos t, \sin t )$. Using Green's theorem, choosing $F_2 = x^3y^2$ and $F_1 = 0$, we have:
     \begin{align*}
         \int_{-1}^{1} \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}3x^2y^2dy\ dx &= \int_{\gam} F_2dy = \int_0^{2\pi} \cos^3t \sin^2t ( \cos t)\ dt \\
-        &= \int_0^{2\pi} \cos^4t \sin^2t\ dt = \frac{1}{4}\int_0^{2\pi}\cos^2 t(2sin t \cos t)^2 dt = \int_0^{2\pi}\frac{1}{8}(\sin (2t))^3 dt \\
+        &= \int_0^{2\pi} \cos^4t \sin^2t\ dt = \frac{1}{4}\int_0^{2\pi}\cos^2 t(2 \sin t \cos t)^2 dt = \int_0^{2\pi}\frac{1}{8}(\sin (2t))^3 dt \\
         &= - \int_0^{2\pi}\frac{1}{16}(1 - \cos^2(2t))(\sin (2t)) dt \\
         &\text{Let }u = \cos(2t), \: du = -2\sin(2t)dt \\
         &= \frac{1}{32} \int_1^{1}(1 - u^2)du \\
