@@ -86,7 +86,7 @@ winningMove board move = winningBoard $ applyMove board move
 drawingMove board move = drawingBoard $ applyMove board move
 -- Test for blowing move
 blowingMove board move = or [winningMove board move, blowingCondition]
-    where blowingCondition = and [enemyCantEnd, restIsBlowingMove]
+    where blowingCondition = and [enemyCantEnd, restIsBlowingMove, not (null possibleEnemyMoves) ]
           enemyCantEnd = not $ or ([winningMove board', drawingMove board'] <*> (moves board'))
           restIsBlowingMove = and $ map boardHasBlowingCondition possibleEnemyMoves
           boardHasBlowingCondition x = or $ map (blowingMove x) (moves x)
@@ -105,14 +105,23 @@ howToWin :: Array (Int, Int) (Maybe XO) -> [(Int, Int, XO)]
 howToWin board = filter (blowingMove board) (moves board)
 
 
--- Example board that is winning 
+-- Example board 
 keeganBoard :: Array (Int, Int) (Maybe XO)
-keeganBoard = initBoard // [ ((0,1), Just X)
-                           , ((1,0), Just X)
-                           , ((1,1), Just X)
+keeganBoard = initBoard // [ ((0,0), Just X)
+                           , ((0,2), Just O)
+                           , ((1,0), Just O)
+                           , ((1,1), Just O)
                            , ((1,2), Just X)
-                           , ((2,0), Just O)
+                           , ((2,0), Just X)
+                           ]
+keeganBoard2 :: Array (Int, Int) (Maybe XO)
+keeganBoard2 = initBoard // [ ((0,0), Just X)
+                           , ((0,1), Just X)
+                           , ((0,2), Just O)
+                           , ((1,0), Just O)
+                           , ((1,1), Just O)
+                           , ((1,2), Just X)
+                           , ((2,0), Just X)
                            , ((2,1), Just O)
-                           , ((2,2), Just O)
                            ]
 
