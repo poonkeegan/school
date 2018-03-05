@@ -109,8 +109,10 @@ Mar 13th 2018}
         \begin{align*}
                 \boldsymbol \Phi (x,z) &= (x, 4-x^2, z) \\
                 \boldsymbol \phi_x &= (1,-2x,0) ,\: \boldsymbol \phi_z = (0,0,1) \\
-                \boldsymbol \phi_x \times \boldsymbol \phi_z &= (-2x, -1, 0) \implies \norm{\boldsymbol \phi_x \times \boldsymbol \phi_z} = \sqrt{4x^2 + 1}
+                \boldsymbol \phi_x \times \boldsymbol \phi_z &= (-2x, -1, 0) \implies \norm{\boldsymbol \phi_x \times \boldsymbol \phi_z} = \sqrt{4x^2 + 1} \\
+                \int_S fdS &= \int_0^1\int_{-2}^{2}x\sqrt{4x^2 + 1}\, dx\, dz
         \end{align*}
+        The integrand is odd since $x$ odd and $\sqrt{4x^2 + 1}$ even, so the integral over $x$ is 0, making the entire integral 0.
         \item $S$ is the upper half of the unit sphere centered at the origin.
         \item $S$ is that part of the surface $x = \sin y$ with $0 \leq y \leq \pi$ and $0 \leq z \leq 2$.
     \end{enumerate}
