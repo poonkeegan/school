@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\graphicspath{ {images/} }
+\pagestyle{empty}
+\fancyhf{}
+\cfoot{\thepage}
+\pagenumbering{gobble}
+\newtheorem*{lemma}{Lemma}
+
+\lhead{MATB43: Assignment \#2 \\
+        TUT 3}
+\rhead{
+Poon, Keegan\\
+1002423727}
+
+\renewcommand{\headrulewidth}{0pt}
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{enumerate}[label=(\arabic*)]
+    \item 
+        \begin{enumerate}
+            \item Express $e^{-x^2}$ as a power series.
+                \begin{align*}
+                    e^{-x^2} = \exp{(-x^2)} = \sum_{k=0}^{\infty} \frac{(-x^2)^k}{k!} = \sum_{k=0}^{\infty} \frac{(-1)^kx^{2k}}{k!} \\
+                \end{align*}
+            \item Express \[ \int_0^x e^{-x^2}\ dt \] as a power series.
+                \begin{align*}
+                    \int_0^x e^{-x^2}\ dt &= \int_0^x \sum_{k=0}^{\infty} \frac{(-1)^kt^{2k}}{k!} \ dt &=& \int_0^x \lim_{n\rightarrow \infty} \sum_{k=0}^{n} \frac{(-1)^kt^{2k}}{k!} \ dt \\
+                    &= \lim_{n\rightarrow \infty} \sum_{k=0}^{n} \int_0^x \frac{(-1)^kt^{2k}}{k!} \ dt &=& \sum_{k=0}^{\infty} \Bigg[ \frac{(-1)^kt^{2k + 1}}{(2k + 1)k!} \Bigg]_0^x \\
+                    &= \sum_{k=0}^{\infty} \frac{(-1)^kx^{2k + 1}}{(2k + 1)k!} \\
+                \end{align*}
+        \end{enumerate}
+    \newpage
+    \item For $a \in \mathbb{R},\ a \not \in \mathbb{N}$, let
+        \[ \binom{a}{k} = \frac{a(a-1)\cdots(a-k+1)}{k!},\ \binom{a}{0} = 1.\]
+        \begin{enumerate}
+            \item Show that
+                \[ f(x) = \sum_{k=0}^{\infty} \binom{a}{k} x^k \]
+                converges for $|x| < 1$.
+                
+                Ratio test:
+                \begin{align*}
+                    \lim_{k\rightarrow \infty} \Bigg| \frac{\binom{a}{k+1}x^{k+1}}{\binom{a}{k}x^k} \Bigg| &= \lim_{k\rightarrow \infty} \Bigg| \frac{\binom{a}{k+1}x}{\binom{a}{k}} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{\frac{a(a-1)\cdots(a-(k+1) +2)(a-(k+1)+1)x}{(k+1)!}}{\frac{a(a-1)\cdots(a-k+1)}{k!}} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{\frac{a(a-1)\cdots(a-k + 1)(a-k)x}{(k+1)!}}{\frac{a(a-1)\cdots(a-k+1)}{k!}} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{(a-k)x}{k+1} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{ax}{k+1} - \frac{kx}{k+1} + \frac{x}{k+1} - \frac{x}{k+1} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{(a + 1)x}{k+1} - \frac{(k + 1)x}{k+1} \Bigg| \\
+                    &= \lim_{k\rightarrow \infty} \Bigg| \frac{(a + 1)x}{k+1} - x \Bigg| = |x| \\ 
+                \end{align*}
+                Since the ratio test implies convergence when the result is $<1$, this power series converges for $|x| < 1$.
+            \item Verify that $f(x)$ is the Taylor series of $(1 + x)^a$.
+                
+                Let $g(x) = (1+x)^a$,
+                \begin{align*}
+                    g'(x) &=&&a(1 + x)^{a-1}& &g'(0) &=& a\\
+                    g''(x)&=&&a(a-1)(1+x)^{a-2}& &g''(0)&=& a(a-1)\\ 
+                    \vdots \\ 
+                    g^{(n)}(x)&=&&a(a-1)\cdots(a-n+1)(1+x)^{a-n}& &g^{(n)}(0)&=& a(a-1)\cdots(a-n+1)\\ 
+                \end{align*}
+                So the Taylor series of $g$ is given by:
+                \begin{align*}
+                    \sum_{k=0}^{\infty}\frac{g^{(k)}(0)x^k}{k!} &= \sum_{k=0}^{\infty}\frac{a(a-1)\cdots(a-k+1)x^k}{k!} = \sum_{k=0}^{\infty} \binom{a}{k}x^k = f(x)
+                \end{align*}
+            \item Verify that both $f(x)$ and $(1 + x)^a$ satisfy the differential equation
+        \[(1+x)y' = ay,\] with initial condition $y(0)$.
+                
+                Directly solving:
+                \begin{multicols}{2}
+                    \noindent
+                    \begin{align*}
+                        (1+x)y' &= ay \\
+                        \frac{y'}{y} &= \frac{a}{1+x} \\
+                        \int \frac{dy}{y} &= \int \frac{a}{1+x} dx \\
+                        \ln y &= a \ln(1+x) + c \\
+                        \ln y &= \ln(1+x)^a + c \\
+                        e^{\ln y}&= e^{\ln(1+x)^a + c} \\
+                        y &= c(1+x)^a
+                    \end{align*}
+                    \begin{align*}
+                        y(0) &= c(1)^a \\
+                        1 &= c \\
+                        \implies y &= (1+x)^a \text{ satifies the IVP}\\
+                    \end{align*}
+                \end{multicols}
+
+                Verify power series:
+                \[f'(x) = \sum_{k=0}^{\infty}k\binom{a}{k}x^k-1\]
+                \begin{align*}
+                    (1+x)f'(x) &= \sum_{k=0}^\infty k\binom{a}{k} x^{k-1} + \sum_{k=0}^\infty k\binom{a}{k} x^k \\
+                    &= \sum_{k=-1}^\infty (k+1)\binom{a}{k+1} x^{k} + \sum_{k=0}^\infty k\binom{a}{k} x^k \\
+                    &= \sum_{k=0}^\infty (k+1)\binom{a}{k+1} x^{k} + \sum_{k=0}^\infty k\binom{a}{k} x^k &\text{ Since } k+1|_{k=-1} = 0 \\
+                    &= \sum_{k=0}^\infty \Bigg[ (k+1)\binom{a}{k+1} +  k\binom{a}{k} \Bigg] x^k \\
+                    &= \sum_{k=0}^\infty \Bigg[ (k+1)\frac{a(a-1)\cdots(a-k+1)}{(k+1)!}(a-k) + k\binom{a}{k} \Bigg] x^k \\
+                    &= \sum_{k=0}^\infty \Bigg[ \frac{a(a-1)\cdots(a-k+1)}{k!}(a-k) + k\binom{a}{k} \Bigg] x^k \\
+                    &= \sum_{k=0}^\infty \Bigg[ \binom{a}{k}(a-k) + k\binom{a}{k} \Bigg] x^k \\
+                    &= \sum_{k=0}^\infty a \binom{a}{k} x^k = a \sum_{k=0}^\infty \binom{a}{k} x^k = af(x) \\
+                    f(0) &= \sum_{k=0}^\infty \binom{a}{k} 0^k = 1 \implies \text{The power series also satisfies the IVP}
+                \end{align*}
+        \end{enumerate}
+    \newpage
+    \item 
+        \begin{enumerate}
+            \item Show that
+                \[\sum_{n=1}^{\infty}nx^n = \frac{x}{(1-x)^2}\ , \text{ for } |x| < 1.\]
+
+                From lecture we know that $\displaystyle \frac{1}{1-x} = \sum_{k=1}^{\infty}x^k$ for $|x| < 1$.
+                \begin{align*}
+                    &x \frac{d}{dx} \frac{1}{1-x}& & = & & x \frac{d}{dx} \sum_{k=1}^{\infty}x^k & \\
+                    &x \frac{1}{(1-x)^2}& & = & & x \frac{d}{dx} \lim_{n\rightarrow \infty} \sum_{k=1}^{n} x^k & \\
+                    &\frac{x}{(1-x)^2}& & = & & x  \lim_{n\rightarrow \infty} \sum_{k=1}^{n} \frac{d}{dx} x^k & \\
+                    && & = & & x \sum_{k=1}^{\infty} kx^{k-1} & \\
+                    && & = & & \sum_{k=1}^{\infty} kx^{k} & \\
+                \end{align*}
+                Since we know that integration and differentiation of power series holds the radius of convergence constant, this also holds for $|x|<1$, multiplying by a factor of $x$ will not change it either.
+            \item Find an explicit formula for
+                \[ \sum_{n=1}^{\infty} n^2x^n.\]
+                \begin{align*}
+                    &x \frac{d}{dx} \frac{x}{(1-x)^2}& & = & & x \frac{d}{dx} \sum_{k=1}^{\infty}kx^k & \\
+                    &x \frac{(1-x^2) + 2x(1-x)}{(1-x)^4}& & = & & x \frac{d}{dx} \lim_{n\rightarrow \infty} \sum_{k=1}^{n} kx^k & \\
+                    &x \frac{(1-x)(1+x) + 2x(1-x)}{(1-x)^4}& & = & & x \lim_{n\rightarrow \infty} \sum_{k=1}^{n}  \frac{d}{dx} kx^k & \\
+                    &\frac{x(1+x) + 2x^2}{(1-x)^3}& & = & & x \sum_{k=1}^{\infty}  k^2x^{k-1} & \\
+                    &\frac{x + 3x^2}{(1-x)^3}& & = & & \sum_{k=1}^{\infty}  k^2x^k & \\
+                \end{align*}
+        \end{enumerate}    
+    \newpage
+    \item Let $f_k(x) = (1/k)\sin kx.$ So $f_k$ is differentiable on $\mathbb{R}$. Let $f(x) = 0$, for all $x \in \mathbb{R}$.
+        \begin{enumerate}
+            \item Show that $f_k \rightarrow f$ uniformly on $\mathbb{R}$.
+
+                Since $\sin x$ is bounded by $-1\leq \sin x \leq 1, \: \forall x \in \mathbb{R} \implies 0 \leq | \sin(x) | \leq 1$ so Squeeze Theorem applies using the bounds of $0 \leq |\frac{\sin kx}{k}| \leq \frac{1}{k}$. Since $\frac{1}{k}$ converges to 0, so does $f$, independently of $x$ hence $f$ converges uniformly.
+            \item Show that $\lim_k f_k'(x)$ is not defined for all $x \in \mathbb{R}$.
+
+                First, the sequence is defined $f_k'(x) = \cos(kx)$. Assume it did converge, then by definition we can say \[\forall \varepsilon \ \exists N \text{ s.t. } \forall n > N,\ |f_n(x) - L| < \varepsilon \text{ where $L$ is the limit.}\]
+                
+                So choose $\varepsilon < 0.5,\ x = \frac{\pi}{2}$. It can be seen that $|f_n(\frac{\pi}{2})|$ cycles between 1 and 0 as $n$ runs through the integers, so we can fix $n > N$ to get 
+                \[f_{n+1}\Big(\frac{\pi}{2}\Big) - f_n\Big(\frac{\pi}{2}\Big) = 1\] 
+                So in this case $|f_{n+1}(x) -L| = |1 + f_n(\frac{\pi}{2}) - L| \implies |1 - \varepsilon| < |1 + f_n(\frac{\pi}{2}) - L| < |1 + \varepsilon| \implies |f_{n+1} - L| > |1 - \varepsilon| > \varepsilon $ since $\varepsilon < 0.5$ which is a contradiction since it should hold for all $n > N$.
+        \end{enumerate}    
+\end{enumerate}
+\end{document}

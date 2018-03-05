@@ -37,12 +37,16 @@ Mar 6th 2018}
         This region is a disk and 0 satifies the equation, so the winding number of its surrounding ellipse is 1 (because the boundary curve is counter clockwise). This means the integral is $1(2\pi) = 2\pi$.
         \item $\gam$ is the graph of the polar equation $r = 3 + 2 \sin \theta$ oriented in the clockwise direction.
 
-        Again, this curve wraps around the origin once, ($r > 0$ since $-2 \leq 2 \sin \theta \leq 2$), so the integral again is $2\pi$.
+        Again, this curve wraps around the origin once, ($r > 0$ since $-2 \leq 2 \sin \theta \leq 2$), so the integral is $-2\pi$ since this wraps in the clockwise direction.
     \end{enumerate}
-    \newpage
+        \vspace{10ex}
     \item Let $\omega = (y^2 + z \ \ln 3)\ dx + (2xy + \sin z)\ dy + (y \cos z + (x + 1) \ln 3)\ dz$. Determine if $\omega$ is exact. If it is, use the algorithm given in class to find the potential function $g$.
 
-    $\omega$ is exact. Given $F_1 = y^2 + z \ln 3$, $F_2 = 2xy + \sin z$, $F_3 = y \cos z + (x + 1) \ln 3$ where $\boldsymbol F = ( F_1,F_2, F_3 )$ then 
+        \begin{align*}
+            &\frac{\partial F_1}{\partial y} = 2y & & \frac{\partial F_2}{\partial x} = 2y & & \frac{\partial F_3}{\partial x} = \ln 3& \\
+            &\frac{\partial F_1}{\partial z} = \ln 3 & & \frac{\partial F_2}{\partial z} = \cos z & & \frac{\partial F_3}{\partial y} = \cos z& \\
+        \end{align*}
+        Since the pairwise differentials are equal, $\omega$ is closed. As well, the domain of polynomials and trig functions is $\mathbb{R}$ so the domain of $\omega$ is $\mathbb{R}^3$ which is simply connected $\implies \omega$ is exact. Given $F_1 = y^2 + z \ln 3$, $F_2 = 2xy + \sin z$, $F_3 = y \cos z + (x + 1) \ln 3$ where $\boldsymbol F = ( F_1,F_2, F_3 )$ then 
     \begin{align*}
         g &= \int F_1 dx = xy^2 + xz \ln 3 + f(y,z) \\
         F_2 &= \deriv{y} xy^2 + xz \ln 3 + f(y,z) \\
@@ -63,19 +67,40 @@ Mar 6th 2018}
         &= \frac{1}{16} \int_0^{2\pi} 1 - \cos(4t) dt \\
         &= \frac{\pi}{8}
     \end{align*}
-    \newpage
+\vspace{10ex}
     \item Let $R$ be a region in $\mathbb{R}^2$ and let $\gam$ be a counterclockwise parametrization of $\partial R$. Let $\boldsymbol F = (F_1,F_2)$ be a $C^1$ vector field defined throughout $R$ and on $\partial R$ and let $\boldsymbol n$ be the outward pointing unit normal vector to $\gam$. Use Green's theorem to give a double integral over $R$ which is equivalent to $\displaystyle \int_{\gam} \boldsymbol F \cdot \boldsymbol n \ ds$.
+
+        Knowing that $\boldsymbol F \cdot \boldsymbol n = \norm{\boldsymbol F} \norm{\boldsymbol n} \cos \theta$ shows that no matter the actual direction of $\boldsymbol F$ and $\boldsymbol n$, as long as they are both angle $\theta$ away the dot product doesn't change. With this in mind, rotate $\boldsymbol F$ and $\boldsymbol n$ by $\frac{\pi}{2}$ so that we can get an expression for $\boldsymbol n$. Doing the rotation on $n$ will give a vector on the tangent, as it must be orthogonal, giving the expression $\frac{\gam ' (t)}{\norm{\gam ' (t)} }$ as it is unit length for the rotated $\boldsymbol n$ hereby referred to be $n'$. Given the expression for $\boldsymbol F$, it can be rotated with 
+        \[F'= \begin{bmatrix} \cos \frac{\pi}{2} & -\sin \frac{\pi}{2} \\ \sin \frac{\pi}{2} & \cos \frac{\pi}{2} \end{bmatrix} \boldsymbol F = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} F_1 \\ F_2 \end{bmatrix} = (-F_2, F_1)\]
+            Now the original integral can be rewritten as
+        \begin{align*}
+            &\int_{\gam}  F' \cdot n' \ ds& & =  \int_a^b  F'(\gam (t)) \cdot \frac{\gam ' (t)}{\norm{ \gam ' (t)} } \norm{\gam ' (t)}dt& \\
+            && &= \int_a^b  F'(\gam (t)) \cdot \gam ' (t)dt &\\
+            && &= \int_a^b -F_2dx + F_1 dy& \\
+            && & =  \int_{\mathcal{R}} \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y} dA & &\text{By Green's Theorem (Assuming $\gam$ is smooth)}&\\
+        \end{align*}
     \newpage
     \item Give a parametrization for each of the following surfaces, use a computer algebra sustem to plot the surface and find a unit vector normal to the surface.
     \begin{enumerate}
         \item The piece of the cylinder $y^2 + z^2 = 1$ between $x = -1$ and $x = 3$.
         
-        The cylinder can be parametrized as a circle in the y,z plane i.e. $y, z = (\cos \theta, \sin \theta)$. Restricting x gives $\boldsymbol \Phi (x, \theta) = (x, \cos \theta, \sin \theta)$ where $ -1 \leq x \leq 3$ and $0 \leq \theta \leq 2\pi$.
+        The cylinder can be parametrized as a circle in the y,z plane i.e. $y, z = (\cos \theta, \sin \theta)$. Restricting x gives 
+            \[\boldsymbol \Phi (x, \theta) = (x, \cos \theta, \sin \theta)\]
+            where $ -1 \leq x \leq 3$ and $0 \leq \theta \leq 2\pi$.
         
-        To find a normal vector, first need to figure out the tangent vectors. $\boldsymbol \phi_x = (1,0,0), \boldsymbol \phi_{\theta} = (0, -\sin \theta, \cos \theta)$, so a normal vector is $\boldsymbol \phi_x \times \boldsymbol \phi_{\theta} = (0, -\cos \theta, - \sin \theta)$. The magnitude of said vector is already one, so it is a unit normal vector to the surface.
+            To find a normal vector, first need to figure out the tangent vectors. $\boldsymbol \phi_x = (1,0,0), \boldsymbol \phi_{\theta} = (0, -\sin \theta, \cos \theta)$, so a normal vector is 
+            \[\boldsymbol \phi_x \times \boldsymbol \phi_{\theta} = (0, -\cos \theta, - \sin \theta)\] The magnitude of said vector is already one, so it is a unit normal vector to the surface.
+
+        \includegraphics[width=\textwidth]{b42-a6-5a}
+
         \item The piece of the plane $z = x + y + 5$ which lies over the unit disk $x^2 + y^2 \leq 1$.
         
-        Since working with a disk, switch to polar coordinates to describe the domain where $x, y = (r \cos \theta, r \sin \theta)$ having $0 \leq r \leq 1$ and $ 0 \leq \theta \leq 2\pi$. Now the surface can be parameterized by the given expression for $z$: $\boldsymbol \Phi (r, \theta) = (r \cos \theta, r \sin \theta, r (\cos \theta + \sin \theta ) + 5)$. The tangent vectors of this plane are $\boldsymbol \phi_r = (\cos \theta, \sin \theta, \cos \theta + \sin \theta)$ and $\boldsymbol \phi_{\theta} = (-r\sin \theta, r\cos \theta, r(- \sin \theta + \cos \theta))$. The normal vector is therefore $\boldsymbol \phi_r \times \boldsymbol \phi_{\theta} = (\sin\theta r (\cos \theta - \sin \theta) - (\cos \theta + \sin \theta)r\cos \theta, (\cos \theta + \sin \theta)(-r\sin \theta) - (\cos \theta)r(\cos \theta - \sin \theta), \cos \theta (r\cos \theta) - \sin \theta (-r \sin \theta)) = (-r, -r, r)$. Dividing by the magnitude of the vector $\sqrt{3r^2} = \sqrt{3}r$ gives the unit vector $\frac{1}{\sqrt{3}}(-1,-1,1)$.
+        Since working with a disk, switch to polar coordinates to describe the domain where $x, y = (r \cos \theta, r \sin \theta)$ having $0 \leq r \leq 1$ and $ 0 \leq \theta \leq 2\pi$.
+            
+            Now the surface can be parameterized by the given expression for $z$: \[\boldsymbol \Phi (r, \theta) = (r \cos \theta, r \sin \theta, r (\cos \theta + \sin \theta ) + 5)\] The tangent vectors of this plane are $\boldsymbol \phi_r = (\cos \theta, \sin \theta, \cos \theta + \sin \theta)$ and $\boldsymbol \phi_{\theta} = (-r\sin \theta, r\cos \theta, r(- \sin \theta + \cos \theta))$. The normal vector is therefore $\boldsymbol \phi_r \times \boldsymbol \phi_{\theta} = (\sin\theta r (\cos \theta - \sin \theta) - (\cos \theta + \sin \theta)r\cos \theta, (\cos \theta + \sin \theta)(-r\sin \theta) - (\cos \theta)r(\cos \theta - \sin \theta), \cos \theta (r\cos \theta) - \sin \theta (-r \sin \theta)) = (-r, -r, r)$. Dividing by the magnitude of the vector $\sqrt{3r^2} = \sqrt{3}r$ gives the unit vector \[\frac{1}{\sqrt{3}}(-1,-1,1)\]
+
+        \includegraphics[width=\textwidth]{b42-a6-5b}
+
         \item The piece of the sphere $x^2 + y^2 + z^2 = 4$ which lies above the plane $z = 1$.
 
         The sphere can be parametrized in a standard way as $\boldsymbol \Phi (u,v) \mapsto (2 \cos u \sin v, 2 \sin u \sin v, 2 \cos v)$ To restrict this surface to only the portion that lies above $z = 1$, take the $z$ of the parametrization and restrict it. This gives $2 \cos v > 1 \implies \cos v > 1/2 \implies v < \arccos 1/2 = \pi/3$ since arccos strictly decreasing so $0 < v < \pi/3$. The other angle being restricted to $0 \leq u \leq 2\pi$. The tangent vectors to the plane are 
@@ -93,23 +118,28 @@ Mar 6th 2018}
             \text{So the unit normal vector is}
             &= -\frac{1}{| \sin v |} (\cos u \sin^2 v, \sin u \sin ^2 v, \cos v \sin v) \\
         \end{align*}
+
+        \includegraphics[width=\textwidth]{b42-a6-5c}
+
         \item The piece of the plane $x + y + z = 1$ which lies above the parallelogram: $0 \leq y - x \leq 1, 0 \leq y + 2x \leq 1$.
         
         Want to parametrize easier, so choose variables to exploit this, $u = y - x, v = y + 2x$
         \begin{align*}
-            2u + v = 3y \implies y = \frac{2u + v}{3} \\
-            v - u = 3x \implies x = \frac{v - u}{3} \\
-            z = 1 - x - y \implies z = \frac{1}{3}(3 -v + u -2u -v) = \frac{3 -2v -u}{3}
+            & 2u + v = 3y & &\implies& &y = \frac{2u + v}{3}& \\
+            &v - u = 3x& &\implies& &x = \frac{v - u}{3}& \\
+            &z = 1 - x - y& &\implies& &z = \frac{1}{3}(3 -v + u -2u -v) = \frac{3 -2v -u}{3}& \\
         \end{align*}
-        So $\boldsymbol \Phi(u,v) \mapsto \frac{1}{3}(2u + v, v - u, 3 - 2v -u)$ where $0 \leq u , v \leq 1$.
+        So $\boldsymbol \Phi(u,v) \mapsto \frac{1}{3}(v - u, 2u + v, 3 - 2v -u)$ where $0 \leq u , v \leq 1$.
         Then the tangents are
         \begin{align*}
-            \boldsymbol \phi_u &= (2, -1, -1) \\
-            \boldsymbol \phi_v &= (1,1,-2) \\
-            \boldsymbol \phi_u \times \boldsymbol \phi_v &= ((-1)(-2) - (-1)(1), (-1)(1) - (2)(-2), (2)(1) - (-1)(1)) \\
-            &= (2 + 1, -1 + 4, 2 + 1) = (3,3,3)
+            \boldsymbol \phi_u &= \frac{1}{3}(-1, 2, -1) \\
+            \boldsymbol \phi_v &= \frac{1}{3}(1,1,-2) \\
+            \boldsymbol \phi_u \times \boldsymbol \phi_v &= \frac{1}{3}((2)(-2) - (-1)(1), (-1)(1) - (-1)(-2), (-1)(1) - (2)(1)) \\
+            &= \frac{1}{3}(-4 + 1, -1 - 2, -1 - 2) = -(1,1,1)
         \end{align*}
-        So the unit normal is $(1,1,1)$
+            So the unit normal is $(\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}})$
+
+        \includegraphics[width=\textwidth]{b42-a6-5d}
     \end{enumerate}
     \newpage
     \item Let $S$ be the surface given parameterically by $\boldsymbol \Phi (u,v) = (u^2, 3v, u^2 + v)$ where $(u,v) \in D$, the interior of a triangle with vertices (0,0), (3,0) and (3,3).
@@ -127,7 +157,7 @@ Mar 6th 2018}
         The equation for the tangent plane is given by $(\boldsymbol \phi_u \times \boldsymbol \phi_v \cdot (4-x,9-y,7-z)) = 0$. We know that $\boldsymbol \Phi (u_0, v_0) = (4,9,7)$ so $u_0 = 2, v_0 = 3$. This means the normal vector is $(-12,-4,12) \implies$ the tangent plane is $(-12)(4-x) + (-4)(9-y) + (12)(7-z) = 0$.
         \[ \implies 12x + 4y - 12z = -36 \]
     \end{enumerate}
-    \newpage    
+    \vspace{10ex}
     \item Suppose the surface $S$ is the graph of a function $f : \mathbb{R}^2 \rightarrow \mathbb{R}$. Give a natural parametrization of $S$ (in terms of $f$) and derive the formula $\norm{\boldsymbol \phi_u \times \boldsymbol \phi_v} = \sqrt{1 + \norm{\text{grad }f}^2}$
 
     The surface $S$ can be parametrized naturally as $\boldsymbol \Phi (u,v) = (u, v, f(u,v))$
@@ -220,6 +250,17 @@ Mar 6th 2018}
         \]
 
         (cf. page 383 \#20)
+
+        Given any point $(x,y,z)$ on the plane we have:
+        \begin{align*}
+            (x,y,z) &= \boldsymbol \Phi(u_0,v_0) + D\boldsymbol \Phi(u_0,v_0) \begin{bmatrix} u- u_0 \\ v - v_0 \end{bmatrix} \\
+            (x,y,z) - \boldsymbol \Phi(u_0,v_0) &= D \boldsymbol \Phi(u_0,v_0) \begin{bmatrix} u- u_0 \\ v - v_0 \end{bmatrix} \\
+            ((x,y,z) - \boldsymbol \Phi(u_0,v_0)) \cdot \boldsymbol \phi_u \times \boldsymbol \phi_v &= (D \boldsymbol \Phi(u_0,v_0) \begin{bmatrix} u- u_0 \\ v - v_0 \end{bmatrix}) \cdot \boldsymbol \phi_u \times \boldsymbol \phi_v \\
+        \end{align*}
+        But we know from (b) that any possible point in the range of $\displaystyle D\boldsymbol \Phi(u_0,v_0)$ is in the plane, so when you dot that with the normal to the plane the RHS is 0.
+        So the equaion result is
+            \[( (x,y,z) - \boldsymbol \Phi(u_0,v_0)) \cdot \boldsymbol \phi_u \times \boldsymbol \phi_v = 0 \]
+        Which is the other equation for a plane using $\boldsymbol \phi_u \times \boldsymbol \phi_v$.
     \end{enumerate}
 \end{enumerate}
 \end{document}

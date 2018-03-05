@@ -29,13 +29,14 @@ albertProg = do
 
 -- Pick one to uncomment.
 -- newtype Feeder a = FeederOf ([Char] -> Either ([Char], Exception a))
--- newtype Feeder a = FeederOf ([Char] -> ([Char], Either Exception a))
+newtype Feeder a = FeederOf ([Char] -> ([Char], Either Exception a))
 -- newtype Feeder a = FeederOf ([Char] -> Either Exception a)
 
 -- Run the Feeder program with the string as input source.
 -- Return a Left for uncaught exception, a Right for normal return.
 runFeeder :: Feeder a -> String -> Either Exception a
-runFeeder = error "TODO"
+runFeeder = (\feeder -> \initialState -> case feeder of 
+                                           FeederOf feedtype -> snd(feedtype initialState))
 
 testAlbertProg :: String -> Either Exception String
 testAlbertProg = runFeeder albertProg
@@ -51,7 +52,18 @@ instance Applicative Feeder where
     (<*>) = ap
 
 instance Monad Feeder where
--- TODO
+  return a = FeederOf (\state -> (state, Right a))
+  FeederOf prog >>= nextProg = FeederOf (\initialState -> case prog initialState of
+                                                            (nextState, Right value) -> case nextProg value of
+                                                                                          FeederOf newProg -> newProg nextState
+                                                            (nextState, Left except) -> (nextState, Left except))
 
 instance MonadGetChar Feeder where
--- TODO
+    get = FeederOf (\unconsumedInput -> case unconsumedInput of
+                                          [] -> ([], Left EOF)
+                                          (x:xs) -> (xs, Right x))
+    throw except = FeederOf (\input -> (input, Left except))
+    catch (FeederOf program) error = FeederOf (\initialState -> case program initialState of
+                                                                  (newState, Left excpt) -> case error excpt of
+                                                                                              FeederOf newProg -> newProg newState
+                                                                  (newState, Right value) -> (newState, Right value))
