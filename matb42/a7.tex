@@ -85,12 +85,12 @@ Mar 13th 2018}
         \[ A(S) = \iint_D \norm{\boldsymbol \phi_u} \norm{\boldsymbol \phi_v}\, dA \]
         \item Use parts (a) and (b) to compute the surface area of a sphere of radius $a$.
         \begin{align*}
-            \boldsymbol \Phi (\theta, \varphi) &= (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi) \\
-            \boldsymbol \phi_\theta &= (- \sin \theta \sin \varphi, \cos \theta \sin \varphi, 0) \\
-            \boldsymbol \phi_\varphi &= ( \cos \theta \cos \varphi, \sin \theta \cos \varphi, -\sin \varphi) \\
-            \norm{\boldsymbol \phi_\theta} &= \sin \varphi \\
-            \norm{\boldsymbol \phi_\varphi} &= 1 \\
-            \implies A(S) &= \int_0^{2\pi}\int_0^\pi \sin \varphi \, d\varphi \, d\theta \\
+            \boldsymbol \Phi (\theta, \varphi) &= a(\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi) \\
+            \boldsymbol \phi_\theta &= a(- \sin \theta \sin \varphi, \cos \theta \sin \varphi, 0) \\
+            \boldsymbol \phi_\varphi &= a( \cos \theta \cos \varphi, \sin \theta \cos \varphi, -\sin \varphi) \\
+            \norm{\boldsymbol \phi_\theta} &= a\sin \varphi \\
+            \norm{\boldsymbol \phi_\varphi} &= a \\
+            \implies A(S) &= a\int_0^{2\pi}\int_0^\pi \sin \varphi \, d\varphi \, d\theta \\
             &= \int_0^{2\pi}\Big[- \cos \varphi \Big]_0^{\pi} \, d\varphi \, d\theta \\
             &= \int_0^{2\pi}- (-1 - 1) \, d\varphi \, d\theta \\
             &= 2\int_0^{2\pi}1 \, d\varphi \, d\theta \\
