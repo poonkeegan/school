@@ -76,7 +76,12 @@ Mar 13th 2018}
         (cf. page 391, \#10)
 
         \[ \Phi_{\text{sphere}} (\theta, \varphi) = (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi) \]
-        \[ \Phi_{\text{cone}} (\theta, z) = (z\cos \theta , z\sin \theta, z) \]
+        \begin{align*} 
+            \Phi_{\text{cone}} (\theta, z) = (z\cos \theta , z\sin \theta, z) 
+            \phi_{z} = (\cos \theta, \sin \theta, 1)
+            \phi_{\theta} = (-z \sin \theta, z\cos \theta, 0)
+        \end{align*}
+        
         For the unit sphere $x^2 + y^2 + z^2 = 1$, but the cone is $ x^2 + y^2 = z^2 \implies $ sub $z$ into sphere gives $2x^2 + 2y^2 = 1$
         So the exact intersection of the surfaces is a circle of radius $1/4$ centered at the origin.
 
@@ -84,7 +89,7 @@ Mar 13th 2018}
         
         Plugging in $x^2 +y^2 = 1/2$ to the cone equation again gives $z^2 = 1/2 \implies z = \pm \frac{1}{4}$ but $z \geq 0$ by the cone definition so $0 \leq z \leq \frac{1}{4}$.
         \begin{align*}
-            A(\boldsymbol \Phi_{\text{cone}}) &= \int_0^{2\pi}\int_0^{\frac{1}{4}}
+            A(\boldsymbol \Phi_{\text{cone}}) &= \int_0^{2\pi}\int_0^{\frac{1}{4}} 
         \end{align*}
     \end{enumerate}
 
