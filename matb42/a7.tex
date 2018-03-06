@@ -75,7 +75,13 @@ Mar 13th 2018}
 
         (cf. page 391, \#10)
 
-        \[ \Phi_{\text{sphere}} (\theta, \varphi) = (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi) \]
+        \begin{align*} 
+            \Phi_{\text{sphere}} (\theta, \varphi) = (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi)
+            \phi_{\theta} = (\cos \theta \sin \varphi, \sin \theta \sin \varphi, \cos \varphi)
+            \phi_{\theta} &= (-z \sin \theta, z\cos \theta, 0) \\
+            \phi_{z} \times \phi_{\theta} &= (-z\cos \theta, -z\sin \theta, z)  \\
+            \norm{\phi_{z} \times \phi_{\theta}} &= 2z^2  \\
+        \end{align*}
         \begin{align*} 
             \Phi_{\text{cone}} (\theta, z) &= (z\cos \theta , z\sin \theta, z)  \\
             \phi_{z} &= (\cos \theta, \sin \theta, 1) \\
