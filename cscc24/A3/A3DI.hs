@@ -37,6 +37,8 @@ newtype Feeder a = FeederOf ([Char] -> ([Char], Either Exception a))
 runFeeder :: Feeder a -> String -> Either Exception a
 runFeeder = (\feeder -> \initialState -> case feeder of 
                                            FeederOf feedtype -> snd(feedtype initialState))
+testFeeder = (\feeder -> \initialState -> case feeder of 
+                                           FeederOf feedtype -> feedtype initialState)
 
 testAlbertProg :: String -> Either Exception String
 testAlbertProg = runFeeder albertProg
@@ -54,9 +56,9 @@ instance Applicative Feeder where
 instance Monad Feeder where
   return a = FeederOf (\state -> (state, Right a))
   FeederOf prog >>= nextProg = FeederOf (\initialState -> case prog initialState of
-                                                            (nextState, Right value) -> case nextProg value of
-                                                                                          FeederOf newProg -> newProg nextState
-                                                            (nextState, Left except) -> (nextState, Left except))
+                                            (nextState, Right value) -> case nextProg value of
+                                                FeederOf newProg -> newProg nextState
+                                            (nextState, Left except) -> (nextState, Left except))
 
 instance MonadGetChar Feeder where
     get = FeederOf (\unconsumedInput -> case unconsumedInput of
@@ -64,6 +66,6 @@ instance MonadGetChar Feeder where
                                           (x:xs) -> (xs, Right x))
     throw except = FeederOf (\input -> (input, Left except))
     catch (FeederOf program) error = FeederOf (\initialState -> case program initialState of
-                                                                  (newState, Left excpt) -> case error excpt of
-                                                                                              FeederOf newProg -> newProg newState
-                                                                  (newState, Right value) -> (newState, Right value))
+                                                      (newState, Left excpt) -> case error excpt of
+                                                          FeederOf newProg -> newProg newState
+                                                      (newState, Right value) -> (newState, Right value))
