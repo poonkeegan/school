@@ -218,10 +218,11 @@ Mar 13th 2018}
     \newpage
     \item Find the mass of the metallic surface $S$ given by $\displaystyle z = 1 - \frac{x^2 + y^2}{2}$ with $0 \leq x \leq 1$, $0 \leq y \leq 1$, if the mass density at $(x,y,z) \in S$ is given by $m(x,y,z) = xy$.
     \begin{align*}
-        \boldsymbol \Phi(r,\theta) &= (r\cos\theta,\, r\sin\theta,\, 1 - r^2/2) \\
-        \boldsymbol \phi_r &= (\cos\theta,\, \sin\theta,\,  -r) \\
-        \boldsymbol \phi_{\theta} &= (-r\sin\theta,\, r\cos\theta,\, 0 ) \\
-        \norm{\boldsymbol \phi_{\theta} \times \boldsymbol \phi_{\theta} }&= (r^2\sin\theta,\, r^2\cos\theta,\, r) \\
+        \boldsymbol \Phi(x,y) &= (x,y,1 - \frac{x^2 + y^2}{2})\\
+        \boldsymbol \phi_x &= (1,0,- x)\\
+        \boldsymbol \phi_y &= (0,1,- y)\\
+        \norm{\boldsymbol \phi_x \times \boldsymbol \phi_y }&= () \\
+        \int_{\boldsymbol \Phi}f\, dS &= \int_0^2 \int_0^{\pi
     \end{align*} 
 \end{enumerate}
 \end{document}
