@@ -18,7 +18,7 @@
 \newcommand{\twonorm}[1]{\| #1 \|_2}
 \newcommand{\rdim}[2]{\mathbb{R}^{#1 \times #2}}
 \newcommand{\R}{\mathbb{R}}
-\lhead{CSCD37: Assignment \#1 }
+\lhead{CSCD37: Assignment \#2 }
 \rhead{
 Poon, Keegan\\
 poonkeeg\\
@@ -48,6 +48,7 @@ poonkeeg\\
         \begin{enumerate}
             \item This algorithm is computationally expensive. Give a detailed analysis of the cost using standard big-oh notation. You may use results from CSCC37; e.e., the cost (measuring flops) of the LU-factorization of an $n \times n$ matrix is $(1/3)n^3 + \mathcal O (n^2)$.
 
+                The following analysis makes the assumption that each component of $F$ can be evaluated in approx 1 flop, and that taking the derivative also takes around 1 flop. For each iteration of the loop, first evaluating the function $F$ at a point $x \in \mathcal{R}^n$ will take n operations. The evaluation of the $n$ derivatives will also take $n$, so evaluating $n$ derivatives at $n$ points will take $n^2$ time. Solving the linear system of the derivative matrix against the original function will take around $(1/3)n^3 + \mathcal{O}(n^2)$ as was seen in CSCC37. Finally updating a vector with an addition of 2 $n$ length vectors will simply be $n$ additions. Overall, the entire loop iteration will take $n^2 + n + (1/3)n^3 + \mathcal{O}(n^2) + n = (1/3)n^3 + \mathcal{O}(n^2) = \mathcal{O}(n^3)$ steps per iteration. This cannot be generalized outside of iterations, as convergence is not always guaranteed and $k$ may run on infinitely.
             \item We briefly discussed in lecture the ``quasi-Newton algorithm" for solvling nonlinear systems. Modify the algorithm above to take advantage of the optimizations we discussed. You do not need to implement the modifications \dots pseudo-code will suffice. Be careful to discuss both flop optimizations and convergence issues (``X-test" and ``F-test" tolerance, maximum number of iterations, condition of Jacobian, how long to hold Jacobian fixed, etc.).
         \end{enumerate}
     \newpage
@@ -58,16 +59,19 @@ poonkeeg\\
                 Provided $y \in \mathcal C^k$.
 
                 \begin{proof}
-                    This will be proven using induction on the elements of the divided difference, i.e. for an indexed set of elements $\{a_0, a_1, a_2, \dots, a_k\}$ it will be on $k$.
-                    For the case $k = 0$, 
-                    \[ \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}}y[x_{i+j}] = \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}}y(x_{i + j}) \overset{\text{cont}}{=} y (x_i) = \frac{y^{(0)}(x_i)}{1!} \]
-                    For the inductive case, assume it holds for $n < k$
-                    \begin{align*}
-                        \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}}y[x_{i+k},x_{i+k-1},\dots,x_i] &=
-                        \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}} \frac{y[x_{i+k},x_{i+k-1},\dots,x_{i+1}] - y[x_{i+k - 1},x_{i+k-1},\dots,x_{i}]}{x_{i+k} - x_i} \\
-                        &= \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}}\frac{y^{(k-1)}(x_{i+1})}{(x_{i+k} - x_i)(k-1)!} - \frac{y^{(k-1)}(x_{i})}{(x_{i+k} - x_i)(k-1)!}  \\
-                        &= \frac{1}{(k-1)!}\lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}}\frac{y^{(k-1)}(x_{i+1}) - y^{(k-1)}(x_{i})}{x_{i+k} - x_i}\\
-                    \end{align*}  
+                    Examine first, the error formula given in lecture, $E(x) = y(x) - p(x)$ for any polynomial interpolant, then using the Newton polynomial as $p(x)$, it produces:
+                    \[ E(x) = y(x) - y[x_i] + (x-x_i)y[x_{i+1},x_i] + \cdots + (x - x_i)(x - x_{i+1}) \cdots(x - x_{i + k-1})y[x_{i + k},\dots,x_i]\]
+                    Knowing that $E(x)$ has $n+1$ distinct roots (at the interpolation constraints), by Rolle's theorem, gives that the $k$th derivative of $E(x)$ has at least 1 zero $E(\psi)$ where $\psi \in$ span$\{x_i,\dots,x_{i+k}\}$. Looking at the Newton polynomial, the $k$th derivative will only have the leading coefficient times $k!$ since it is a degree $k$ polynomial. This coefficient, from the definition can be seen as $y[x_{i+k},\dots,x_i]$
+                    \begin{align*} 
+                        \implies \frac{d^k}{dx^k} E(x) &= y^{(k)}(x) - y[x_{i+k},\dots,x_i]k!  \\
+                        \frac{d^k}{dx^k} E(\psi) &= y^{(k)}(\psi) - y[x_{i+k},\dots,x_i]k!  \\
+                        0 &= y^{(k)}(\psi) - y[x_{i+k},\dots,x_i]k!  \\
+                        y[x_{i+k},\dots,x_i]k! &= y^{(k)}(\psi) \\
+                        y[x_{i+k},\dots,x_i] &= \frac{y^{(k)}(\psi)}{k!} \\
+                        \implies \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}} y[x_{i+k},\dots,x_i] &= \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}} \frac{y^{(k)}(\psi)}{k!} \\
+                        \implies \lim_{\substack{x_{i+j} \rightarrow x_i \\ 1 \leq j \leq k}} y[x_{i+k},\dots,x_i] &= \frac{y^{(k)}(x_i)}{k!} \\
+                    \end{align*}
+                    The last line is since if $\forall x_{i+j},\, |x_{i+j} - x_i| < \varepsilon \implies$ span$\{x_i,\dots,x_{i+k}\} \subset (x_i - \varepsilon,\, x_i + \varepsilon) \implies \psi \rightarrow x_i$.
 
                 \end{proof}   
             \item The result in (a) tells us that divided differences can be replaced with derivatives as data points coincide. Using this result, construct a divided difference table to find the coefficients of the Newton polynomial of degree 6 or less that satisfies the following interpolation conditions:
@@ -76,9 +80,45 @@ poonkeeg\\
                     & & &p'(0) = 6& &p'(1) = 56& & & \\
                     & & & & &p''(1) = 140& & & \\
                 \end{align*}
-            \item Use the Method of Undetermined Coefficients (i.e., as discusseds in lecture, construct and solve an appropriate Vandermonde system) to find the coefficients of the monomial-basis polynomial of degree 6 or less that satisfies the interpolation conditions specified in (b).
-
+                \[
+                \begin{array}{cccccccc}
+                x_0 & y(x_0) \\
+                    &         & y[x_1,x_0] \\
+                x_1 & y(x_1)  &             & y[x_1,x_1,x_0]\\
+                    &         & y[x_1,x_1]  &                & y[x_2,x_1,x_1,x_0]\\
+                x_1 & y(x_1)  &             & y[x_2,x_1,x_1] &                    & y[x_2,x_2,x_1,x_1, x_0]\\
+                    &         & y[x_2,x_1]  &                & y[x_2,x_2,x_1,x_1] &                         & y[x_2,x_2,x_2,x_1,x_1, x_0]  \\
+                x_2 & y(x_2)  &             & y[x_2,x_2,x_1] &                    & y[x_2,x_2,x_2,x_1, x_1] &               & y[x_3, \dots x_0]\\
+                    &         & y[x_2,x_2]  &                & y[x_2,x_2,x_2,x_1] &                         & y[x_3,x_2,x_2,x_2,x_1, x_1] \\
+                x_2 & y(x_2)  &             & y[x_2,x_2,x_2] &                    & y[x_3,x_2,x_2,x_2, x_1]\\
+                    &         & y[x_2,x_2]  &                & y[x_3,x_2,x_2,x_2]\\
+                x_2 & y(x_2)  &             & y[x_3,x_2,x_2]\\
+                    &         & y[x_3,x_2] \\
+                x_3 & y(x_3)  &  
+                \end{array}
+                \]
+                \[
+                \begin{array}{cccccccc}
+                -1  & 4   \\
+                    &      & 3          \\
+                0   & 7    &             & 3           \\
+                    &      & 6           &              & 6          \\
+                0   & 7    &             & 15           &             & 7           \\
+                    &      & 21          &              & 20          &              & 4            \\
+                1   & 28   &             & 35           &             & 15           &               &  1           \\
+                    &      & 56          &              & 35          &              & 7            \\
+                1   & 28   &             & 70           &             & 29          \\
+                    &      & 56          &              & 93         \\
+                1   & 28   &             & 163         \\ 
+                    &      & 219        \\
+                2   & 247  &  
+                \end{array}
+                \]
+            \[ \implies p(x) = 4 + 3(x+1) + 3(x+1)x + 6(x+1)x^2 + 7(x+1)x^2(x-1) + 4(x+1)x^2(x-1)^2 + (x+1)x^2(x-1)^3 \]
+            \[ \iff p(x) = x^6 + 2x^5 + 3x^4 + 4x^3 + 5x^2 + 6x + 7 \]
+            \item Use the Method of Undetermined Coefficients (i.e., as discussed in lecture, construct and solve an appropriate Vandermonde system) to find the coefficients of the monomial-basis polynomial of degree 6 or less that satisfies the interpolation conditions specified in (b).
                 You may use \textit{MatLab} for this question if you wish. Verify that you have obtained the same polynomial as in (b).
+                \includegraphics{a2-q2-c}
         \end{enumerate}
     \newpage
     \item Consider the function $y\in \mathcal C^{n+1}$ and the polynomial $p \in \mathcal P_n$ which satisfies
@@ -99,7 +139,7 @@ poonkeeg\\
         \end{equation}
         is a polynomial of degree $n+1$. Clearly $F(x) = 0$, and also
         \begin{equation}
-            F^{(j)}(x_1) = 0;\; j=0,\dots,j_i;\; i=0,\dots,k.
+            F^{(j)}(x_i) = 0;\; j=0,\dots,j_i;\; i=0,\dots,k.
         \end{equation}
 
         Therefore, counting multiplicities, $F(t)$ has at least $n+2$ zeros in span$\{x_0,\dots,x_k,x\}$, which implies $F^{(n+1)}(t)$ has at least 1 zero in span$\{x_0,\dots,x_k,x\}$, or, in other words,
@@ -120,9 +160,30 @@ poonkeeg\\
         Now for the statements you must prove:
         \begin{enumerate}
             \item Prove that $W(t)$ in (2) is a polynomial of degree $n+1$.
+                \begin{proof}
+                Polynomials are closed under exponentiation and basic operations, so it is sufficient to show the highest power to be $n+1$. For each term $(t - x_i)^{j_i + 1}$, the highest power of $t$ is $j_i + 1$ respectively using the Binomial Theorem. This means that the final product will highest power of all of these terms together, so the power will be $\sum_{i=0}^{k}j_i + 1 = n + 1$ by definition.
+                \end{proof}
             \item Prove (3)
-            \item Explain how (4) follows from $F(t)$ having at least $n+2$ zeros in span$\{x_0,\dots,x_k,x\}$.
+                \begin{proof}
+                    We know that $p$ must approximate $y$ exactly at the interpolation points, so evidently for a point on the $j$th derivative, $y^{(j)}(x_i) - p^{(j)}(x_i)$ will be 0. For the other term $CW(t)$, taking the derivative only $j$ times will result in the term $(x - x_i)$ to show up in every term generated by the product rule since it has power of $(j_i + 1)$, hence $W(t)$ will also be 0 making $F^{(j)}(x_i) = 0$ at all interpolation points.
+                \end{proof}
+            \item Explain how (4) follows from $F(t)$ having at least $n+2$ zeros in span$\{x_0,\dots,x_k\}$.
+                \begin{lemma}
+                    Counting multiplicities, if $F(t)$ is $\mathcal C^1$ over span$\{x_0,\dots,x_k\}$ has at least $k$ zeros in span$\{x_0,\dots,x_k\}$ then $F'(t)$ has at least $k-1$ zeros in span$\{x_0,\dots,x_k\}$.
+                \end{lemma}
+                \begin{proof}
+                    Suppose the distinct roots of $F(t)$ are ordered as $a_1 < a_2 < \cdots < a_s$ with multiplicities $m(a_i)$ such that $\sum_{i=0}^s m(a_i) = n$. From Rolle's Theorem, we have that there is some $\rho \in (a_i, a_{i+1}),\: 1\leq i < s$ where $F'(\rho) = 0$ immediately giving us $s - 1$ roots in the derivative. Now counting the multiplicities of the previous roots, we get that there are $\sum_{i=0}^s (m(a_i) - 1)$ more roots, which summing together gives $\sum_{i=0}^s m(a_i) - s + (s - 1) = n - 1$ roots, which are all in the span.
+                \end{proof} 
+                From this, it follows immediately that taking $n+1$ derivatives of a function with $n+2$ roots will have one root in the same span.
             \item Prove (5).
+                \begin{proof}
+                    Since $p$ is a polynomial of degree $n$, taking $n+1$ derivatives will immediately cause it to vanish. On the otherhand, for $W(t)$, we know it is a polynomial of degree $n+1$ from (a), so taking the $(n+1)$th derivative gives us the leading coefficient times $(n+1)!$. Looking back at how $W(t)$ is setup though, since none of the $t$ in each binomial term have any coefficient the resulting expanded polynomials leading coefficient will be 1. This means the $(n+1)$th derivative of $CW(t)$ is just $C(n+1)!$.
+                    \begin{align*} 
+                        \implies F^{(n+1)}(t) &= \frac{d^{n+1}}{dt^{n+1}}[y(t) - p(t) - CW(t)] \\
+                        &= \frac{d^{n+1}}{dt^{n+1}}y(t) - \frac{d^{n+1}}{dt^{n+1}}p(t) - \frac{d^{n+1}}{dt^{n+1}}CW(t)  \\
+                        &= y^{(n+1)}(t) - (n+1)!C.
+                    \end{align*}
+                \end{proof}  
         \end{enumerate}
     \newpage
     \item In lecture we proved that the roots of the Chebyshev polynomial

@@ -40,8 +40,13 @@ runFeeder = (\feeder -> \initialState -> case feeder of
 testFeeder = (\feeder -> \initialState -> case feeder of 
                                            FeederOf feedtype -> feedtype initialState)
 
+keeganProg = do
+    throw (Other "test")
+
 testAlbertProg :: String -> Either Exception String
 testAlbertProg = runFeeder albertProg
+
+testKeeganProg = testFeeder keeganProg
 
 test1 = testAlbertProg "ALBERT"
 test2 = testAlbertProg "LABERT"
