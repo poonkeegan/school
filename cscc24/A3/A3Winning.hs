@@ -86,7 +86,7 @@ winningMove board move = winningBoard $ applyMove board move
 drawingMove board move = drawingBoard $ applyMove board move
 -- Test for blowing move
 blowingMove board move = or [winningMove board move, blowingCondition]
-    where blowingCondition = and [enemyCantEnd, restIsBlowingMove, not (null possibleEnemyMoves) ]
+    where blowingCondition = and [not (null possibleEnemyMoves), enemyCantEnd, restIsBlowingMove ]
           enemyCantEnd = not $ or ([winningMove board', drawingMove board'] <*> (moves board'))
           restIsBlowingMove = and $ map boardHasBlowingCondition possibleEnemyMoves
           boardHasBlowingCondition x = or $ map (blowingMove x) (moves x)
@@ -102,7 +102,8 @@ moves board = [\x -> (i, j, x) | i <- cols board,
 -- Compute all blowing moves for the given game board.
 -- In the answers, (i, j, X) means "put an X at cell (i,j)" for example.
 howToWin :: Array (Int, Int) (Maybe XO) -> [(Int, Int, XO)]
-howToWin board = filter (blowingMove board) (moves board)
+howToWin board = if (or (fmap (\x -> x board) [winningBoard, drawingBoard])) then []
+                    else filter (blowingMove board) (moves board)
 
 
 -- Example board 

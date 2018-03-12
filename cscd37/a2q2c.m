@@ -1,0 +1,17 @@
+size = 7;
+vandermonde = zeros(size);
+coeff1 = 0:(size-1);
+coeff2 = [0,0,2,3*2,4*3,5*4,6*5];
+powers0 = 0:(size-1);
+powers1 = [0,0:(size-2)];
+powers2 = [0,0,0:(size-3)];
+x = [-1,0,1,2];
+vandermonde(1,:) = x(1).^powers0;
+vandermonde(2,:) = x(2).^powers0;
+vandermonde(3,:) = (x(2).^(powers1)).*coeff1;
+vandermonde(4,:) = x(3).^powers0;
+vandermonde(5,:) = (x(3).^(powers1)).*coeff1;
+vandermonde(6,:) = (x(3).^(powers2)).*coeff2;
+vandermonde(7,:) = x(4).^powers0;
+y = [4 7 6 28 56 140 247];
+soln = vandermonde\y';
