@@ -57,17 +57,17 @@ poonkeeg\\
             \SetEndCharOfAlgoLine{}
             \SetKwProg{Fn}{}{}{}
             \Fn{}{
-                Given constants $s,\, t,\, u$ \\
-                $\Delta_{prev} = \infty$ \\
+                Given constants $s,\, t,\, u$ \;
+                $\Delta_{prev} = \infty$ \;
                 Generate an initial approximation $\hat x_0$ \;
-                for $k = 0,1\dots$ until convergence or have run $t$ times\;
+                for $k = 0,1\dots,t$ or until convergence \;
                 \Indp compute $-F(\hat x_k)$ \;
                     If haven't recomputed Jacobian for $s$ iters, re-compute $\frac{\partial F(\hat x_k)}{\partial x}$ \;
                     If condition of Jacobian $< \varepsilon$ then:  \\
                     \Indp solve $\frac{\partial F(\hat x_k)}{\partial x} \Delta_k = -F(\hat x_k)$ \;
-                    \Indm else: return \\
-                    If $\Delta_{prev} < \Delta_k$ then: return \\
-                    else: \\
+                    \Indm else: return \;
+                    If $\Delta_{prev} < \Delta_k$ then: return \;
+                    else: \;
                     update $\hat x_{k+1} = \hat x_k + \Delta_k$ \;
                     $\Delta_{prev} = \Delta_k$
                 \Indm end for
