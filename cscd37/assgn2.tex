@@ -335,7 +335,8 @@ poonkeeg\\
             Therefore, the quadrature rule integrates upto degree 3 polynomials perfectly since it integrates the monomial basis for polynomials of degree upto 3 perfectly. Since there are 4 basis functions, $n = 3$.
             \item Find as good an error bound as you can for your quadrature rule, assuming $f$ is as smooth as required for your analysis.
             \begin{align*}
-                \int_{-1}^1 [f(x) - p_3(x)] \, dx
+                \int_{-1}^1 [f(x) - p_3(x)] \, dx \\
+                \int_{-1}^1 \frac{f^{(4)}(\phi(x))}{(4!)}W(x) \, dx \\
             \end{align*} 
         \end{enumerate}
 \end{enumerate}
