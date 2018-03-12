@@ -75,7 +75,7 @@ poonkeeg\\
                 \Indm end for \;
             }
         \end{algorithm}
-        So from this new algorithm, there are a few new lines that increase the complexity by some factor of $n$, such as computing $F$ a few more times, but overall the bottleneck is still solving the Jacobian which takes $n^3/3$ time. This means, that although there are a few portions that increase the running time, it still cuts the majority of the complexity down by reducing the leading coefficient, solving 
+        So from this new algorithm, there are a few new lines that increase the complexity by some factor of $n$, such as computing $F$ a few more times, but overall the bottleneck is still solving the Jacobian which takes $n^3/3$ time. This means, that although there are a few portions that increase the running time, it still cuts the majority of the complexity down by reducing the leading coefficient. This is because when solving the system for a Jacobian that was already computed, the degree of the complexity is $\mathcalO(n^2)$ so it doesn't affect the leading coefficient, this means averaging out the complexity over $s$ iterations gives $(n^3)/(3s) + \mathcal{O}(n^2)$ flops per iteration.
         \end{enumerate}
     \newpage
     \item In lecture we derived the divided-difference (Newton) form of the interpolating polynomial for the simple interpolation problem. This question will investigate how the Newton polynomial can be used for osculatory interpolation.
