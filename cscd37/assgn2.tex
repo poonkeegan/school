@@ -57,7 +57,7 @@ poonkeeg\\
             \SetEndCharOfAlgoLine{}
             \SetKwProg{Fn}{}{}{}
             \Fn{}{
-                Given constants $s,\, t,\, u,\, \varepsilon$ \;
+                Given constants $s,\, t,\, \varepsilon$ \;
                 $\Delta_{prev} = \infty$ \;
                 Generate an initial approximation $\hat x_0$ \;
                 for $k = 0,1\dots,t$ or until convergence \;
@@ -75,6 +75,7 @@ poonkeeg\\
                 \Indm end for \;
             }
         \end{algorithm}
+        So from this new algorithm, there are a few new lines that increase the complexity by some factor of $n$, such as computing $F$ a few more times, but overall the bottleneck is still solving the Jacobian which takes $n^3/3$ time. This means, that although there are a few portions that increase the running time, it still cuts the majority of the complexity down by reducing the leading coefficient, solving 
         \end{enumerate}
     \newpage
     \item In lecture we derived the divided-difference (Newton) form of the interpolating polynomial for the simple interpolation problem. This question will investigate how the Newton polynomial can be used for osculatory interpolation.
