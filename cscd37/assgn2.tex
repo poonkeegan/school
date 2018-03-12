@@ -51,6 +51,21 @@ poonkeeg\\
 
                 The following analysis makes the assumption that each component of $F$ can be evaluated in approx 1 flop, and that taking the derivative also takes around 1 flop. For each iteration of the loop, first evaluating the function $F$ at a point $x \in \mathcal{R}^n$ will take n operations. The evaluation of the $n$ derivatives will also take $n$, so evaluating $n$ derivatives at $n$ points will take $n^2$ time. Solving the linear system of the derivative matrix against the original function will take around $(1/3)n^3 + \mathcal{O}(n^2)$ as was seen in CSCC37. Finally updating a vector with an addition of 2 $n$ length vectors will simply be $n$ additions. Overall, the entire loop iteration will take $n^2 + n + (1/3)n^3 + \mathcal{O}(n^2) + n = (1/3)n^3 + \mathcal{O}(n^2) = \mathcal{O}(n^3)$ steps per iteration. This cannot be generalized outside of iterations, as convergence is not always guaranteed and $k$ may run on infinitely.
             \item We briefly discussed in lecture the ``quasi-Newton algorithm" for solvling nonlinear systems. Modify the algorithm above to take advantage of the optimizations we discussed. You do not need to implement the modifications \dots pseudo-code will suffice. Be careful to discuss both flop optimizations and convergence issues (``X-test" and ``F-test" tolerance, maximum number of iterations, condition of Jacobian, how long to hold Jacobian fixed, etc.).
+
+        \begin{algorithm}[H]
+            \SetAlgoNoLine
+            \SetEndCharOfAlgoLine{}
+            \SetKwProg{Fn}{}{}{}
+            \Fn{}{
+                Generate an initial approximation $\hat x_0$ \;
+                for $k = 0,1\dots$ until convergence\;
+                \Indp compute $-F(\hat x_k)$ \;
+                    compute $\frac{\partial F(\hat x_k)}{\partial x}$ \;
+                    solve $\frac{\partial F(\hat x_k)}{\partial x} \Delta_k = -F(\hat x_k)$ \;
+                    update $\hat x_{k+1} = \hat x_k + \Delta_k$ \;
+                \Indm end for
+            }
+        \end{algorithm}
         \end{enumerate}
     \newpage
     \item In lecture we derived the divided-difference (Newton) form of the interpolating polynomial for the simple interpolation problem. This question will investigate how the Newton polynomial can be used for osculatory interpolation.
