@@ -58,6 +58,7 @@ poonkeeg\\
             \SetKwProg{Fn}{}{}{}
             \Fn{}{
                 Given constants $s,\, t,\, u$
+                $\Delta_{prev} = \infty$
                 Generate an initial approximation $\hat x_0$ \;
                 for $k = 0,1\dots$ until convergence\;
                 \Indp compute $-F(\hat x_k)$ \;
@@ -65,7 +66,8 @@ poonkeeg\\
                     If condition of Jacobian $< \varepsilon$ then:  \\
                     \Indp solve $\frac{\partial F(\hat x_k)}{\partial x} \Delta_k = -F(\hat x_k)$ \;
                     \Indm else: return \\
-
+                    If $\Delta_{prev} < \Delta_k$ then: return \\
+                    else: \\
                     update $\hat x_{k+1} = \hat x_k + \Delta_k$ \;
                 \Indm end for
             }
