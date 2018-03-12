@@ -57,12 +57,16 @@ poonkeeg\\
             \SetEndCharOfAlgoLine{}
             \SetKwProg{Fn}{}{}{}
             \Fn{}{
+                Given constants $s,\, t,\, u$
                 Generate an initial approximation $\hat x_0$ \;
                 for $k = 0,1\dots$ until convergence\;
                 \Indp compute $-F(\hat x_k)$ \;
-                    compute $\frac{\partial F(\hat x_k)}{\partial x}$ \;
-                    solve $\frac{\partial F(\hat x_k)}{\partial x} \Delta_k = -F(\hat x_k)$ \;
+                    If haven't recomputed Jacobian for $s$ iters, re-compute $\frac{\partial F(\hat x_k)}{\partial x}$ \;
+                    If condition of Jacobian < $\vareps$ then: 
+                    \Indp solve $\frac{\partial F(\hat x_k)}{\partial x} \Delta_k = -F(\hat x_k)$ \;
+                    \Indm else: break
                     update $\hat x_{k+1} = \hat x_k + \Delta_k$ \;
+
                 \Indm end for
             }
         \end{algorithm}
