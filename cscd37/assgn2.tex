@@ -271,7 +271,16 @@ poonkeeg\\
                     \end{cases}
                 \]
             \end{proof}
-            Now consider the polynomial $q(x) = \frac{T_k(x)}{2^{k-1}} - W(x)$ which is in $\mathcal{P}_{k-1}$ since both polynomials are monic, hence the highest power will cancel.
+            Now consider the polynomial $q(x) = \frac{T_k(x)}{2^{k-1}} - W(x)$ which is in $\mathcal{P}_{k-1}$ since both polynomials are monic, hence the highest power will cancel. Now look at what happens in the case of plugging in $y_i$. So 
+            \[ q(y_i) = \frac{T_k(y_i)}{2^{k-1}} - W(y_i)
+                = \begin{cases}
+                    > 0 & i \text{ even}
+                    < 0 & i \text{ odd}
+                  \end{cases}
+                  \]
+            This is the case, since at even points $T_k$ is positive, and the absolute value of $W$ is less then $T_k/2^{k-1}$ so it could not possibly subtract more then 1. Likewise for the $i$ odd case it cannot add enough since the absolute value is less than $T_k/2^{k-1}$. This means that $q(x)$ has a root in each interval $[y_i,\, y_{i+1}]$ for $i=0,\dots,k-1$ so $q$ has $k$ roots, but $q \in \mathcal{P}_{k-1}$ so $q = 0$, so $\frac{T_k(x)}{2^{k-1}} - W(x) = 0$, which is a contradiction to our assumption. Hence, $\frac{T_k(x)}{2^{k-1}}$ is the smallest possible polynomial that $W$ could be, so it is also optimal.
+        
+
         \end{enumerate}
     \newpage
     \item Consider the definite integral $I(f) = \int_{-1}^1 f(x) \,dx$.
