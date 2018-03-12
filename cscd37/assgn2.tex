@@ -262,7 +262,14 @@ poonkeeg\\
                 If W(x) is a monic polynomial of degree $\leq k$, then $\displaystyle \max_{x} |W(x)| \geq \max_{x} \Big| \frac{T_k(x)}{2^{k-1}}\Big| = \frac{1}{2^{k-1}}$
             \end{theorem}
             \begin{proof}
-                Suppose $\displaystyle \max_{x} |W(x)| < \max_{x} \Big| \frac{T_k(x)}{2^{k-1}}\Big|$, then in particular $|W(y_i)| < \Big| \frac{T_k(y_i)}{2^{k-1}}\Big| = \frac{1}{2^{k-1}}$ where $y_i = \cos(\frac{i\pi}{k})$
+                Suppose $\displaystyle \max_{x} |W(x)| < \max_{x} \Big| \frac{T_k(x)}{2^{k-1}}\Big|$, then in particular $|W(y_i)| < \Big| \frac{T_k(y_i)}{2^{k-1}}\Big| = \frac{1}{2^{k-1}}$ where $y_i = \cos(\frac{i\pi}{k})$ since looking at the definition of $T_k$ these are the absolute maximums, specifically
+                \[
+                    T_k(y_i) =
+                    \begin{cases}
+                        1 & i \text{ even} \\
+                        -1 & i \text{ odd} \\
+                    \end{cases
+                \]
             \end{proof}
         \end{enumerate}
     \newpage
