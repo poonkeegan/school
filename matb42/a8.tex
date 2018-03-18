@@ -47,6 +47,7 @@ Mar 20th 2018}
     \item Let $S$ be the cone with vertex (2,3,3) and base the circle $x^2 + y^2 = 1$ in the $xy$-plane.
         \begin{enumerate}
             \item Paratemetrize $S$
+
             Starting with a base of a circle, we get $(\cos \theta, \sin \theta, 1)$ with $0 \leq \theta \leq 2\pi$. To change into a cone multiply $x$ and $y$ by $(1-u)$ with $0 \leq u \leq 1$ and finally to shift the vertex, add $(2u, 3u, 2u)$ where $z = 2u$ since the base equation already has a 1, so $1 + ku <= 3 \implies k \leq 2$.
             \[ \implies \boldsymbol \Phi (u,\theta) = ( (1-u)\cos \theta + 2 u, (1-u)\sin \theta + 3u, 1 + 2u) \] 
             \item Use a computer algebra system to sketch $S$.
@@ -71,7 +72,8 @@ Mar 20th 2018}
             \item Give a parametrization of $S$ and use a computer algebra system to provide a sketch.
 
             \[x^2 - y^2z = 0 \implies y^2z = x^2 \implies z = \bigg(\frac{x}{y}\bigg)^2\]
-            \[\boldsymbol \Phi (x,y) = \Bigg(x, y, \bigg(\frac{x}{y}\bigg)^2\Bigg)\]
+            \[\boldsymbol \Phi (x,y) = \frac\Bigg(x, y, \bigg(\frac{x}{y}\bigg)^2\Bigg)\]
+            
             \item Is your parametrization one-to-one? Explain.
             \item Find the equation of the tangent plane to $S$ at $\displaystyle \bigg( \frac{1}{4}, \frac{1}{2}, \frac{1}{4} \bigg).$
         \end{enumerate}  
