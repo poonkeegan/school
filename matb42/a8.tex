@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\graphicspath{ {images/} }
+\pagestyle{empty}
+\fancyhf{}
+\cfoot{\thepage}
+\pagenumbering{gobble}
+
+\lhead{MATB42: Assignment \#7}
+\rhead{
+Poon, Keegan\\
+1002423727\\
+Mar 20th 2018}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\deriv}[1]{\frac{d}{d #1}}
+\newcommand{\parti}[1]{\frac{\partial}{\partial #1}}
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\gam}{\boldsymbol{\gamma}}
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{enumerate}
+    \begin{multicols}{2}
+    \item A surface $S$ is obtained by rotation the given figure in the $xy$-plane about the $z$-axis. (The arc is part of a circle of radius 1 centered at (2,0).)
+        \begin{enumerate}
+            \item Paratemetrize $S$ (in pieces) and compute the surface area.
+            \item Use a computer algebra system to sketch $S$.
+        \end{enumerate}
+            \includegraphics[width=0.25\textwidth]{b42-a8-q1ex}
+    \end{multicols}
+    \item Let $S$ be the cone with vertex (2,3,3) and base the circle $x^2 + y^2 = 1$ in the $xy$-plane.
+        \begin{enumerate}
+            \item Paratemetrize $S$
+            \item Use a computer algebra system to sketch $S$.
+            \item Write down the integral that would give the surface area of $S$. (You are not expected to evaluate the integral.)
+        \end{enumerate} 
+    \item Let $S$ be the self-intersecting rectangle in $\mathbb{R}^3$ given by the implicit equation $x^2-y^2z=0.$
+        \begin{enumerate}
+            \item Give a parametrization of $S$ and use a computer algebra system to provide a sketch.
+            \item Is your parametrization one-to-one? Explain.
+            \item Find the equation of the tangent plane to $S$ at $\displaystyle \bigg( \frac{1}{4}, \frac{1}{2}, \frac{1}{4} \bigg).$
+        \end{enumerate}  
+    \item Let $S$ be the surface defined by $x^2 + y^2 = 1$ for $0 \leq z \leq 1$ and by $x^2 + y^2 = z^2$ for $1 \leq z \leq 2$.
+        \begin{enumerate}
+            \item Use symbolic algebra software to sketch $S$.
+            \item Evaluate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S $ where $\boldsymbol F (x,y,z) = (-y,x,z)$ and $S$ is oriented by outward pointing normals.
+        \end{enumerate}  
+        \begin{enumerate}
+            \item Evaluate the (vector) surface integral $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S$ in each of the following cases.
+                \begin{enumerate}
+                    \item $\boldsymbol F (x,y,z) = (1,x,z),\; S$ is the upper hemisphere $x^2+y^2+z^2 = 1,\, z \geq 0,$ with $\boldsymbol n $ pointing upward.
+                    \item $\boldsymbol F (x,y,z) = (2,x,z+y) ,\; S$ is that part of the plane $x+y+z = 1$ which lies in the first octant and $\boldsymbol n$ points upward.
+                    \item Marsden \& Tromba, page 425, \#22.
+                \end{enumerate}
+        \end{enumerate}
+        
+    \item Let $S$ be the portion of the plane $x-2y+z=1$ that is cut off by the coordinate planes and the plane $x+y=1$. Let $\boldsymbol V$ be the velocity field $\boldsymbol V (x,y,z) = (y,z,x^2)$. Find the flow across $S$ when $\boldsymbol n$ points upward. Explain your answer.
+
+    \item Let $S$ be the closed surface that consists of the hemisphere $x^2+y^2+z^2 = 1,\, z \geq 0,$ and its base $x^2 + y^2 \leq 1,\, z = 0.$ let $\boldsymbol E$ be the electric field $\boldsymbol E(x,y,z) = (2x,2y,2z).$ Directly calculate the electric flux across $S$.
+        
+\end{enumerate}
+\end{document}
+
