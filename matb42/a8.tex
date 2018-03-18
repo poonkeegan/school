@@ -96,10 +96,14 @@ Mar 20th 2018}
 
             $S$ can be parametrized piecewise by $\boldsymbol \Phi_1 (u, \theta) = (\cos \theta, \sin \theta, u)$ for $0 \leq u \leq 1$ and $\boldsymbol \Phi_2 (u, \theta) = (u\cos \theta, u\sin \theta, u)$ for $1 \leq u \leq 2$
 
-            The normals are each given by
+            The derivatives of each are
             \begin{align*}
                 \boldsymbol \phi_{1_u} &= (0,0,1)& &\boldsymbol \phi_{1_\theta} = (\sin \theta,\cos \theta,0) \\
                 \boldsymbol \phi_{2_u} &= (\cos \theta,\sin \theta,1)& &\boldsymbol  \phi_{2_\theta} = (-u\sin \theta,u\cos \theta,0) \\
+            \end{align*}
+            So the respective normals are 
+            \begin{align*}
+                \boldsymbol  \phi_{1_u} \times \boldsymbol \phi_{2_u} = (\cos \theta, \sin \theta, 0)
             \end{align*}
         \end{enumerate}  
         \begin{enumerate}
