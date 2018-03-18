@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage[inline]{enumitem}
 \usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 \graphicspath{ {images/} }
 \pagestyle{empty}
 \fancyhf{}
@@ -51,6 +52,8 @@ Mar 20th 2018}
             Starting with a base of a circle, we get $(\cos \theta, \sin \theta, 1)$ with $0 \leq \theta \leq 2\pi$. To change into a cone multiply $x$ and $y$ by $(1-u)$ with $0 \leq u \leq 1$ and finally to shift the vertex, add $(2u, 3u, 2u)$ where $z = 2u$ since the base equation already has a 1, so $1 + ku <= 3 \implies k \leq 2$.
             \[ \implies \boldsymbol \Phi (u,\theta) = ( (1-u)\cos \theta + 2 u, (1-u)\sin \theta + 3u, 1 + 2u) \] 
             \item Use a computer algebra system to sketch $S$.
+
+                \includegraphics[width=0.7\textwidth,center]{b42-a8-2b}
             \item Write down the integral that would give the surface area of $S$. (You are not expected to evaluate the integral.)
             \begin{align*}
                 \boldsymbol \phi_\theta &= (-(1-u)\sin \theta,\, (1-u)\cos \theta,\,0) \\
@@ -73,6 +76,8 @@ Mar 20th 2018}
 
             \[x^2 - y^2z = 0 \implies y^2z = x^2 \implies z = \bigg(\frac{x}{y}\bigg)^2\]
             \[\boldsymbol \Phi (x,y) = \Bigg(x, y, \bigg(\frac{x}{y}\bigg)^2\Bigg)\]
+
+            \includegraphics[width=0.75\textwidth,center]{b42-a8-3a}
             
             \item Is your parametrization one-to-one? Explain.
 
@@ -92,6 +97,8 @@ Mar 20th 2018}
     \item Let $S$ be the surface defined by $x^2 + y^2 = 1$ for $0 \leq z \leq 1$ and by $x^2 + y^2 = z^2$ for $1 \leq z \leq 2$.
         \begin{enumerate}
             \item Use symbolic algebra software to sketch $S$.
+
+            \includegraphics[width=0.5\textwidth,center]{b42-a8-4a}
             
             \item Evaluate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S $ where $\boldsymbol F (x,y,z) = (-y,x,z)$ and $S$ is oriented by outward pointing normals.
 
@@ -121,26 +128,50 @@ Mar 20th 2018}
         \begin{enumerate}
             \item $\boldsymbol F (x,y,z) = (1,x,z),\; S$ is the upper hemisphere $x^2+y^2+z^2 = 1,\, z \geq 0,$ with $\boldsymbol n $ pointing upward.
             
-            A parametrization for $S$ is given by $\boldsymbol \Phi (\theta, \varphi) = (\cos\theta \sin\varphi, \sin\theta \sin\varphi, \cos\varphi)$, where $0 \leq \theta \leq 2\pi$ and $\displaystyle 0 \leq \varphi \leq \frac{\pi}{2}$
-            \begin{align*}
-            \boldsymbol \phi_{\theta} &= (- \sin \theta \sin \varphi, \cos \theta \sin \varphi, 0)\\
-            \boldsymbol \phi_{\varphi} &= (\cos \theta \cos \varphi, \sin \theta \cos \varphi, -\sin \varphi) \\
-            \boldsymbol \phi_\theta \times \boldsymbol \phi_\varphi &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin^2\theta \sin\varphi \cos\varphi - \cos^2\theta \sin \varphi \cos \varphi) \\ 
-            &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin\varphi \cos\varphi ) \\ 
-            \end{align*}
-            Since $\sin\varphi, \cos\varphi \geq 0$ for $\varphi \in [0,\pi/2]$ this normal is orientation reversing, the sign needs to be flipped.
-            \begin{align*}
-                \int_S \boldsymbol F \cdot \, d \boldsymbol S &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}} (1,\cos\theta \sin\varphi,  \cos\varphi) \cdot (\cos\theta \sin^2\varphi, \sin\theta \sin^2\varphi,  \sin\varphi \cos\varphi ) \, d\varphi \, d\theta \\
-                &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\cos\theta \sin^2\varphi + (\cos\theta \sin\varphi)(\sin\theta \sin^2\varphi)+  (\cos\varphi)(\sin\varphi\cos\varphi)) \, d\varphi \, d\theta \\
-                &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi + \sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
-                &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
-                &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}}\sin\varphi\cos^2\varphi \, d\varphi \, d\theta \; \text{[Integrate over full period]}\\
-                &\text{Let } u= \cos\varphi ,\, du = -\sin\varphi \\
-                &=\int_0^{2\pi} - \int_1^0 u^2\, d\varphi \, d\theta \\
-                &=2\pi \int_0^1 u^2\, d\varphi = \frac{2\pi}{3}\\
-            \end{align*}
+                A parametrization for $S$ is given by $\boldsymbol \Phi (\theta, \varphi) = (\cos\theta \sin\varphi, \sin\theta \sin\varphi, \cos\varphi)$, where $0 \leq \theta \leq 2\pi$ and $\displaystyle 0 \leq \varphi \leq \frac{\pi}{2}$
+                \begin{align*}
+                \boldsymbol \phi_{\theta} &= (- \sin \theta \sin \varphi, \cos \theta \sin \varphi, 0)\\
+                \boldsymbol \phi_{\varphi} &= (\cos \theta \cos \varphi, \sin \theta \cos \varphi, -\sin \varphi) \\
+                \boldsymbol \phi_\theta \times \boldsymbol \phi_\varphi &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin^2\theta \sin\varphi \cos\varphi - \cos^2\theta \sin \varphi \cos \varphi) \\ 
+                &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin\varphi \cos\varphi ) \\ 
+                \end{align*}
+                Since $\sin\varphi, \cos\varphi \geq 0$ for $\varphi \in [0,\pi/2]$ this normal is orientation reversing, the sign needs to be flipped.
+                \begin{align*}
+                    \int_S \boldsymbol F \cdot \, d \boldsymbol S &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}} (1,\cos\theta \sin\varphi,  \cos\varphi) \cdot (\cos\theta \sin^2\varphi, \sin\theta \sin^2\varphi,  \sin\varphi \cos\varphi ) \, d\varphi \, d\theta \\
+                    &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\cos\theta \sin^2\varphi + (\cos\theta \sin\varphi)(\sin\theta \sin^2\varphi)+  (\cos\varphi)(\sin\varphi\cos\varphi)) \, d\varphi \, d\theta \\
+                    &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi + \sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
+                    &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \frac{1}{2}\sin(2\theta)\sin^3\varphi \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
+                    &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}}\sin\varphi\cos^2\varphi \, d\varphi \, d\theta \; \text{[Integrate over full period of $\theta$]}\\
+                    &\text{Let } u= \cos\varphi ,\, du = -\sin\varphi \\
+                    &=\int_0^{2\pi} - \int_1^0 u^2\, d\varphi \, d\theta \\
+                    &=2\pi \int_0^1 u^2\, d\varphi = \frac{2\pi}{3}\\
+                \end{align*}
             \item $\boldsymbol F (x,y,z) = (2,x,z+y) ,\; S$ is that part of the plane $x+y+z = 1$ which lies in the first octant and $\boldsymbol n$ points upward.
+                
+                Parametrize $S$ as $\boldsymbol \Phi (x,y) = (x,y, 1-x-y)$ where $x \in [0,1],\, y \in [0, 1-x]$
+                \[ \boldsymbol \phi_x = (1,0,-1) , \; \boldsymbol \phi_y = (0,1,-1),\; \boldsymbol \phi_x \times \boldsymbol \phi_y = (1,1,1)\]
+                $z$ is positive for $\boldsymbol n$, so it is orientation preserving.
+                \begin{align*}
+                    \int_S \boldsymbol F \cdot \, d \boldsymbol S &= \int_0^1 \int_0^{1-x} (2,x, (1-x-y)+y) \cdot (1,1,1) \, dy \, dx \\
+                    &= \int_0^1 \int_0^{1-x} 2+x+ 1-x \, dy \, dx = \int_0^1 \int_0^{1-x} 3 \, dy \, dx  \\
+                    &= \int_0^1 3(1-x)\, dx = \int_0^1 3 - 3x \, dx  \\
+                    &= 3 - \frac{3}{2} = \frac{3}{2} \\
+                \end{align*}
                  \item Marsden \& Tromba, page 425, \#22.
+
+                    Let $S$ be the part of the cone $z^2 = x^2 + y^2$ with $z$ between 1 and 2 oriented by the normal pointing out of the cone. Compute $\iint_S \boldsymbol F \cdot \, d \boldsymbol S$, where $\boldsymbol F (x,y,z) = (x^2, y^2, z^2)$.
+                    
+                    The parametrization for $S$ is given by $\boldsymbol \Phi (z, \theta) = (z\cos \theta, z\sin \theta, z),\, z \in [1,2],\, \theta \in [0,2\pi]$
+                        \[ \boldsymbol \phi_z = (\cos \theta, \sin \theta, 1) , \; \boldsymbol \phi_\theta = (-z\sin\theta, z\cos\theta, 0),\; \boldsymbol \phi_z \times \boldsymbol \phi_\theta = (-z\cos\theta, -z\sin\theta, z) \]
+                        Since $x, y$ are negative, the normal vector points inwards, this is an orientation reversing normal, so the sign needs to be flipped.
+                        \begin{align*}
+                            \int_S \boldsymbol F \cdot \, d \boldsymbol S &= - \int_0^{2\pi} \int_1^2 (z^2\cos^2\theta, z^2\sin^2\theta, z^2) \cdot (-z\cos\theta, -z\sin\theta, z) \, dz \, d\theta \\
+                            &= \int_0^{2\pi} \int_1^2 z^3\cos^3\theta + z^3\sin^3\theta - z^3 \, dz \, d\theta \\
+                            &= (16/4 - 1/4)\int_0^{2\pi} (\cos^3\theta + \sin^3\theta - 1) \, d\theta \\
+                            &= \frac{15}{4} \bigg[ \int_0^{2\pi} \cos\theta(1 - \sin^2 \theta) \, d\theta + \int_0^{2\pi} \sin\theta(1 - \cos^2 \theta)\, d\theta + \int_0^{2\pi} - 1 \, d\theta \bigg] \\
+                            &= \frac{15}{4} \bigg[ \int_0^{0} (1 - u^2 ) \, du - \int_1^{1} (1 - u^2 )\, du + \int_0^{2\pi} - 1 \, d\theta \bigg] \\
+                            &= -\frac{15\pi}{2}
+                        \end{align*} 
         \end{enumerate}
 
     \item Let $S$ be the portion of the plane $x-2y+z=1$ that is cut off by the coordinate planes and the plane $x+y=1$. Let $\boldsymbol V$ be the velocity field $\boldsymbol V (x,y,z) = (y,z,x^2)$. Find the flow across $S$ when $\boldsymbol n$ points upward. Explain your answer.

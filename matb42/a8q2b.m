@@ -14,3 +14,6 @@ box on
 xlabel('x-axis')
 ylabel('y-axis')
 zlabel('z-axis')
+xlim([-2,3]);
+ylim([-2,4]);
+zlim([-2,5]);

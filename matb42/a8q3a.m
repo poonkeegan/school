@@ -1,5 +1,5 @@
-uv = linspace(1,10);
-vv = linspace(1,10);
+uv = linspace(-10,10);
+vv = linspace(-10,10);
 [u,v] = meshgrid(uv,vv);
 x = u;
 y = v;
@@ -14,3 +14,6 @@ box on
 xlabel('x-axis')
 ylabel('y-axis')
 zlabel('z-axis')
+xlim([-10,10]);
+ylim([-10,10]);
+zlim([0,20]);
