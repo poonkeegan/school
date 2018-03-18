@@ -101,7 +101,7 @@ lambdaPars = pure (\x y -> Lambda x y) <* (parseOperator '\\' ) <*> (identifier 
 eqnPars = (\var op block  _ -> Prim2 op var block) <$> varPars <*> parseOperator '=' <* whitespaces <*> blockPars <*> (char ';') <* whitespaces
 
 blockPars :: Parser Term
-blockPars = error "TODO"
+blockPars = infix
 infixPars = error "TODO"
 
 parseOperator :: Char -> Parser String
