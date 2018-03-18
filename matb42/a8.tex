@@ -121,6 +121,15 @@ Mar 20th 2018}
             \item $\boldsymbol F (x,y,z) = (1,x,z),\; S$ is the upper hemisphere $x^2+y^2+z^2 = 1,\, z \geq 0,$ with $\boldsymbol n $ pointing upward.
             
             A parametrization for $S$ is given by $\boldsymbol \Phi (\theta, \varphi) = (\cos\theta \sin\varphi, \sin\theta \sin\varphi, \cos\varphi)$, where $0 \leq \theta \leq 2\pi$ and $\displaystyle 0 \leq \varphi \leq \frac{\pi}{2}$
+            \begin{align*}
+
+            \boldsymbol \phi_{\theta} &= (- \sin \theta \sin \varphi, \cos \theta \sin \varphi, 0)\\
+            \boldsymbol \phi_{\varphi} &= (\cos \theta \cos \varphi, \sin \theta \cos \varphi, -\sin \varphi) \\
+            \boldsymbol \phi_\theta \times \boldsymbol \phi_\varphi &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin^2\theta \sin\varphi \cos\varphi - \cos^2\theta \sin \varphi \cos \varphi) \\ 
+            &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin\varphi \cos\varphi ) \\ 
+            \norm {\boldsymbol \phi_\theta \times \boldsymbol \phi_\varphi} &= \sqrt{\cos^2\theta \sin^4\varphi + \sin^2\theta \sin^4\varphi + \sin^2\varphi \cos^2\varphi } \\ 
+            &= \sqrt{\sin^2\varphi } = \sin\varphi \\
+            \end{align*}
             \item $\boldsymbol F (x,y,z) = (2,x,z+y) ,\; S$ is that part of the plane $x+y+z = 1$ which lies in the first octant and $\boldsymbol n$ points upward.
                  \item Marsden \& Tromba, page 425, \#22.
         \end{enumerate}
