@@ -130,9 +130,9 @@ Mar 20th 2018}
             \end{align*}
             Since $\sin\varphi, \cos\varphi \geq 0$ for $\varphi \in [0,\pi/2]$ this normal is orientation reversing, the sign needs to be flipped.
             \begin{align*}
-                \int_S \boldsymbol F \cdot \, d \boldsymbol S &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}} (1,\cos\theta \sin\varphi,  \cos\varphi) \cdot (\cos\theta \sin^2\varphi, \sin\theta \sin^2\varphi,  \sin\varphi \cos\varphi ) \, d\theta \, d\varphi \\
-                &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\cos\theta \sin^2\varphi + (\cos\theta \sin\varphi)(\sin\theta \sin^2\varphi)+  (\cos\varphi)(\sin\varphi\cos\varphi)) \, d\theta \, d\varphi \\
-                &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi + \sin\varphi\cos^2\varphi \, d\theta \, d\varphi \\
+                \int_S \boldsymbol F \cdot \, d \boldsymbol S &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}} (1,\cos\theta \sin\varphi,  \cos\varphi) \cdot (\cos\theta \sin^2\varphi, \sin\theta \sin^2\varphi,  \sin\varphi \cos\varphi ) \, d\varphi \, d\theta \\
+                &= \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\cos\theta \sin^2\varphi + (\cos\theta \sin\varphi)(\sin\theta \sin^2\varphi)+  (\cos\varphi)(\sin\varphi\cos\varphi)) \, d\varphi \, d\theta \\
+                &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi + \sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
                 &=\int_0^{2\pi} \int_0^{\frac{\pi}{2}} \cos\theta \sin^2\varphi + \cos\theta \sin\theta \sin^3\varphi d\varphi,\, d\theta + \int_0^{2\pi} \int_0^{\frac{\pi}{2}}\sin\varphi\cos^2\varphi \, d\varphi \, d\theta \\
                 &\text{Let } u= \cos\varphi ,\, du = -\sin\varphi \\
             \end{align*}
