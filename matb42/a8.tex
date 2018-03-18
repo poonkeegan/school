@@ -108,10 +108,10 @@ Mar 20th 2018}
             \end{align*}
             Examining the rightmost point (If projected into the $xy$-plane), where $\theta = 0$, both vectors will point towards the left  as $-\cos(0) = -1$ (since $u > 0$). These normals are orientation reversing, so their integrals will need to be of the opposite sign.
 
-                \[\int_S \boldsymbol F \, d \boldsymbol S = \int_{\boldsymbol \Phi_1} F(\boldsymbol \Phi_1) \, d \boldsymbol S + \int_{\boldsymbol \Phi_2} F(\boldsymbol \Phi_2) \, d \boldsymbol S \]
+                \[\int_S \boldsymbol F \, d \boldsymbol S = \int_{\boldsymbol \Phi_1}\boldsymbol F(\boldsymbol \Phi_1) \cdot \, d \boldsymbol S + \int_{\boldsymbol \Phi_2} \boldsymbol F(\boldsymbol \Phi_2) \cdot \, d \boldsymbol S \]
             \begin{align*}
-                \int_{\boldsymbol \Phi_1} F(\boldsymbol \Phi_1) \, d \boldsymbol S &= - \int_0^1 \int_0^{2\pi} -(\sin\theta)(-\cos\theta) + (\cos\theta)(- \sin \theta) + (u)(0) \, d\theta \, du = 0 \\
-                \int_{\boldsymbol \Phi_2} F(\boldsymbol \Phi_2) \, d \boldsymbol S &= - \int_0^1 \int_0^{2\pi} -(u\sin\theta)(-u\cos\theta) + (u\cos\theta)(- u\sin \theta) + (u)(u) \, d\theta \, du  \\
+                \int_{\boldsymbol \Phi_1}\boldsymbol F(\boldsymbol \Phi_1) \cdot \, d \boldsymbol S &= - \int_0^1 \int_0^{2\pi} -(\sin\theta)(-\cos\theta) + (\cos\theta)(- \sin \theta) + (u)(0) \, d\theta \, du = 0 \\
+                \int_{\boldsymbol \Phi_2} \boldsymbol F(\boldsymbol \Phi_2) \cdot \, d \boldsymbol S &= - \int_0^1 \int_0^{2\pi} -(u\sin\theta)(-u\cos\theta) + (u\cos\theta)(- u\sin \theta) + (u)(u) \, d\theta \, du  \\
                 &= - \int_0^1 \int_0^{2\pi}  u^2 \, d\theta \, du = -\frac{2\pi}{3} \\
             \end{align*}
         \end{enumerate}  
@@ -128,6 +128,9 @@ Mar 20th 2018}
             &= (-\cos\theta \sin^2\varphi, -\sin\theta \sin^2\varphi, - \sin\varphi \cos\varphi ) \\ 
             \end{align*}
             Since $\sin\varphi, \cos\varphi \geq 0$ for $\varphi \in [0,\pi/2]$ this normal is orientation reversing, the sign needs to be flipped.
+            \begin{align*}
+                \int_S \boldsymbol F \cdot \, d \boldsymbol S
+            \end{align*to }
             \item $\boldsymbol F (x,y,z) = (2,x,z+y) ,\; S$ is that part of the plane $x+y+z = 1$ which lies in the first octant and $\boldsymbol n$ points upward.
                  \item Marsden \& Tromba, page 425, \#22.
         \end{enumerate}
