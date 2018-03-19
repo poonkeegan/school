@@ -11,15 +11,18 @@ x1 = v.*cos(theta2);
 y2 = v.*sin(theta2);
 z3 = v;
 
-hold on;
-mesh(x,y,z);
-mesh(x1,y2,z3);
-#mesh(xtang,ytang,ztang);
-axis equal;
-box on;
-xlabel('x-axis')
-ylabel('y-axis')
-zlabel('z-axis')
-xlim([-5,5]);
-ylim([-5,5]);
-zlim([0,3]);
+fig = figure('visible','off');
+  hold on;
+  mesh(x,y,z);
+  mesh(x1,y2,z3);
+  axis equal;
+  box on;
+  xlabel('x-axis')
+  ylabel('y-axis')
+  zlabel('z-axis')
+  xlim([-3,3]);
+  ylim([-3,3]);
+  zlim([0,3]);
+  view([1,1,0.5]);
+  
+print(fig, 'b42-a8-4a','-dpng');

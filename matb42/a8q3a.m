@@ -5,15 +5,17 @@ x = u;
 y = v;
 z = (u.^2)./(v.^2);
 
+fig = figure('visible','off');
+  hold on;
+  mesh(x,y,z);
+  axis equal
+  box on
+  xlabel('x-axis')
+  ylabel('y-axis')
+  zlabel('z-axis')
+  xlim([-10,10]);
+  ylim([-10,10]);
+  zlim([0,20]);
+  view([1,1,0.5]);
 
-hold on;
-mesh(x,y,z);
-#mesh(xtang,ytang,ztang);
-axis equal
-box on
-xlabel('x-axis')
-ylabel('y-axis')
-zlabel('z-axis')
-xlim([-10,10]);
-ylim([-10,10]);
-zlim([0,20]);
+print(fig, 'b42-a8-3a','-dpng');
