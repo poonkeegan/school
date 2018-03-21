@@ -41,6 +41,9 @@ Mar 20th 2018}
 
             \[\divt (f \boldsymbol F) = \sum_{i=1}^n \frac{\partial fF_i}{\partial x_i} = \sum_{i=1}^n \frac{\partial f}{\partial x_i} F_i + \frac{\partial F_i}{\partial x_i}f = \sum_{i=1}^n \frac{\partial f}{\partial x_i} F_i + f \sum_{i=1}^n\frac{\partial F_i}{\partial x_i} = \nabla f \cdot \boldsymbol F + f \divt \boldsymbol F \]
             \item $\Delta (f g) =f \Delta g + g \Delta f + 2($grad$f)\cdot ( $grad$ g).$
+            \begin{align*}
+                \Delta(fg) = \sum_{i=1}^n\frac{\partial^2fg}{\partial^2 x_i }
+            \end{align*}
         \end{enumerate}
         \item Let $f,g:D \subset \mathbb{R}^3 \rightarrow \mathbb{R}$ be of class $C^1$. If $R$ is a solid region contained in $D$ then
         \[\iiint_R \nabla f \cdot \nabla g \, dV = \iint_{\partial R} f \nabla  g \cdot \boldsymbol n \, dS - \iiint_R f \nabla^2 g \, dV\] 
