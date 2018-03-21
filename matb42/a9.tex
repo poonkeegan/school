@@ -46,6 +46,7 @@ Mar 20th 2018}
                 &= \sum_{i=1}^n\frac{\partial}{\partial x_i } \bigg[ \frac{\partial f}{\partial x_i }g  + \frac{\partial g}{\partial x_i }f\bigg] \\
                 &= \sum_{i=1}^n \bigg[ \frac{\partial f}{\partial^2 x_i }g  + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + \frac{\partial g}{\partial^2 x_i }f + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg)\bigg] \\
                 &= g\sum_{i=1}^n \frac{\partial f}{\partial^2 x_i }  + 2 \sum_{i=1}^n \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + f\sum_{i=1}^n \frac{\partial g}{\partial^2 x_i } \\
+                &= f \Delta g  + 2[\nabla f \cdot \nabla g] + f\sum_{i=1}^n \frac{\partial g}{\partial^2 x_i } \\
             \end{align*}
         \end{enumerate}
         \item Let $f,g:D \subset \mathbb{R}^3 \rightarrow \mathbb{R}$ be of class $C^1$. If $R$ is a solid region contained in $D$ then
