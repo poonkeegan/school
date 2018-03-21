@@ -16,98 +16,95 @@ parseFile filename = do
     return ans
 
 -- Parsers
-termParser :: Parser Term
-termParser = error "TODO"
+ter :: String -> Parser String
+ter = terminal
 
-boolPars, litTermParse :: Parser Term
-addopPars, mulopPars :: Parser String
+ters :: [String] -> Parser String
+ters [] = pure ""
+ters [a] = ter a
+ters (hd:ls) = ter hd *> ters ls
 
-addopPars = plusPars <|> minusPars
-    where plusPars = parseOperator '+'
-          minusPars = parseOperator '-'
-
-mulopPars = mulPars <|> divPars
-    where mulPars = parseOperator '*'
-          divPars = parseOperator '/'
-
-boolPars = trueParse <|> falseParse
-    where trueParse = litPars (Bln True) "True"
-          falseParse = litPars (Bln False) "False"
-
-boolOpPars = (andParse <|> orParse) <* whitespaces
-    where andParse = string "&&"
-          orParse = string "||"
-
-cmpPars = (eqstr <|> neqstr <|> ltstr <|> leqstr) <* whitespaces
-    where eqstr = string "=="
-          neqstr = string "/="
-          ltstr = string "<"
-          leqstr = string "<="
-
-facPars = parsFoldl App hd tl
-    where ls = some atomPars
-          hd = fmap head ls
-          tl = fmap tail ls
-
-addendPars = parsFoldl binop hd tl
-    where facOpPars = (\x y -> Prim2 y x) <$> facPars <*> mulopPars
-          factors = many facOpPars
-          hd = fmap head factors
-          tl = fmap tail factors
-          binop a b = (\x -> a (b x))
-
-infix = parsFoldl binop hd tl
-    where facOpPars = (\x y -> Prim2 y x) <$> facPars <*> mulopPars
-          factors = many facOpPars
-          hd = fmap head factors
-          tl = fmap tail factors
-          binop a b = (\x -> a (b x))
-parsFoldl op parseHd parseTl = ((foldl op) <$> parseHd) <*> parseTl
-
-litPars :: Term -> String -> Parser Term
-litPars term strLiteral = (\_ -> term) <$> string strLiteral <* whitespaces
-{-
-    block
-    infix
-    boolop D
-    test
-    cmp D
-    arith
-    addop D
-    addend T
-    mulop D
-    factor T
-    atom T
-    cond T
-    lambda T
-    let
-    equation T
-    literal D
-    boolean D
--}
-litTermParse = (\x -> Num x) <$> integer <|> boolPars
 keyWords :: [String]
 keyWords = ["if", "then", "else", "let", "in", "True", "False"]
 
-condPars :: Parser Term
-condPars = pure (\x y z -> Cond x y z) <* (string "if") <*> blockPars <* (string "then") <*> blockPars <* (string "else") <*> blockPars
+termParser :: Parser Term
+termParser = whitespaces *> blockPars <* eof
 
-varPars :: Parser Term
-varPars = (\x -> Var x) <$> (identifier keyWords)
+blockPars, infixPars, testPars, arithPars, addendPars, facPars, atomPars :: Parser Term
+bracBlockPars, condPars, lambdaPars, letPars, boolPars, litTermParse, varPars :: Parser Term
+boolOpPars, addopPars, mulopPars :: Parser (Term -> Term -> Term)
+cmpPars :: Parser String
+eqnPars :: Parser (String, Term)
+arthopPars :: Parser String -> Parser (Term -> Term -> Term)
 
-lambdaPars :: Parser Term
-lambdaPars = pure (\x y -> Lambda x y) <* (parseOperator '\\' ) <*> (identifier keyWords) <* (string "->") <*> blockPars 
+blockPars = condPars <|> lambdaPars <|> letPars <|> infixPars
 
-eqnPars = (\var op block  _ -> Prim2 op var block) <$> varPars <*> parseOperator '=' <* whitespaces <*> blockPars <*> (char ';') <* whitespaces
+infixPars = chainr1 testPars boolOpPars
 
-blockPars :: Parser Term
-blockPars = infix
-infixPars = error "TODO"
+boolOpPars = arthopPars (ter "&&" <|> ter "||")
 
-parseOperator :: Char -> Parser String
-parseOperator c = ((\x -> [x]) <$> char c) <* whitespaces
+testPars = full <|> arithPars
+    where full = (\a op b -> Prim2 op a b) <$> arithPars <*> cmpPars <*> arithPars 
 
-atomPars :: Parser Term
+cmpPars = ter "==" <|> ter "/=" <|> ter "<" <|> ter "<=" 
+
+arithPars = chainl1 addendPars addopPars
+
+arthopPars operators = (\x a b -> Prim2 x a b) <$> operators
+
+addopPars = arthopPars (ter "+" <|> ter "-")
+
+addendPars = chainl1 facPars mulopPars
+
+mulopPars = arthopPars (ter "*" <|> ter "/")
+
+facPars = (pure (fold App)) <*> (some atomPars)
+    where fold op ls = foldl op (head ls) (tail ls)
+
 atomPars = bracBlockPars <|> litTermParse <|> varPars
 
-bracBlockPars = parseOperator '(' *> blockPars <* parseOperator ')' 
+bracBlockPars = do
+    ter "(" 
+    block <- blockPars 
+    ter ")" 
+    return block
+
+condPars = do
+   ter "if"
+   cond <- blockPars
+   ter "then"
+   suc <- blockPars
+   ter "else"
+   fail <- blockPars
+   return (Cond cond suc fail)
+
+lambdaPars = do
+    ter "\\"
+    name <- identifier keyWords
+    ter "->"
+    func <- blockPars
+    return (Lambda name func)
+
+letPars = do
+    ters ["let", "{"]
+    eqn <- (many eqnPars)
+    ters ["}", "in"]
+    block <- blockPars
+    return (Let eqn block)
+
+eqnPars = do
+    var <- identifier keyWords 
+    ter "="
+    block <- blockPars
+    ter ";"
+    return (var,block)
+
+
+litTermParse = (\x -> Num x) <$> integer <|> boolPars
+
+boolPars = (\x -> Bln (str2bl x)) <$> (ter "True" <|> ter "False")
+    where str2bl "True" = True
+          str2bl "False" = False
+
+varPars = (\x -> Var x) <$> (identifier keyWords)
+
