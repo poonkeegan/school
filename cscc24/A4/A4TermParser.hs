@@ -24,6 +24,9 @@ ters [] = pure ""
 ters [a] = ter a
 ters (hd:ls) = ter hd *> ters ls
 
+betwter :: String -> String -> Parser a -> Parser a
+betwter str1 str2 = between (ter str1) (ter str2)
+
 keyWords :: [String]
 keyWords = ["if", "then", "else", "let", "in", "True", "False"]
 
@@ -63,40 +66,28 @@ facPars = (pure (fold App)) <*> (some atomPars)
 
 atomPars = bracBlockPars <|> litTermParse <|> varPars
 
-bracBlockPars = do
-    ter "(" 
-    block <- blockPars 
-    ter ")" 
-    return block
+bracBlockPars = betwter  "(" ")" blockPars
 
 condPars = do
-   ter "if"
-   cond <- blockPars
-   ter "then"
+   cond <- betwter "if" "then" blockPars
    suc <- blockPars
    ter "else"
    fail <- blockPars
    return (Cond cond suc fail)
 
 lambdaPars = do
-    ter "\\"
-    name <- identifier keyWords
-    ter "->"
+    name <- betwter "\\" "->" (identifier keyWords)
     func <- blockPars
     return (Lambda name func)
 
 letPars = do
-    ters ["let", "{"]
-    eqn <- (many eqnPars)
-    ters ["}", "in"]
+    eqn <- betwter "let" "in" (betwter "{" "}" (many eqnPars))
     block <- blockPars
     return (Let eqn block)
 
 eqnPars = do
     var <- identifier keyWords 
-    ter "="
-    block <- blockPars
-    ter ";"
+    block <- betwter "=" ";" blockPars
     return (var,block)
 
 
