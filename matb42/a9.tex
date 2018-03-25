@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amsfonts}
+\usepackage{amsmath, amsfonts, amsthm}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 \usepackage{graphicx}
@@ -41,22 +41,34 @@ Mar 20th 2018}
 
             \[\divt (f \boldsymbol F) = \sum_{i=1}^n \frac{\partial fF_i}{\partial x_i} = \sum_{i=1}^n \frac{\partial f}{\partial x_i} F_i + \frac{\partial F_i}{\partial x_i}f = \sum_{i=1}^n \frac{\partial f}{\partial x_i} F_i + f \sum_{i=1}^n\frac{\partial F_i}{\partial x_i} = \nabla f \cdot \boldsymbol F + f \divt \boldsymbol F \]
             \item $\Delta (f g) =f \Delta g + g \Delta f + 2($grad$f)\cdot ( $grad$ g).$
-            \begin{align*}
-                \Delta(fg) &= \sum_{i=1}^n\frac{\partial^2fg}{\partial^2 x_i } \\
-                &= \sum_{i=1}^n\frac{\partial}{\partial x_i } \bigg[ \frac{\partial f}{\partial x_i }g  + \frac{\partial g}{\partial x_i }f\bigg] \\
-                &= \sum_{i=1}^n \bigg[ \frac{\partial f}{\partial^2 x_i }g  + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + \frac{\partial g}{\partial^2 x_i }f + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg)\bigg] \\
-                &= g\sum_{i=1}^n \frac{\partial f}{\partial^2 x_i }  + 2 \sum_{i=1}^n \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + f\sum_{i=1}^n \frac{\partial g}{\partial^2 x_i } \\
-                &= g \Delta f  + 2[\nabla f \cdot \nabla g] + f \Delta g\\
-            \end{align*}
+            \begin{proof}
+                \begin{align*}
+                    \Delta(fg) &= \sum_{i=1}^n\frac{\partial^2fg}{\partial^2 x_i } \\
+                    &= \sum_{i=1}^n\frac{\partial}{\partial x_i } \bigg[ \frac{\partial f}{\partial x_i }g  + \frac{\partial g}{\partial x_i }f\bigg] \\
+                    &= \sum_{i=1}^n \bigg[ \frac{\partial f}{\partial^2 x_i }g  + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + \frac{\partial g}{\partial^2 x_i }f + \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg)\bigg] \\
+                    &= g\sum_{i=1}^n \frac{\partial f}{\partial^2 x_i }  + 2 \sum_{i=1}^n \bigg( \frac{\partial f}{\partial x_i } \cdot \frac{\partial g}{\partial x_i } \bigg) + f\sum_{i=1}^n \frac{\partial g}{\partial^2 x_i } \\
+                    &= g \Delta f  + 2[\nabla f \cdot \nabla g] + f \Delta g\\
+                \end{align*}
+            \end{proof}
         \end{enumerate}
         \item Let $f,g:D \subset \mathbb{R}^3 \rightarrow \mathbb{R}$ be of class $C^1$. If $R$ is a solid region contained in $D$ then
         \[\iiint_R \nabla f \cdot \nabla g \, dV = \iint_{\partial R} f \nabla  g \cdot \boldsymbol n \, dS - \iiint_R f \nabla^2 g \, dV\] 
         $(\nabla^2 g = $ div $(\nabla g))$.
 
-
+        \begin{proof}
+            \begin{align*}
+                \iiint_R \nabla f \cdot \nabla g \, dV = \iint_{\partial R} f \nabla  g \cdot \boldsymbol n \, dS - \iiint_R f \nabla^2 g \, dV \\
+               \iff \iiint_R \nabla f \cdot \nabla g \, dV + \iiint_R f \nabla^2 g \, dV = \iint_{\partial R} f \nabla  g \cdot \boldsymbol n \, dS \\
+            \end{align*}
+            \begin{align*}
+                \iint_{\partial R} f \nabla  g \cdot \boldsymbol n \, dS \overset{\text{Div Thm}}{=} \iiint_R \text{div} (f \nabla g) \, dV  \overset{\text{(ii)}}{=} \iiint_R f(\text{div} \nabla g) + \nabla g \cdot \nabla f \, dV  \\
+                = \iiint_R f(\text{div} \nabla g) \, dV + \iiint_R \nabla f \cdot \nabla g \, dV = \iiint_R f \nabla^2 g \, dV + \iiint_R \nabla f \cdot \nabla g \, dV \\
+            \end{align*}
+        \end{proof}
     \end{enumerate} 
     \newpage
-    \item Use the Divergence Theorem to verify your asnwer to question 7 on assignment 8.
+    \item Use the Divergence Theorem to verify your answer to question 7 on assignment 8.
+    \newpage
     \item Let $\boldsymbol F (x,y,z) = (x,y^2,e^{yz})$ and let $R$ be a cube centered at the origin with sides of length 2. Evaluate $\displaystyle \int_S$ div $\boldsymbol F \, dV $ directly and by using the Divergence Theorem. 
 
     Directly:
@@ -68,12 +80,34 @@ Mar 20th 2018}
         &= 8 + 0 + [e^y]_{-1}^1 + [e^{-y}]_{-1}^1 = 8
     \end{align*}
     Divergence:
-    \begin{align*}
-        \int_{-1}^1 \int_{-1}^1
-    \end{align*}
+        \[\int_R \divt \boldsymbol F \, dV = \int_S \boldsymbol F \cdot d\boldsymbol S\]
+        where $S$ is the union of 6 planes with $-1 \leq x,y,z \leq 1$ and having normals in the $\pm x,y,z$ directions.
+        The parameterizations can be given by
+        \begin{align*}
+            \boldsymbol \Phi_{S_1} (x,y) &= (x,y,1)\; &\boldsymbol \Phi_{S_1'} (x,y) &= (x,y,-1)\\
+            \boldsymbol \Phi_{S_2} (y,z) &= (1,y,z)\; &\boldsymbol \Phi_{S_2'} (y,z) &= (-1,y,z)\\
+            \boldsymbol \Phi_{S_3} (x,z) &= (x,1,z)\; &\boldsymbol \Phi_{S_3'} (x,z) &= (x,-1,z)\\
+        \end{align*}
+        When plugging in $S_3,S_3'$ into $\boldsymbol F$, then taking the dot with the normal, we get that the integrands are going to be the same, specifically 1. When doing the same with $S_2,S_2$, due to $x$ being odd, we get both being negative the other, so integrating over the same range will cancel each other out. Putting this together, the integral over $S$ is:
+        \begin{align*}
+            \int_S \boldsymbol F \cdot d\boldsymbol S &= 2 \int_{-1}^{1} \int_{-1}^{1} 1 \, dx \, dz + \int_{-1}^{1} \int_{-1}^{1} e^y \, dx \, dy + \int_{-1}^{1}\int_{-1}^{1} - e^{-y} \,dx\, dy \\
+            &= 8 + 2\int_{-1}^{1} e^y \, dy - 2 \int_{-1}^{1} e^{-y} \, dy \\
+            &= 8 + 2([e^y]_{-1}^1 + [e^{-y}]_{-1}^1) = 8
+        \end{align*}
+        \newpage
         \item Let $B$ be the pyramid with top vertex (0,0,1) and base vertices (0,0,0), (1,0,0), (0,1,0) and (1,1,0). Let $S$ be the 2-dim closed surface bounding $B$, oriented in the outward direction. Use Gauss' theorem to calculate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S$, where $\boldsymbol F(x,y,z) = (x^2y,3y^2z,9z^2x).$
-
-\item Use the Divergence Theorem to evaluate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S,$ where $\displaystyle \boldsymbol F (x,y,z) = \bigg(z^2 x, \frac{y^3}{3} + \tan z, x^2z+y^2 \bigg)$ and $S$ is the top half of the unit sphere $x^2 + y^2 + z^2 = 1$, oriented by the unit normalwhich points away from the origin.
+            \[\int_R \divt \boldsymbol F \, dV = \int_S \boldsymbol F \cdot d\boldsymbol S\]
+            \begin{align*}
+                \divt \boldsymbol F &= 2xy + 6yz + 18zx \\
+                \int_R \divt \boldsymbol F &= \int_0^1 \int_0^{1-z} \int_0^{1-z} 2xy + 6yz + 18zx \, dx \, dy \, dz \\
+                &= \int_0^1 \int_0^{1-z} (1-z)^2y + 6yz(1-z) + 9z(1-z)^2 \, dy \, dz \\
+                &= \int_0^1 (1/2)(1-z)^4 + 3z(1-z)^3 + 9z(1-z)^3 \, dz \\
+                &= \int_0^1 -\frac{23z^4}{2} + 34z^3 - 33z^2 + 10z + \frac{1}{2} \, dz \\
+                &= -\frac{23}{10} + \frac{34}{4} - 11 + 5 + \frac{1}{2} \\
+                &= \frac{7}{10} \\ 
+            \end{align*}
+            \newpage
+\item Use the Divergence Theorem to evaluate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S,$ where $\displaystyle \boldsymbol F (x,y,z) = \bigg(z^2 x, \frac{y^3}{3} + \tan z, x^2z+y^2 \bigg)$ and $S$ is the top half of the unit sphere $x^2 + y^2 + z^2 = 1$, oriented by the unit normal which points away from the origin.
 
 \item Let the electric field from a point source at the origin be given by $\displaystyle \boldsymbol E (\boldsymbol x) = \frac{\boldsymbol x}{\norm{\boldsymbol x}^3}$
     \begin{enumerate}
