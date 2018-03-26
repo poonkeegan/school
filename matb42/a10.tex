@@ -22,6 +22,7 @@ Apr 3rd 2018}
 \newcommand{\norm}[1]{\| #1 \|}
 \newcommand{\deriv}[1]{\frac{d}{d #1}}
 \newcommand{\parti}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\partis}[2]{\frac{\partial #2}{\partial #1}}
 \renewcommand{\headrulewidth}{0pt}
 \newcommand{\gam}{\boldsymbol{\gamma}}
 \newcommand{\divt}{\text{div} \,}
@@ -51,9 +52,9 @@ Apr 3rd 2018}
                 &= \parti{x} F_1 + \parti{y} F_2 + \parti{z} F_3 \, dx \, dy \, dz = (\divt \boldsymbol F) \, dx \, dy \, dz
             \end{align*} 
         \item Show that $dF_1 \wedge dF_2 \wedge dF_3 = (\text{det } D \boldsymbol F ) \, dx \, dy \, dz$
-            \[ df = \sum_{i=0}^{n} \parti{x_i} f \, dx_i \]
+            \[ df = \sum_{i=0}^{n} \partis{x_i}{f} \, dx_i \]
             \begin{align*} 
-                dF_1 \wedge dF_2 \wedge dF_3 &= (\parti{x} F_1 \, dx + \parti{y} F_1 \, dy + \parti{z} F_1 \, dz) \wedge (\parti{x} F_2 \, dx + \parti{y} F_2 \, dy + \parti{z} F_2 \, dz) \wedge dF_3 \\
+                dF_1 \wedge dF_2 \wedge dF_3 &= (\partis{x}{F_1} \, dx + \parti{y} F_1 \, dy + \parti{z} F_1 \, dz) \wedge (\parti{x} F_2 \, dx + \parti{y} F_2 \, dy + \parti{z} F_2 \, dz) \wedge dF_3 \\
                 &= (\parti{x} F_1 \, dx \wedge (\parti{x} F_2 \, dx + \parti{y} F_2 \, dy + \parti{z} F_2 \, dz) \\
                 &\; \; \; \; + \parti{y} F_1 \, dy \wedge (\parti{x} F_2 \, dx + \parti{y} F_2 \, dy + \parti{z} F_2 \, dz) \\
                 &\; \; \; \; + \parti{z} F_1 \, dz \wedge (\parti{x} F_2 \, dx + \parti{y} F_2 \, dy + \parti{z} F_2 \, dz) ) \wedge dF_3 \\
