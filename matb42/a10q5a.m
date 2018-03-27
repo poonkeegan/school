@@ -18,4 +18,4 @@ fig = figure('visible','off');
   zlim([0,3]);
   view([1,1,0.5]);
   
-% print(fig, 'b42-a8-4a','-dpng');
+print(fig, 'b42-a10-5a','-dpng');

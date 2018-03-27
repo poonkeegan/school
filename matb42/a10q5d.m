@@ -1,6 +1,6 @@
 uv = linspace(0,1);
 vv = linspace(0,1);
-[uv,vv] = meshgrid(u,v);
+[u,v] = meshgrid(uv,vv);
 x = u + v;
 y = u.*v.*v;
 z = u.*u + v.*v;
@@ -18,5 +18,5 @@ fig = figure('visible','off');
   zlim([-2,2]);
   view([1,1,0.5]);
   
-print(fig, 'b42-a10-5c','-dpng');
+print(fig, 'b42-a10-5d','-dpng');
 
