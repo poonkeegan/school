@@ -2,8 +2,8 @@ uv = linspace(0,1);
 vv = linspace(0,1);
 [u,v] = meshgrid(uv,vv);
 x = u + v;
-y = u.*v.*v;
-z = u.*u + v.*v;
+y = u.*(v.^2);
+z = (u.^2) + (v.^2);
 
 fig = figure('visible','off');
   hold on;
@@ -13,10 +13,10 @@ fig = figure('visible','off');
   xlabel('x-axis')
   ylabel('y-axis')
   zlabel('z-axis')
-  xlim([-2,2]);
-  ylim([-2,2]);
-  zlim([-2,2]);
+  xlim([-4,4]);
+  ylim([-4,4]);
+  zlim([-4,4]);
   view([1,1,0.5]);
   
-print(fig, 'b42-a10-5d','-dpng');
+%print(fig, 'b42-a10-5d','-dpng');
 
