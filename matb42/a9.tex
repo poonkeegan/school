@@ -14,11 +14,12 @@
 \cfoot{\thepage}
 \pagenumbering{gobble}
 
-\lhead{MATB42: Assignment \#8}
+\lhead{MATB42: Assignment \#9 \\
+       Bonus}
 \rhead{
 Poon, Keegan\\
 1002423727\\
-Mar 20th 2018}
+Mar 27th 2018}
 \newcommand{\norm}[1]{\| #1 \|}
 \newcommand{\deriv}[1]{\frac{d}{d #1}}
 \newcommand{\parti}[1]{\frac{\partial}{\partial #1}}
@@ -75,23 +76,23 @@ Mar 20th 2018}
     \[\iiint_R \divt \boldsymbol F \, dV = \iint_S \boldsymbol F \cdot d\boldsymbol S\]
 
     $S$ is a closed surface, and assuming the default outward normal Divergence Theorem. To integrate over the region, switch to polars restricting $\varphi \in [0,\pi/2]$ to restrict to the upper half. Together with $\divt \boldsymbol E = 6$ gives:
-    \begin{align*}
-        \iint_S \boldsymbol E \cdot d\boldsymbol S &= \int_0^1 \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 6 \rho^2 \sin \varphi \, d\varphi \, d\theta \, d\rho  \\
-        &= 12 \pi \int_0^1 \rho^2 \big[ -\cos \varphi\big]_0^{\frac{\pi}{2}} \, d\rho \\
-        &= 12\pi\bigg[\frac{\rho^3}{3} \bigg]_0^1 = 4\pi
-    \end{align*}
+        \[ \iint_S \boldsymbol E \cdot d\boldsymbol S = \int_0^1 \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 6 \rho^2 \sin \varphi \, d\varphi \, d\theta \, d\rho  = 12 \pi \int_0^1 \rho^2 \big[ -\cos \varphi\big]_0^{\frac{\pi}{2}} \, d\rho = 12\pi\bigg[\frac{\rho^3}{3} \bigg]_0^1 = 4\pi \]
 
-    \newpage
     \item Let $\boldsymbol F (x,y,z) = (x,y^2,e^{yz})$ and let $R$ be a cube centered at the origin with sides of length 2. Evaluate $\displaystyle \int_S$ div $\boldsymbol F \, dV $ directly and by using the Divergence Theorem. 
 
     Directly:
+    \begin{multicols}{2}
+    \noindent 
     \begin{align*}
         \int_S \divt \boldsymbol F \, dV &= \int_{-1}^1 \int_{-1}^1 \int_{-1}^1 1 + 2y + ye^{yz} \, dx \, dz \, dy \\
         &= \int_{-1}^1 \int_{-1}^1 2 + 4y + 2ye^{yz} \, dz \, dy \\
+    \end{align*}
+    \begin{align*}
         &= \int_{-1}^1 4 + 8y + \big[e^{yz}\big]_{-1}^1\, dy \\
         &= \int_{-1}^1 4 + 8y + e^y - e^{-y} \, dy \\
         &= 8 + 0 + [e^y]_{-1}^1 + [e^{-y}]_{-1}^1 = 8
     \end{align*}
+    \end{multicols} 
     Divergence:
         \[\int_R \divt \boldsymbol F \, dV = \int_S \boldsymbol F \cdot d\boldsymbol S\]
         where $S$ is the union of 6 planes with $-1 \leq x,y,z \leq 1$ and having normals in the $\pm x,y,z$ directions.
@@ -109,10 +110,10 @@ Mar 20th 2018}
         \end{align*}
         \newpage
         \item Let $B$ be the pyramid with top vertex (0,0,1) and base vertices (0,0,0), (1,0,0), (0,1,0) and (1,1,0). Let $S$ be the 2-dim closed surface bounding $B$, oriented in the outward direction. Use Gauss' theorem to calculate $\displaystyle \int_S \boldsymbol F \cdot \, d \boldsymbol S$, where $\boldsymbol F(x,y,z) = (x^2y,3y^2z,9z^2x).$
-            \[\int_R \divt \boldsymbol F \, dV = \int_S \boldsymbol F \cdot d\boldsymbol S\]
+            \[\iiint_R \divt \boldsymbol F \, dV = \iint_S \boldsymbol F \cdot d\boldsymbol S\]
             \begin{align*}
                 \divt \boldsymbol F &= 2xy + 6yz + 18zx \\
-                \int_R \divt \boldsymbol F &= \int_0^1 \int_0^{1-z} \int_0^{1-z} 2xy + 6yz + 18zx \, dx \, dy \, dz \\
+                \iiint_R \divt \boldsymbol F \, dV &= \int_0^1 \int_0^{1-z} \int_0^{1-z} 2xy + 6yz + 18zx \, dx \, dy \, dz \\
                 &= \int_0^1 \int_0^{1-z} (1-z)^2y + 6yz(1-z) + 9z(1-z)^2 \, dy \, dz \\
                 &= \int_0^1 (1/2)(1-z)^4 + 3z(1-z)^3 + 9z(1-z)^3 \, dz \\
                 &= \int_0^1 -\frac{23z^4}{2} + 34z^3 - 33z^2 + 10z + \frac{1}{2} \, dz \\
@@ -143,14 +144,83 @@ Mar 20th 2018}
 \newpage
 \item Let the electric field from a point source at the origin be given by $\displaystyle \boldsymbol E (\boldsymbol x) = \frac{\boldsymbol x}{\norm{\boldsymbol x}^3}$
     \begin{enumerate}
-        \item What is the outward flux of $\boldsymbol E$ across the surface $\displaystyle \frac{x^2}{3} + \frac{2y^2}{5} + z^2 = 7$.
+        \item What is the outward flux of $\boldsymbol E$ across the surface $\displaystyle \frac{x^2}{3} + \frac{2y^2}{5} + z^2 = 7$. 
+            
+            The surface is an ellipsoid centered around the origin. Since $\boldsymbol E$ follows the formula for Gauss' Law and the ellipsoid is closed and bounded, the flux of the surface is just $4\pi$.
+
         \item Show that the flux of $\boldsymbol E$ across that part of the sphere $x^2 + y^2 + z^2 = 25$ with $z \geq 3$ is equal to the flux across that part of the plane $z = 3$ with $x^2 + y^2 \leq 16$.
+            
+            \begin{proof}
+            First, examining the sphere, closing it with the disk at $z=3$ allows the Divergence Theorem to be applied, but that is exactly the other surface given. Label the union of the two surfaces $S$. Since both the hemisphere and plane are above the $xy$-plane, $\boldsymbol 0 \not \in S$, and since $\boldsymbol E$ satifies inverse square we have that the flux of the surface $S$ is 0 by Gauss'. Now applying divergence, since $S$ is closed and bounded, we have that the sum of the flux of the hemisphere $S_1$ and the plane $S_2$ is 0. Looking symbolically, we have
+                    \[\int_{S_1} \boldsymbol E \cdot \boldsymbol n_1 \, dS_1 = - \int_{S_2} \boldsymbol E \cdot \boldsymbol n_2 \, dS_2 \]
+                But now they are oriented in opposite direction since the outward normal of $S$ has the normal of $S_1$ pointing away from the origin, and vice versa for $S_2$. If we reorient $S_2$ in the same direction, (with $-\boldsymbol n_2$) we get:
+                    \[\int_{S_1} \boldsymbol E \cdot \boldsymbol n_1 \, dS_1 = \int_{S_2} \boldsymbol E \cdot \boldsymbol n_2 \, dS_2 \]
+                    So the flux of both surfaces is the same.
+            \end{proof}
+
     \end{enumerate} 
 \newpage
 \item Let $f : \mathbb{R}^n \rightarrow \mathbb{R}$ be given by $f(x,y,z) = x^2yz$ and let $\eta$ be the 2-form on $\mathbb{R}^3$ given by \[ \eta = (\sin x) \, dx \, dy + (e^y + xyz) \, dx \, dz + (x^2y^2) \, dy \, dz .\]
     \begin{enumerate}
         \item Compute $df$ and $d\eta$.
+
+            $f$ is a 0 form so  $\displaystyle df = \sum_{i=0}^n \parti{x_i}f\, dx_i \implies df = 2xyz \, dx + x^2z \, dy + x^2y \, dz$
+            \begin{align*} 
+                d\eta &= d(\sin x) \wedge dx \wedge dy + d(e^y + xyz) \wedge dx \wedge dz + d(x^2y^2) \wedge dy \wedge dz \\
+                &= (\cos x \, dx + 0 \, dy + 0 \, dz) \wedge dx \wedge dy + (yz \, dx + e^y + xz \, dy + xy \, dz) \wedge dx \wedge dz + d(x^2y^2) \wedge dy \wedge dz \\
+                &=  (yz \, dx + e^y + xz \, dy + xy \, dz) \wedge dx \wedge dz + d(x^2y^2) \wedge dy \wedge dz \\
+                &=  (yz \, dx + e^y + xz \, dy + xy \, dz) \wedge dx \wedge dz + (2xy^2 \, dx + 2x^2y \, dy) \wedge dy \wedge dz \\
+                &= (e^y + xz) \, dy \wedge dx \wedge dz + (2xy^2) \, dx \wedge dy \wedge dz \\
+                &= -(e^y + xz) \, dx \wedge dy \wedge dz + (2xy^2) \, dx \wedge dy \wedge dz \\
+                &= (2xy^2 - e^y + xz) \, dx \wedge dy \wedge dz \\
+            \end{align*} 
         \item Evaluate $df \wedge \eta$.
+            \begin{align*} 
+                & (2xyz \, dx + x^2z \, dy + x^2y \, dz) \wedge ((\sin x) \, dx \, dy + (e^y + xyz) \, dx \, dz) \\
+                &= (2xyz) \, dx \wedge ((\sin x) \, dx \, dy + (e^y + xyz) \, dx \, dz) \\
+                & \; \; \; \; + (x^2z) \, dy \wedge ((\sin x) \, dx \, dy + (e^y + xyz) \, dx \, dz) \\
+                & \; \; \; \; + (x^2y) \, dz \wedge ((\sin x) \, dx \, dy + (e^y + xyz) \, dx \, dz) \\
+                & = (x^2z) \, dy \wedge ((e^y + xyz) \, dx \, dz) + (x^2y) \, dz \wedge ((\sin x) \, dx \, dy) \\
+                & = ((x^2z)(e^y + xyz) \, dy \, dx \, dz) + ((x^2y) (\sin x) \, dz \, dx \, dy) \\
+                & = -((x^2z)(e^y + xyz) \, dx \, dy \, dz) + ((x^2y) (\sin x) \, dx \, dy \, dz ) \\
+                & = ((x^2y)(\sin x) - (x^2z)(e^y + xyz)) \, dx \, dy \, dz \\
+                & = x^2(y\sin x - ze^y - xyz^2) \, dx \, dy \, dz \\
+            \end{align*} 
+
     \end{enumerate} 
 \end{enumerate}
+\newpage
+\section*{Bonus}
+Use Gauss' Divergence Theorem to evaluate $\boldsymbol F = (x^3, 0, z^3)$ over the surface $S$, where $S$ is the upper hemisphere of $x^2 + y^2 + z^2 = 4$.
+    
+    For the Divergence Theorem to apply, the surface needs to be closed, so add the disk at $z = 0$ to enclose the upper hemisphere. Now the theorem applies for $S' = S \cup S_{D}$ (where $S_D$ is the disk) and gives that
+    \[ \iiint_R \divt \boldsymbol F \, dV = \iint_S \boldsymbol F \cdot d \boldsymbol S + \iint_{S_D} \boldsymbol F \cdot d \boldsymbol S \]
+    \[ \iff \iiint_R \divt \boldsymbol F \, dV - \iint_{S_D} \boldsymbol F \cdot d \boldsymbol S = \iint_S \boldsymbol F \cdot d \boldsymbol S \]
+    Evaluate $\displaystyle \iiint_R \divt \boldsymbol F \, dV$ using spherical polars, restricting $\varphi \in [0, \pi/2]$ to restrict to upper hemisphere, and the other variables the default limits for a sphere.
+    \begin{align*} 
+        \iiint_R \divt \boldsymbol F \, dV &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} (3(\rho \cos \theta \sin \varphi)^2 + 3(\rho \cos \varphi)^2 ) \rho^2 \sin \varphi \, d\varphi \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 3\rho^2 (\cos^2 \theta \sin^2 \varphi + \cos^2 \varphi)\rho^2 \sin \varphi \, d\varphi \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 3\rho^4 ((1 - \sin^2 \theta) \sin^2 \varphi + \cos^2 \varphi) \sin \varphi \, d\varphi \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 3\rho^4 (\sin^2 \varphi + \cos^2 \varphi  - \sin^2 \theta \sin^2 \varphi ) \sin \varphi \, d\varphi \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 3\rho^4 (1 - \sin^2 \theta (1 - \cos^2 \varphi)) \sin \varphi \, d\varphi \, d\theta \, d\rho \\
+    \end{align*} 
+    \begin{multicols}{2}
+    \begin{align*} 
+        &\; \; \; \; \text{Let } u = \cos \varphi ,\, du = -\sin \varphi \\
+        &= \int_0^{2} \int_0^{2\pi} \int_1^0 -3\rho^4 (1 - \sin^2 \theta (1 - u)) \, du \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} \int_1^0 -3\rho^4 (1 - \sin^2 \theta + u^2\sin^2 \theta ) \, du \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} -3\rho^4 \bigg[u - u\sin^2 \theta + \frac{1}{3}u^3\sin^2 \theta \bigg]_1^0 \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} -3\rho^4 (-1 +\sin^2 \theta - \frac{1}{3}\sin^2 \theta) \, d\theta \, d\rho \\
+    \end{align*} 
+    \begin{align*} 
+        &= \int_0^{2} \int_0^{2\pi} 3\rho^4 \bigg(1 - \frac{1 - \cos(2\theta)}{3}\bigg) \, d\theta \, d\rho \\
+        &= \int_0^{2} \int_0^{2\pi} 3\rho^4 \bigg(\frac{2}{3} + \frac{\cos(2\theta)}{3}\bigg) \, d\theta \, d\rho \\
+        &= \int_0^{2} \bigg[ 3\rho^4 \bigg(\frac{2}{3} \bigg) \theta \bigg]_0^{2\pi} \, d\rho \\
+        &= \int_0^{2} \rho^4(4\pi) \, d\rho \\
+        &= \bigg[\frac{4\rho^5\pi}{5} \bigg]_0^{2} = \frac{128\pi}{5}
+    \end{align*}  
+    \end{multicols}
+    Evaluate $\displaystyle \iint_{S_D} \boldsymbol F \cdot d \boldsymbol S$ using parametrization of $\boldsymbol \Phi (\theta, r) = (r\cos \theta, r\sin \theta, 0),\, r\in [0, 2], \theta \in [0,2\pi]$, with downward normal to point outward from upper hemispher. 
+   \[\iint_{S_D} \boldsymbol F \cdot d \boldsymbol S = \iint_{S_D} (*,*,0) \cdot (0,0,-1) \, dS = 0\]
+   \[ \implies \iint_S \boldsymbol F \cdot d \boldsymbol S = \frac{128\pi}{5} \]
 \end{document}
