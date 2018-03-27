@@ -182,7 +182,8 @@ Apr 3rd 2018}
             dy\, dz &= \begin{vmatrix}  r\cos \theta & \sin \theta \\ 0 & 1\end{vmatrix} = r \cos \theta\\
             dz\, dx &= \begin{vmatrix}  0 & 1 \\ -r\sin \theta & \cos \theta \end{vmatrix} = r \sin \theta\\
             \implies \omega &= (r \cos \theta)(r)(-r) - (r \sin \theta)(r \sin \theta) + (r)^2(r \cos \theta) \\
-            \implies \omega &= -r^2 \sin^2 \theta = -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg)
+            &= -r^2 \sin^2 \theta = -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg) \\
+            \implies \int_S \omega &= \int_1^3 \int_0^{2\pi} -r^2 \sin^2 \theta = -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg) \, d\theta \, dr \\
         \end{align*}
 
         \item $\omega = z \, dx \, dy + y \, dy \, dz$
