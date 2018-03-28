@@ -473,10 +473,12 @@ Apr 3rd 2018}
             
             To parametrize $S$, use a similar parametrization to the one in 
             question 6.
-            \[ \boldsymbol \Phi (\theta,r) 
+            \[ \boldsymbol \Phi (r, \theta)
             = (r\cos \theta, r\sin \theta, r^2),\;
             r \in [0,2] ,\, \theta \in [0,2\pi] \]
-
+            The normal vector is also oriented correctly.
+            \[ dx\, dy = \begin{vmatrix} \cos \theta & -r\sin \theta \\ 
+            \sin \theta & r \cos \theta \end{vmatrix} = r \geq 0 \] 
             \[ \overset{\text{Stokes' Thm}}{\implies} 
             \int_{\partial S = \boldsymbol \gamma} \omega = \int_S d \omega \]
             \begin{align*}
