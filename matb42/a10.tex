@@ -201,7 +201,9 @@ Apr 3rd 2018}
     Directly: 
     
     Parametrize the sphere $S$ as 
-    \[ \boldsymbol \Phi (\varphi, \theta) = ( \cos\theta \sin\varphi , \sin\theta \sin\varphi, \cos\varphi)\; \text{with }\theta \in [0,2\pi],\, \varphi \in [0,\pi] \]
+    \[ \boldsymbol \Phi (\varphi, \theta) = 
+    ( \cos\theta \sin\varphi , \sin\theta \sin\varphi, \cos\varphi)
+    \; \text{with }\theta \in [0,2\pi],\, \varphi \in [0,\pi] \]
     \begin{align*}
         \iint_S \omega &= \iint_{\boldsymbol \Phi} z \, dx \, dy 
         + \iint_{\boldsymbol \Phi} x \, dy \, dz 
@@ -232,7 +234,8 @@ Apr 3rd 2018}
         & - \sin \theta \sin \varphi  
         \\ \sin \theta \cos \varphi 
         & \cos \theta \sin \varphi 
-        \end{vmatrix} \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi 
+        \end{vmatrix} \, d\varphi \, d\theta 
+        + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi 
         \begin{vmatrix} \sin \theta \cos \varphi 
         & \cos \theta \sin \varphi \\ -\sin \varphi 
         & 0 \end{vmatrix}\, d\varphi \, d\theta \\
@@ -255,7 +258,8 @@ Apr 3rd 2018}
     + dx \, dy \, dz + dy dz dx = 3 \, dx \, dy \, dz \]
     \begin{align*}
         \iint_S \omega &= \iiint_R d \omega \\
-        &= 3 \int_0^{2\pi} \int_0^{\pi} \int_0^1 \rho^2 \sin(\varphi) \, d\rho \, d\varphi \, d\theta \\
+        &= 3 \int_0^{2\pi} \int_0^{\pi} \int_0^1 
+        \rho^2 \sin(\varphi) \, d\rho \, d\varphi \, d\theta \\
         &= \int_0^{2\pi} \int_0^{\pi} \sin(\varphi) \, d\varphi \, d\theta \\
         &= 2\pi \bigg[ -\cos \varphi\bigg]_0^{\pi} = 2\pi \\
     \end{align*}
