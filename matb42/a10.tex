@@ -81,7 +81,8 @@ Apr 3rd 2018}
                 = (\divt \boldsymbol F) \, dx \, dy \, dz
             \end{align*} 
         \newpage
-        \item Show that $dF_1 \wedge dF_2 \wedge dF_3 = (\text{det } D \boldsymbol F ) \, dx \, dy \, dz$
+        \item Show that $dF_1 \wedge dF_2 \wedge dF_3 
+        = (\text{det } D \boldsymbol F ) \, dx \, dy \, dz$
             \[ df = \sum_{i=0}^{n} \partis{x_i}{f} \, dx_i \]
             \begin{align*} 
                 dF_1 \wedge dF_2 \wedge dF_3 &= 
@@ -364,30 +365,45 @@ Apr 3rd 2018}
 
         $\Phi (u,v) = (u+v, uv^2, u^2 + v^2),\, 0 \leq u \leq 1,\, 0\leq v \leq 1$.
 
-            \[dx \, dy = \begin{vmatrix} 1 & 1 \\ v^2 & 2uv \end{vmatrix} = 2uv - v^2
-            ,\; \; dy \, dz = \begin{vmatrix} v^2 & 2uv \\ 2u & 2v \end{vmatrix} = 2v^3 - 4 u^2v \]
+            \[dx \, dy 
+            = \begin{vmatrix} 1 & 1 \\ v^2 & 2uv \end{vmatrix} 
+            = 2uv - v^2 ,\; \; dy \, dz 
+            = \begin{vmatrix} v^2 & 2uv \\ 2u & 2v \end{vmatrix} 
+            = 2v^3 - 4 u^2v \]
         \begin{align*}
-            \iint_S \omega &= \int_0^1 \int_0^1 (u^2 + v^2)(2uv - v^2) + (uv^2)(2v^3 - 4u^2v) \, du \, dv \\
-            &= \int_0^1 \int_0^1 (2u^3v - u^2v^2) + (2uv^3 - v^4) + (2uv^5 - 4u^3v^3) \, du \, dv \\
-            &= \int_0^1 \frac{v}{2} - \frac{v^2}{3} + v^3 - v^4 + v^5 - v^3 \, du \, dv \\
+            \iint_S \omega &= \int_0^1 \int_0^1 (u^2 + v^2)(2uv - v^2) 
+            + (uv^2)(2v^3 - 4u^2v) \, du \, dv \\
+            &= \int_0^1 \int_0^1 (2u^3v - u^2v^2) + (2uv^3 - v^4) 
+            + (2uv^5 - 4u^3v^3) \, du \, dv \\
+            &= \int_0^1 \frac{v}{2} - \frac{v^2}{3} + v^3 - v^4 
+            + v^5 - v^3 \, du \, dv \\
             &= \int_0^1 \frac{v}{2} - \frac{v^2}{3} - v^4 + v^5 \, du \, dv \\
-            &= \frac{1}{4} - \frac{1}{9} - \frac{1}{5} + \frac{1}{6}  = \frac{19}{180} \\
+            &= \frac{1}{4} - \frac{1}{9} - \frac{1}{5} + \frac{1}{6}  
+            = \frac{19}{180} \\
         \end{align*}
 
         \includegraphics[width=0.75\textwidth,center]{b42-a10-5d}
     \end{enumerate}
 
     \newpage
-    \item Verify Stokes' theorem by direct calculation of both sides when the surface $S$ is the piece of the paraboloid $z= x^2 + y^2 - 4$ with $z \leq 0$, oriented by the downward pointing unit normal, and $\omega = (2y-z)\, dx + (x + y^2 - z)\, dy + (4y-3x)\, dz$.
+    \item Verify Stokes' theorem by direct calculation of both sides when 
+    the surface $S$ is the piece of the paraboloid $z= x^2 + y^2 - 4$ with 
+    $z \leq 0$, oriented by the downward pointing unit normal, and $\omega 
+    = (2y-z)\, dx + (x + y^2 - z)\, dy + (4y-3x)\, dz$.
 
-    As part of your solution, provide a sketch showing the appropriate orientations. (For this question you may draw the sketch by hand or use symbolic algebra software.)
+    As part of your solution, provide a sketch showing the appropriate 
+    orientations. (For this question you may draw the sketch by hand 
+    or use symbolic algebra software.)
 
         Stokess' Theorem states that:
         \[ \int_{\partial_S} \omega = \int_S d\omega \]
 
         Calculation of $\displaystyle \int_{\partial_S} \omega $
 
-        The boundary curve of the plane is the circle at $z = 0$ with radius $2$. Since the normal vector is downward pointing, the curve is parametrized clockwise. So parametrize the curve as $\boldsymbol \gamma(\theta) = (-2\cos \theta, 2\sin \theta, 0)$
+        The boundary curve of the plane is the circle at $z = 0$ with radius 
+        $2$. Since the normal vector is downward pointing, the curve is 
+        parametrized clockwise. So parametrize the curve as 
+        $\boldsymbol \gamma(\theta) = (-2\cos \theta, 2\sin \theta, 0)$
         \begin{align*}
             &\int_0^{2\pi} (2(2\sin\theta) - 0)(2\sin \theta) + ((-2\cos \theta) + (2\sin \theta)^2 - 0)(2\cos \theta) \, d\theta \\
             &= \int_0^{2\pi} 8 \sin ^2 \theta - 4 \cos ^2 \theta + 8 \sin^2 \theta \cos \theta \, d \theta \\
