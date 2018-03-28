@@ -216,16 +216,37 @@ Apr 3rd 2018}
 
     As part of your solution, provide a sketch showing the appropriate orientations. (For this question you may draw the sketch by hand or use symbolic algebra software.)
 
+        Stokess' Theorem states that:
         \[ \int_{\partial_S} \omega = \int_S d\omega \]
 
-        The boundary curve of the plane is the circle at $z = 0$ with radius $2$. Since the normal vector is downward pointing, the curve is parametrized counter clockwise. So parametrize the curve as $\boldsymbol \gamma(\theta) = (2\cos \theta, 2\sin \theta, 0)$
+        Calculation of $\displaystyle \int_{\partial_S} \omega $
+
+        The boundary curve of the plane is the circle at $z = 0$ with radius $2$. Since the normal vector is downward pointing, the curve is parametrized clockwise. So parametrize the curve as $\boldsymbol \gamma(\theta) = (-2\cos \theta, 2\sin \theta, 0)$
         \begin{align*}
-            &\int_0^{2\pi} (2(2\sin\theta) - 0)(-2\sin \theta) + ((2\cos \theta) + (2\sin \theta)^2 - 0)(2\cos \theta) \, d\theta \\
-            &= \int_0^{2\pi} -8 \sin ^2 \theta + 4 \cos ^2 \theta + 8 \sin^2 \theta \cos \theta \, d \theta \\
-            &= \int_0^{2\pi} -4(1 - \cos(2\theta)) + 2 (1 + \cos(2\theta)) + 8 \sin^2 \theta \cos \theta \, d \theta \\
-            &= \int_0^{2\pi} -2 + 8 \sin^2 \theta \cos \theta \, d \theta \\
-            &= -4\pi + \bigg[\frac{8\sin^3\theta}{3}\bigg]_0^{2\pi} = -4\pi
+            &\int_0^{2\pi} (2(2\sin\theta) - 0)(2\sin \theta) + ((-2\cos \theta) + (2\sin \theta)^2 - 0)(2\cos \theta) \, d\theta \\
+            &= \int_0^{2\pi} 8 \sin ^2 \theta - 4 \cos ^2 \theta + 8 \sin^2 \theta \cos \theta \, d \theta \\
+            &= \int_0^{2\pi} 4(1 - \cos(2\theta)) - 2 (1 + \cos(2\theta)) + 8 \sin^2 \theta \cos \theta \, d \theta \\
+            &= \int_0^{2\pi} 2 + 8 \sin^2 \theta \cos \theta \, d \theta \\
+            &= 4\pi + \bigg[\frac{8\sin^3\theta}{3}\bigg]_0^{2\pi} = 4\pi
         \end{align*}
+
+        Calculation of $\displaystyle \int_{S} d\omega$
+        
+        (Using the parametrization $\boldsymbol \Phi (\theta,r) = (r\cos \theta, r\sin \theta, r^2 - 4),\; r \in [0, 2],\, \theta \in [0, 2\pi])$
+        \[ dx\, dy = \begin{vmatrix} -r\sin\theta & \cos \theta \\ r \cos \theta & \sin \theta \end{vmatrix} = -r\]
+        So the orientation is in the correct direction.
+        \begin{align*}
+            d\omega &= d(2y-z)\, dx + d(x+y^2-z)\, dy + d(4y -3x)\, dz \\
+            &= (2\, dy - \,dz) \wedge dx + (dx - dz) \wedge dy + (4 \, dy -  3\, dx) \wedge dz \\
+            &= -2\, dx\, dy - \,dz \, dx + dx \, dy + dy \, dz + 4 \, dy \, dz +  3\, dz \, dx \\
+            &= -\, dx\, dy + 5 \, dy \, dz +  2\, dz \, dx \\
+            \implies \int_S d\omega &= \int_0^{2\pi} \int_0^2 
+                - \begin{vmatrix} -r\sin\theta & \cos \theta \\ r \cos \theta & \sin \theta \end{vmatrix}
+                + 5 \begin{vmatrix} r\cos \theta & \sin \theta \\ 0 & 2r \end{vmatrix}
+                + 2 \begin{vmatrix} 0 & 2r \\ -r\sin\theta & \cos \theta \end{vmatrix} \, dr \, d\theta \\
+                    &= \int_0^{2\pi} \int_0^2 r + 5 (2r^2\cos \theta) + 2(2r^2 \sin \theta) \, dr \, d\theta\\
+                    &= 2\pi \int_0^2 r \, dr = 4\pi \\
+        \end{align*} 
 
     \newpage
     \item Let $\omega = yz\, dx - xz \, dy + xy \, dz$ and let $\boldsymbol \gamma(t) = (2\cos t, 2\sin t, 4),\, 0 \leq t \leq 2\pi$.
@@ -244,7 +265,27 @@ Apr 3rd 2018}
     \item 
     \begin{enumerate}
         \item Marsden \& Tromba, page 451, \# 13.
+
+            Let $S$ be the capped cylindrical surface shown in Figure 1. 
+            $S$ is the union of two surfaces, $S_1$ and $S_2$, where $S_1$ 
+            is the set of $(x,y,z)$ with $x^2 + y^2 = 1$, $0 \leq z \leq 1$, 
+            and $S_2$ is the set of $(x,y,z)$ with $x^2 + y^2 + (z-1)^2 = 1$,
+            $z \geq 1$. Set $\boldsymbol F (x,y,z) = (zx + z^2y + x) 
+            \boldsymbol i + (z^3yx + y)\boldsymbol j + z^4x^2\boldsymbol k$.
+            Compute $\displaystyle \iint_S (\nabla \times \boldsymbol F) \cdot
+            d \boldsymbol S$. (\textsc{Hint}: Stokes' theorem holds for this
+            surface.)
+
+
         \item Marsden \& Tromba, page 451, \# 15.
+
+            Evaluate the integral $\displaystyle \iint_S (\nabla \times 
+            \boldsymbol F) \cdot d \boldsymbol S$, where $S$ is the portion
+            of the surface of a sphere defined by $x^2 + y^2 + z^2 = 1$ and
+            $x + y + z = \geq 1$, and where $\boldsymbol F = \boldsymbol r
+            \times ( \boldsymbol i + \boldsymbol j + \boldsymbol k),\, 
+            \boldsymbol r = x \boldsymbol i + y \boldsymbol j + z \boldsymbol
+            k.$
         \item Use symbolic algebra software to sketch the surfaces in parts (a) and (b).
     \end{enumerate}
     
