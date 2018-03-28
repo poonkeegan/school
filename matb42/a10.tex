@@ -305,13 +305,19 @@ Apr 3rd 2018}
         \newpage
         \item $\omega = z \, dx \, dy + x \, dy \, dz + y \, dz \, dx$
 
-        $S$ is the part of the plane $x+y+z = 1$ which lies in the first octant oriented by the unit normal which points upward.
+        $S$ is the part of the plane $x+y+z = 1$ which lies in the first 
+        octant oriented by the unit normal which points upward.
 
         Use the natural parametrization for $S$:
-        \[ \boldsymbol \Phi (x, y) = (x, y, 1 - x - y),\; x \in [0,1],\, y \in [0, 1-x] \]
+        \[ \boldsymbol \Phi (x, y) = (x, y, 1 - x - y),\; 
+        x \in [0,1],\, y \in [0, 1-x] \]
         \begin{align*}
-            dx\, dy &= \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} > 0 \, \forall x,y \implies \text{ Correct orientation} \\
-            \int_S \omega &= \int_0^1 \int_0^{1-x} (1 - x - y) + x\begin{vmatrix} 0 & 1 \\ -1 & -1 \end{vmatrix}  + y\begin{vmatrix} -1 & -1 \\ 1 & 0 \end{vmatrix} \, dy \,dx \\
+            dx\, dy &= \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} > 0 
+            \, \forall x,y \implies \text{ Correct orientation} \\
+            \int_S \omega &= 
+            \int_0^1 \int_0^{1-x} (1 - x - y) 
+            + x\begin{vmatrix} 0 & 1 \\ -1 & -1 \end{vmatrix}  
+            + y\begin{vmatrix} -1 & -1 \\ 1 & 0 \end{vmatrix} \, dy \,dx \\
             &= \int_0^1 \int_0^{1-x} 1 \, dy \,dx = \int_0^1 1 - x \,dx \\
             &= 1 - \frac{1}{2} = \frac{1}{2} 
         \end{align*}
@@ -321,14 +327,27 @@ Apr 3rd 2018}
         \newpage
         \item $\omega  = xz \, dx \, dy + y \, dx \, dz + z^2 \, dy \, dz$
         
-        $S$ is the part of the cone $z = \sqrt{x^2 + y^2}$ between $z=1$ and $z=3$,  oriented by the unit normal with negative $z$-component.
-        \[ \boldsymbol \Phi (\theta, r) = (r\cos \theta, r\sin \theta, r) ,\; r \in [1,3] ,\, \theta \in [0,2\pi] \]
+        $S$ is the part of the cone $z = \sqrt{x^2 + y^2}$ between $z=1$ 
+        and $z=3$,  oriented by the unit normal with negative $z$-component.
+        \[ \boldsymbol \Phi (\theta, r) = 
+        (r\cos \theta, r\sin \theta, r) 
+        ,\; r \in [1,3] ,\, \theta \in [0,2\pi] \]
         \begin{align*}
-            dx\, dy &= \begin{vmatrix} -r\sin \theta & \cos \theta \\ r\cos \theta & \sin \theta \end{vmatrix} = -r < 0 \text{ for } r > 1 \\
-            dy\, dz &= \begin{vmatrix}  r\cos \theta & \sin \theta \\ 0 & 1\end{vmatrix} = r \cos \theta\\
-            dz\, dx &= \begin{vmatrix}  0 & 1 \\ -r\sin \theta & \cos \theta \end{vmatrix} = r \sin \theta\\
-            \implies \omega &= (r \cos \theta)(r)(-r) - (r \sin \theta)(r \sin \theta) + (r)^2(r \cos \theta) \\
-            &= -r^2 \sin^2 \theta = -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg) \\
+            dx\, dy &= 
+            \begin{vmatrix} -r\sin \theta & \cos \theta 
+            \\ r\cos \theta & \sin \theta \end{vmatrix} = -r < 0 
+            \text{ for } r > 1 \\
+            dy\, dz &= 
+            \begin{vmatrix}  r\cos \theta & \sin \theta \\ 0 & 1\end{vmatrix} 
+            = r \cos \theta\\
+            dz\, dx &= 
+            \begin{vmatrix}  0 & 1 \\ -r\sin \theta & \cos \theta \end{vmatrix}
+            = r \sin \theta\\
+            \implies \omega &= 
+            (r \cos \theta)(r)(-r) - (r \sin \theta)(r \sin \theta) 
+            + (r)^2(r \cos \theta) \\
+            &= -r^2 \sin^2 \theta = 
+            -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg) \\
             \implies \int_S \omega &= \int_1^3 \int_0^{2\pi} -r^2\bigg( \frac{1}{2} - \frac{\cos(2\theta)}{2} \bigg) \, d\theta \, dr \\
             &= \int_1^3 -r^2\pi \, dr = -\pi \bigg[ \frac{r^3}{3} \bigg]_1^3 = -\frac{26\pi}{3}\\
         \end{align*}
