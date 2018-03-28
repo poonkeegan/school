@@ -405,17 +405,27 @@ Apr 3rd 2018}
         parametrized clockwise. So parametrize the curve as 
         $\boldsymbol \gamma(\theta) = (-2\cos \theta, 2\sin \theta, 0)$
         \begin{align*}
-            &\int_0^{2\pi} (2(2\sin\theta) - 0)(2\sin \theta) + ((-2\cos \theta) + (2\sin \theta)^2 - 0)(2\cos \theta) \, d\theta \\
-            &= \int_0^{2\pi} 8 \sin ^2 \theta - 4 \cos ^2 \theta + 8 \sin^2 \theta \cos \theta \, d \theta \\
-            &= \int_0^{2\pi} 4(1 - \cos(2\theta)) - 2 (1 + \cos(2\theta)) + 8 \sin^2 \theta \cos \theta \, d \theta \\
+            &\int_0^{2\pi} (2(2\sin\theta) - 0)(2\sin \theta) 
+            + ((-2\cos \theta) 
+            + (2\sin \theta)^2 - 0)(2\cos \theta) \, d\theta \\
+            &= \int_0^{2\pi} 8 \sin ^2 \theta - 4 \cos ^2 \theta 
+            + 8 \sin^2 \theta \cos \theta \, d \theta \\
+            &= \int_0^{2\pi} 4(1 - \cos(2\theta)) - 2 (1 + \cos(2\theta)) 
+            + 8 \sin^2 \theta \cos \theta \, d \theta \\
             &= \int_0^{2\pi} 2 + 8 \sin^2 \theta \cos \theta \, d \theta \\
             &= 4\pi + \bigg[\frac{8\sin^3\theta}{3}\bigg]_0^{2\pi} = 4\pi
         \end{align*}
 
         Calculation of $\displaystyle \int_{S} d\omega$
         
-        (Using the parametrization $\boldsymbol \Phi (\theta,r) = (r\cos \theta, r\sin \theta, r^2 - 4),\; r \in [0, 2],\, \theta \in [0, 2\pi])$
-        \[ dx\, dy = \begin{vmatrix} -r\sin\theta & \cos \theta \\ r \cos \theta & \sin \theta \end{vmatrix} = -r\]
+        (Using the parametrization 
+        $\boldsymbol \Phi (\theta,r) 
+        = (r\cos \theta, r\sin \theta, r^2 - 4),\; 
+        r \in [0, 2],\, \theta \in [0, 2\pi])$
+        \[ dx\, dy = 
+        \begin{vmatrix} -r\sin\theta & \cos \theta \\
+                         r \cos \theta & \sin \theta 
+        \end{vmatrix} = -r\]
         So the orientation is in the correct direction.
         \begin{align*}
             d\omega &= d(2y-z)\, dx + d(x+y^2-z)\, dy + d(4y -3x)\, dz \\
@@ -439,7 +449,8 @@ Apr 3rd 2018}
         \end{align*} 
 
     \newpage
-    \item Let $\omega = yz\, dx - xz \, dy + xy \, dz$ and let $\boldsymbol \gamma(t) = (2\cos t, 2\sin t, 4),\, 0 \leq t \leq 2\pi$.
+    \item Let $\omega = yz\, dx - xz \, dy + xy \, dz$ and 
+    let $\boldsymbol \gamma(t) = (2\cos t, 2\sin t, 4),\, 0 \leq t \leq 2\pi$.
 
         \begin{align*}
             d\omega &= d(yz) \wedge dx - d(xy) \wedge dy + d(xy) \wedge dz \\
@@ -457,8 +468,8 @@ Apr 3rd 2018}
 
             Note that the boundary of $S$ at $z = 4$ is $\boldsymbol \gamma$.
             This means that, if the orientation is compatible, Stokes' theorem 
-            will apply. Since the orientation of the curve is counter clockwise,
-            the normal vector should be pointing up for the surface.
+            will apply. Since the orientation of the curve is counter 
+            clockwise, the normal vector should be pointing up for the surface.
 
             \[ \overset{\text{Stokes' Thm}}{\implies} 
             \int_{\partial S = \boldsymbol \gamma} \omega = \int_S d \omega \]
