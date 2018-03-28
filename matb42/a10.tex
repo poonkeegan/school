@@ -162,14 +162,19 @@ Apr 3rd 2018}
             \end{align*} 
     \end{enumerate}
     \newpage
-    \item Let $\omega$ be a $k$-form and let $\eta$ be a $\ell$-form. Find $d(d\omega \wedge \eta - \omega \wedge d\eta)$.
+    \item Let $\omega$ be a $k$-form and let $\eta$ be a $\ell$-form. 
+    Find $d(d\omega \wedge \eta - \omega \wedge d\eta)$.
         \begin{align*}
-            d(d\omega \wedge \eta - \omega \wedge d\eta) &= d(d\omega \wedge \eta) - d(\omega \wedge d\eta) \\
-            &= (d^2 \omega \wedge \eta + (-1)^{k+1} (d \omega \wedge d \eta)) - (d \omega \wedge d \eta + (-1)^k (\omega \wedge d^2 \eta)) \\
+            d(d\omega \wedge \eta - \omega \wedge d\eta) 
+            &= d(d\omega \wedge \eta) - d(\omega \wedge d\eta) \\
+            &= (d^2 \omega \wedge \eta 
+            + (-1)^{k+1} (d \omega \wedge d \eta)) 
+            - (d \omega \wedge d \eta + (-1)^k (\omega \wedge d^2 \eta)) \\
             &= (-1)^{k+1} d \omega \wedge d \eta - d \omega \wedge d \eta \\
             &= ((-1)^{k+1} - 1) d \omega \wedge d \eta \\
         \end{align*} 
-    \item Determine if $\eta = y \, dx \, dy + xz \, dy \, dz - yz \, dz \, dx$ is exact. If $\eta$ is exact find a 1-form $\omega$ with $d\omega = \eta$.
+    \item Determine if $\eta = y \, dx \, dy + xz \, dy \, dz - yz \, dz \, dx$
+    is exact. If $\eta$ is exact find a 1-form $\omega$ with $d\omega = \eta$.
     Check if $d\eta = \mathcal{O}$ to see if $\eta$ closed.
 
     (compare with page 461, \# 22)
@@ -177,15 +182,19 @@ Apr 3rd 2018}
     \begin{align*}
         d\eta &= d (y\, dx \, dy + xz \, dy \, dz - yz \, dz \, dx) \\
         &= (dy \, dx \, dy + d(xz)\wedge  dy \, dz - d(yz) \wedge dz \, dx) \\
-        &= ((z \, dx + x \, dz)\wedge  dy \, dz - (z\, dy + y \, dz) \wedge dz \, dx) \\
+        &= ((z \, dx + x \, dz)\wedge  dy \, dz 
+        - (z\, dy + y \, dz) \wedge dz \, dx) \\
         &= (z \, dx) \wedge dy \, dz - (z\, dy) \wedge dz \, dx \\
         &= z \, dx \, dy \, dz - z \, dx \, dy \, dz = \mathcal{O}\\
     \end{align*}
-    Since the polynomials of $x$, $y$ and $z$ defined throughout $\mathbb{R}^3$ and $\eta$ closed, it is exact. By inspection, 
+    Since the polynomials of $x$, $y$ and $z$ defined throughout $\mathbb{R}^3$
+    and $\eta$ closed, it is exact. By inspection, 
     \[ \omega = xy \, dy + xyz \, dz \]
     \newpage
     \item
-    Evaluate $\displaystyle \iint_S \omega$, where $\omega = z\, dx \, dy + x \, dy \, dz + y \, dz \, dx$ and $S$ is the unit sphere, directly and by the Divergence Theorem.
+    Evaluate $\displaystyle \iint_S \omega$, where 
+    $\omega = z\, dx \, dy + x \, dy \, dz + y \, dz \, dx$ 
+    and $S$ is the unit sphere, directly and by the Divergence Theorem.
 
     (page 489, \#12)
 
@@ -316,15 +325,23 @@ Apr 3rd 2018}
         So the orientation is in the correct direction.
         \begin{align*}
             d\omega &= d(2y-z)\, dx + d(x+y^2-z)\, dy + d(4y -3x)\, dz \\
-            &= (2\, dy - \,dz) \wedge dx + (dx - dz) \wedge dy + (4 \, dy -  3\, dx) \wedge dz \\
-            &= -2\, dx\, dy - \,dz \, dx + dx \, dy + dy \, dz + 4 \, dy \, dz +  3\, dz \, dx \\
+            &= (2\, dy - \,dz) \wedge dx 
+            + (dx - dz) \wedge dy 
+            + (4 \, dy -  3\, dx) \wedge dz \\
+            &= -2\, dx\, dy - \,dz \, dx + dx \, dy + dy \, dz 
+            + 4 \, dy \, dz +  3\, dz \, dx \\
             &= -\, dx\, dy + 5 \, dy \, dz +  2\, dz \, dx \\
             \implies \int_S d\omega &= \int_0^{2\pi} \int_0^2 
-                - \begin{vmatrix} -r\sin\theta & \cos \theta \\ r \cos \theta & \sin \theta \end{vmatrix}
-                + 5 \begin{vmatrix} r\cos \theta & \sin \theta \\ 0 & 2r \end{vmatrix}
-                + 2 \begin{vmatrix} 0 & 2r \\ -r\sin\theta & \cos \theta \end{vmatrix} \, dr \, d\theta \\
-                    &= \int_0^{2\pi} \int_0^2 r + 5 (2r^2\cos \theta) + 2(2r^2 \sin \theta) \, dr \, d\theta\\
-                    &= 2\pi \int_0^2 r \, dr = 4\pi \\
+                - \begin{vmatrix} -r \sin\theta & \cos \theta \\ 
+                                   r \cos \theta & \sin \theta \end{vmatrix}
+                + 5 \begin{vmatrix} r\cos \theta & \sin \theta \\ 
+                                    0 & 2r \end{vmatrix}
+                + 2 \begin{vmatrix} 0 & 2r \\ 
+                                    -r\sin\theta & \cos \theta \end{vmatrix} 
+                                    \, dr \, d\theta \\
+            &= \int_0^{2\pi} \int_0^2 r + 5 (2r^2\cos \theta) 
+            + 2(2r^2 \sin \theta) \, dr \, d\theta\\
+            &= 2\pi \int_0^2 r \, dr = 4\pi \\
         \end{align*} 
 
     \newpage
