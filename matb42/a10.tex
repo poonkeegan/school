@@ -283,13 +283,17 @@ Apr 3rd 2018}
                 &= -16 \pi \bigg[ \frac{r^2}{2} \bigg]_0^2 = -32 \pi \\
             \end{align*} 
 
-        \item Let $S'$ be the part of the plane $z=4$ with $x^2 + y^2 \leq 4$. Use Stokes' theorem to give an integral over $S'$ which is equivalent to $\displaystyle \int_{\gamma} \omega$. Verify by direct computation.
+        \item Let $S'$ be the part of the plane $z=4$ with $x^2 + y^2 \leq 4$.
+        Use Stokes' theorem to give an integral over $S'$ which is equivalent 
+        to $\displaystyle \int_{\gamma} \omega$. Verify by direct computation.
         
             Note that the disk $S'$ can be parametrized as $\boldsymbol \Phi
             (r, \theta) = (r \cos \theta, r \sin \theta, 4),\; r \in [0,2],\,
             \theta \in [0,2\pi]$ as we have that
             \[ dx\, dy = \begin{vmatrix} \cos \theta & -r\sin \theta \\ 
             \sin \theta & r \cos \theta \end{vmatrix} = r \geq 0 \] 
+            Also, the same conditions hold for the normal vector as the curve
+            at the boundary has not changed.
 
             \begin{align*}
                 \int_{\boldsymbol \gamma} \omega &= \int_0^{2\pi} 
