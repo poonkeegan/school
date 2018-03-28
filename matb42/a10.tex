@@ -265,22 +265,34 @@ Apr 3rd 2018}
     \end{align*}
 
     \newpage
-    \item Compute $\displaystyle \int_S \omega$ and use symbolic algebra software to sketch $S$ in each of the following.
+    \item Compute $\displaystyle \int_S \omega$ and use symbolic algebra 
+    software to sketch $S$ in each of the following.
     \begin{enumerate}
         \item $\omega = xz \, dx \, dy + x^2 \, dy \, dz + dy \, dz \, dx$
   
-        S is the upper hemisphere $x^2 + y^2 + z^2 = 4$, $z \geq 0$ with $\boldsymbol n$ pointing upward.
+        S is the upper hemisphere $x^2 + y^2 + z^2 = 4$, $z \geq 0$ with 
+        $\boldsymbol n$ pointing upward.
         
-        Close it with the disk of radius 2 on the $xy$-plane to apply divergence theorem
-        \[ \boldsymbol \Phi(\theta, r) = (r \cos \theta, r \sin \theta, 0),\; r \in [0,2],\, \theta \in [0, 2\pi] \]
+        Close it with the disk of radius 2 on the $xy$-plane to apply divergence 
+        theorem
+        \[ \boldsymbol \Phi(\theta, r) = 
+        (r \cos \theta, r \sin \theta, 0),\; 
+        r \in [0,2],\, \theta \in [0, 2\pi] \]
         \begin{align*}
-            dx\, dy &= \begin{vmatrix} -r\sin \theta & \cos \theta \\ r \cos \theta &  \sin \theta \end{vmatrix} = -2r \\
-            &\text{ Which is negative, so correct orientation for normal pointing down.} \\
+            dx\, dy &= 
+            \begin{vmatrix} -r\sin \theta & \cos \theta \\ 
+                             r \cos \theta &  \sin \theta 
+            \end{vmatrix} = -2r \\
+            &\text{ Which is negative, 
+            so correct orientation for normal pointing down.} \\
             dy\, dz &= 0 \text{ Since $z$ is 0} \\
             dz\, dx &= 0 \\
-            \overset{\text{Div Thm}}{\implies} \iint_S \omega &= \iiint_R d\omega - \iint_{\boldsymbol \Phi} \omega \\
-            &\text{But } z = 0 \implies xz \, dx \, dy = 0 \implies \iint_{\boldsymbol \Phi} \omega = 0 \\
-            d\omega &= x \, dx \, dy \, dz + 2x \, dx \, dy \, dz = 3x \, dx \, dy \, dz \\
+            \overset{\text{Div Thm}}{\implies} \iint_S \omega &= 
+            \iiint_R d\omega - \iint_{\boldsymbol \Phi} \omega \\
+            &\text{But } z = 0 \implies xz \, dx \, dy = 0 
+            \implies \iint_{\boldsymbol \Phi} \omega = 0 \\
+            d\omega &= x \, dx \, dy \, dz + 2x \, dx \, dy \, dz 
+            = 3x \, dx \, dy \, dz \\
             \iiint_R d\omega &= \int_0^{2} \int_0^{2\pi} \int_0^{\frac{\pi}{2}} 3(\rho \sin \varphi \cos \theta) \rho^2 \sin \varphi \, d\varphi \, d\theta \, d\rho \\
             &= 0 \text{ Since integrating cos over full period} \\
             \implies \int_S \omega = 0
