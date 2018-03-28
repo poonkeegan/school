@@ -270,12 +270,6 @@ Apr 3rd 2018}
             will apply. Since the orientation of the curve is counter clockwise,
             the normal vector should be pointing up for the surface.
 
-            Note that the disk $S$ can be parametrized as $\boldsymbol \Phi
-            (r, \theta) = (r \cos \theta, r \sin \theta, 4),\; r \in [0,2],\,
-            \theta \in [0,2\pi]$ as we have that
-            \[ dx\, dy = \begin{vmatrix} \cos \theta & -r\sin \theta \\ 
-            \sin \theta & r \cos \theta \end{vmatrix} = r \geq 0 \] 
-
             \[ \overset{\text{Stokes' Thm}}{\implies} 
             \int_{\partial S = \boldsymbol \gamma} \omega = \int_S d \omega \]
             \begin{align*}
@@ -291,6 +285,23 @@ Apr 3rd 2018}
 
         \item Let $S'$ be the part of the plane $z=4$ with $x^2 + y^2 \leq 4$. Use Stokes' theorem to give an integral over $S'$ which is equivalent to $\displaystyle \int_{\gamma} \omega$. Verify by direct computation.
         
+            Note that the disk $S'$ can be parametrized as $\boldsymbol \Phi
+            (r, \theta) = (r \cos \theta, r \sin \theta, 4),\; r \in [0,2],\,
+            \theta \in [0,2\pi]$ as we have that
+            \[ dx\, dy = \begin{vmatrix} \cos \theta & -r\sin \theta \\ 
+            \sin \theta & r \cos \theta \end{vmatrix} = r \geq 0 \] 
+
+            \begin{align*}
+                \int_{\boldsymbol \gamma} \omega &= \int_0^{2\pi} 
+                (2\sin t)(4)(-2\sin t) - (2\cos t)4(2\cos t) \, dt \\
+                &= \int_0^{2\pi}  -16(\sin ^2 t + \cos ^2 t) \, dt \\
+                &= \int_0^{2\pi} -16 \, dt  = -32 \pi\\
+                \int_{S'} d \omega &= \int_0^2 \int_0^{2\pi} -2(4)(r) + 0 \,
+                d\theta \, dr \\
+                &= \int_0^2 -16 \pi r \, d\theta \, dr \\
+                &= -16 \pi \bigg[ \frac{r^2}{2} \bigg]_0^2 = -32 \pi \\
+            \end{align*} 
+
         \item Can you give another explanation as to why the integrals you get over $S$ and $S'$ should have the same value?
 
     \end{enumerate}
