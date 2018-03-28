@@ -203,18 +203,49 @@ Apr 3rd 2018}
     Parametrize the sphere $S$ as 
     \[ \boldsymbol \Phi (\varphi, \theta) = ( \cos\theta \sin\varphi , \sin\theta \sin\varphi, \cos\varphi)\; \text{with }\theta \in [0,2\pi],\, \varphi \in [0,\pi] \]
     \begin{align*}
-        \iint_S \omega &= \iint_{\boldsymbol \Phi} z \, dx \, dy + \iint_{\boldsymbol \Phi} x \, dy \, dz + \iint_{\boldsymbol \Phi} y \, dz \, dx \\
-        &= \int_0^{2\pi} \int_0^{\pi} \cos \varphi \begin{vmatrix}\partis{\varphi}{\cos\theta \sin \varphi} & \partis{\theta}{\cos\theta \sin \varphi} \\ \partis{\varphi}{\sin\theta \sin\varphi} & \partis{\theta}{\sin\theta \sin\varphi} \end{vmatrix} \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi \begin{vmatrix} \partis{\varphi}{\sin\theta \sin\varphi} & \partis{\theta}{\sin\theta \sin\varphi} \\ \partis{\varphi}{\cos \varphi} & \partis{\theta}{\cos \varphi} \end{vmatrix}\, d\varphi \, d\theta \\
-        & \; \; \; \; + \int_0^{2\pi} \int_0^{\pi} \sin\theta \sin\varphi \begin{vmatrix} \partis{\varphi}{\cos \varphi} & \partis{\theta}{\cos \varphi} \\ \partis{\varphi}{\cos\theta \sin\varphi} & \partis{\theta}{\cos\theta \sin\varphi}\end{vmatrix}\, d\varphi \, d\theta \\
-        &= \int_0^{2\pi} \int_0^{\pi} \cos \varphi \begin{vmatrix}\cos \theta \cos \varphi & - \sin \theta \sin \varphi  \\ \sin \theta \cos \varphi & \cos \theta \sin \varphi \end{vmatrix} \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi \begin{vmatrix} \sin \theta \cos \varphi & \cos \theta \sin \varphi \\ -\sin \varphi & 0 \end{vmatrix}\, d\varphi \, d\theta \\
-        & \; \; \; \; + \int_0^{2\pi} \int_0^{\pi} \sin\theta \sin\varphi \begin{vmatrix} -\sin \varphi & 0 \\ \cos \theta \cos \varphi & - \sin \theta \sin \varphi \end{vmatrix}\, d\varphi \, d\theta \\
-        &= \int_0^{2\pi} \int_0^{\pi} \sin \varphi \cos^2 \varphi \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\pi} \cos^2\theta \sin^3\varphi + \sin^2\theta \sin^3\varphi \, d\varphi \, d\theta \\
-        &= \int_0^{2\pi} \int_0^{\pi} \sin \varphi (\cos^2 \varphi + \sin^2 \varphi) \, d\varphi \, d\theta  \\
+        \iint_S \omega &= \iint_{\boldsymbol \Phi} z \, dx \, dy 
+        + \iint_{\boldsymbol \Phi} x \, dy \, dz 
+        + \iint_{\boldsymbol \Phi} y \, dz \, dx \\
+        &= \int_0^{2\pi} \int_0^{\pi} 
+        \cos \varphi 
+        \begin{vmatrix}
+        \partis{\varphi}{\cos\theta \sin \varphi} 
+        & \partis{\theta}{\cos\theta \sin \varphi} 
+        \\ \partis{\varphi}{\sin\theta \sin\varphi} 
+        & \partis{\theta}{\sin\theta \sin\varphi} \end{vmatrix} \, d\varphi \, d\theta 
+        + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi 
+        \begin{vmatrix} \partis{\varphi}{\sin\theta \sin\varphi} 
+        & \partis{\theta}{\sin\theta \sin\varphi} \\ \partis{\varphi}{\cos \varphi} 
+        & \partis{\theta}{\cos \varphi} \end{vmatrix}\, d\varphi \, d\theta \\
+        & \; \; \; \; 
+        + \int_0^{2\pi} \int_0^{\pi} \sin\theta \sin\varphi 
+        \begin{vmatrix} \partis{\varphi}{\cos \varphi} 
+        & \partis{\theta}{\cos \varphi} \\ \partis{\varphi}{\cos\theta \sin\varphi} 
+        & \partis{\theta}{\cos\theta \sin\varphi}\end{vmatrix}\, d\varphi \, d\theta \\
+        
+        &= \int_0^{2\pi} \int_0^{\pi} \cos \varphi 
+        \begin{vmatrix}\cos \theta \cos \varphi 
+        & - \sin \theta \sin \varphi  \\ \sin \theta \cos \varphi 
+        & \cos \theta \sin \varphi \end{vmatrix} \, d\varphi \, d\theta + \int_0^{2\pi} \int_0^{\pi} \cos\theta \sin\varphi 
+        \begin{vmatrix} \sin \theta \cos \varphi 
+        & \cos \theta \sin \varphi \\ -\sin \varphi 
+        & 0 \end{vmatrix}\, d\varphi \, d\theta \\
+        & \; \; \; \; 
+        + \int_0^{2\pi} \int_0^{\pi} \sin\theta \sin\varphi 
+        \begin{vmatrix} -\sin \varphi 
+        & 0 \\ \cos \theta \cos \varphi 
+        & - \sin \theta \sin \varphi \end{vmatrix}\, d\varphi \, d\theta \\
+        &= \int_0^{2\pi} \int_0^{\pi} \sin \varphi \cos^2 \varphi \, d\varphi \, d\theta 
+        + \int_0^{2\pi} \int_0^{\pi} \cos^2\theta \sin^3\varphi 
+        + \sin^2\theta \sin^3\varphi \, d\varphi \, d\theta \\
+        &= \int_0^{2\pi} \int_0^{\pi} \sin \varphi (\cos^2 \varphi 
+        + \sin^2 \varphi) \, d\varphi \, d\theta  \\
         &= \int_0^{2\pi} \int_0^{\pi} \sin \varphi  \, d\varphi \, d\theta  \\
         &= 2\pi \bigg[ -\cos \varphi\bigg]_0^{\pi} = 2\pi \\
     \end{align*}
     Divergence Theorem:
-    \[ d\omega = dz \, dy \, dx + dx \, dy \, dz + dy dz dx = 3 \, dx \, dy \, dz \]
+    \[ d\omega = dz \, dy \, dx 
+    + dx \, dy \, dz + dy dz dx = 3 \, dx \, dy \, dz \]
     \begin{align*}
         \iint_S \omega &= \iiint_R d \omega \\
         &= 3 \int_0^{2\pi} \int_0^{\pi} \int_0^1 \rho^2 \sin(\varphi) \, d\rho \, d\varphi \, d\theta \\
