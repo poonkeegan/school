@@ -39,17 +39,45 @@ Apr 3rd 2018}
             (page 489, \#6)
 
             \begin{align*} 
-                \eta &= F_3 \, dx \, dy + F_1 \, dy \, dz + F_2 \, dz \, dx \\
-                d\eta &= d(F_3 \, dx \, dy + F_1 \, dy \, dz + F_2 \, dz \, dx) \\
-                &= (dF_3)\, dx \, dy + (dF_1) \, dy \, dz + (dF_2) \, dz \, dx \\
-                &= (\parti{x} F_3 \,dx + \parti{y} F_3 \, dy + \parti{z} F_3  \, dz)\, dx \, dy + (dF_1) \, dy \, dz + (dF_2) \, dz \, dx \\
-                &= \parti{z} F_3  \, dz \, dx \, dy + (dF_1) \, dy \, dz + (dF_2) \, dz \, dx \\
-                &= \parti{z} F_3  \, dx \, dy \, dz + (\parti{x} F_1 \,dx + \parti{y} F_1 \, dy + \parti{z} F_1  \, dz) \, dy \, dz + (dF_2) \, dz \, dx \\
-                &= \parti{z} F_3  \, dx \, dy \, dz + \parti{x} F_1 \,dx \, dy \, dz + (dF_2) \, dz \, dx \\
-                &= \parti{z} F_3  \, dx \, dy \, dz + \parti{x} F_1 \,dx \, dy \, dz + (\parti{x} F_2 \,dx + \parti{y} F_2 \, dy + \parti{z} F_2  \, dz) \, dz \, dx \\
-                &= \parti{z} F_3  \, dx \, dy \, dz + \parti{x} F_1 \,dx \, dy \, dz + \parti{y} F_2 \, dy \, dz \, dx \\
-                &= \parti{z} F_3  \, dx \, dy \, dz + \parti{x} F_1 \,dx \, dy \, dz + \parti{y} F_2 \, dx \, dy \, dz \\
-                &= \parti{x} F_1 + \parti{y} F_2 + \parti{z} F_3 \, dx \, dy \, dz = (\divt \boldsymbol F) \, dx \, dy \, dz
+                \eta &= F_3 \, dx \, dy 
+                + F_1 \, dy \, dz 
+                + F_2 \, dz \, dx \\
+                d\eta &= d(F_3 \, dx \, dy 
+                + F_1 \, dy \, dz 
+                + F_2 \, dz \, dx) \\
+                &= (dF_3)\, dx \, dy 
+                + (dF_1) \, dy \, dz 
+                + (dF_2) \, dz \, dx \\
+                &= (\parti{x} F_3 \,dx 
+                + \parti{y} F_3 \, dy 
+                + \parti{z} F_3  \, dz)\, dx \, dy 
+                + (dF_1) \, dy \, dz 
+                + (dF_2) \, dz \, dx \\
+                &= \parti{z} F_3  \, dz \, dx \, dy 
+                + (dF_1) \, dy \, dz 
+                + (dF_2) \, dz \, dx \\
+                &= \parti{z} F_3  \, dx \, dy \, dz 
+                + (\parti{x} F_1 \,dx 
+                + \parti{y} F_1 \, dy 
+                + \parti{z} F_1  \, dz) \, dy \, dz 
+                + (dF_2) \, dz \, dx \\
+                &= \parti{z} F_3  \, dx \, dy \, dz 
+                + \parti{x} F_1 \,dx \, dy \, dz 
+                + (dF_2) \, dz \, dx \\
+                &= \parti{z} F_3  \, dx \, dy \, dz 
+                + \parti{x} F_1 \,dx \, dy \, dz 
+                + (\parti{x} F_2 \,dx 
+                + \parti{y} F_2 \, dy 
+                + \parti{z} F_2  \, dz) \, dz \, dx \\
+                &= \parti{z} F_3  \, dx \, dy \, dz 
+                + \parti{x} F_1 \,dx \, dy \, dz 
+                + \parti{y} F_2 \, dy \, dz \, dx \\
+                &= \parti{z} F_3  \, dx \, dy \, dz 
+                + \parti{x} F_1 \,dx \, dy \, dz 
+                + \parti{y} F_2 \, dx \, dy \, dz \\
+                &= \parti{x} F_1 
+                + \parti{y} F_2 
+                + \parti{z} F_3 \, dx \, dy \, dz = (\divt \boldsymbol F) \, dx \, dy \, dz
             \end{align*} 
         \newpage
         \item Show that $dF_1 \wedge dF_2 \wedge dF_3 = (\text{det } D \boldsymbol F ) \, dx \, dy \, dz$
