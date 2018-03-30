@@ -226,3 +226,6 @@ TSWLatexianTemp*
 
 # standalone packages
 *.sta
+
+# vim configs
+*.vim
