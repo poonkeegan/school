@@ -7,17 +7,25 @@ import qualified Data.Map.Strict as Map
 import           A5Term
 
 mainInterp :: Term -> Value
-mainInterp = error "TODO"
+mainInterp term = case term of
+    Cond _ _ _ -> interpCond term
+    Num _ -> interpVal term
+    Bln _ -> interpVal term
 
-op :: Op2 -> (Integer -> Integer -> b)
-op And = (&&)
-op Or = (||)
-op Eq = (==)
-op Neq = (\=)
-op Lt = (<)
-op Leq = (<=)
-op Plus = (+)
-op Minus = (-)
-op Mul = (*)
-op Div = div
-op Mod = mod
+interpCond :: Term -> Value 
+interpCond (Cond cond t f) = case mainInterp cond of
+    VB False -> mainInterp t
+    VB True -> mainInterp f
+    otherwise -> error "Condition does not resolve to Bool"
+
+
+
+interpVal :: Term -> Value 
+interpVal (Num x) = VN x
+interpVal (Bln x) = VB x
+
+newtype Evalr a = PsrOf{
+    deEvalr :: Value -> Either Error (Value, Value)}
+
+data Error = Err
+
