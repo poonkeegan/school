@@ -30,7 +30,9 @@ interp env (Lambda name func) = VClosure env name func
 interp env (Let [] term) = interp env term
 interp env (Let ((str,ter):xs) term) = interp (Map.insert str val env) (Let xs term)
     where val = interp env ter
--- TODO App
+interp env (App f param) = case interp env f of
+    VClosure fEnv var fbody -> interp (Map.insert var (interp env param) fEnv) fbody
+    _ -> error "Applying non function"
 
 evOp :: Op2 -> (Value -> Value -> Value)
 evOp op = case op of
