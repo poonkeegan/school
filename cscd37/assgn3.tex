@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsfonts}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{pgfplotstable}
+\usepackage{longtable}
+\usepackage{algorithm2e}
+\graphicspath{ {images/} }
+\pagestyle{empty}
+\fancyhf{}
+\cfoot{\thepage}
+
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{theorem}{Theorem}
+\newcommand{\twonorm}[1]{\| #1 \|_2}
+\newcommand{\rdim}[2]{\mathbb{R}^{#1 \times #2}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\deriv}[1]{\frac{d}{d #1}}
+\newcommand{\parti}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\partis}[2]{\frac{\partial #2}{\partial #1}}
+\lhead{CSCD37: Assignment \#2 }
+\rhead{
+Poon, Keegan\\
+poonkeeg\\
+1002423727}
+\pagenumbering{gobble}
+\renewcommand{\headrulewidth}{0pt}
+\begin{document}
+
+\thispagestyle{fancy}
+\begin{enumerate}
+    \item Consider the IVODE $y'' = y$ for $t \geq 0$, with initial values
+        $y(0) = 1$ and $y'(0) = 2$.
+        \begin{enumerate}
+            \item Express this second-order ODE as an equivalent system of
+                two first-order ODEs.
+
+                The system of first-order ODEs is given by $y_1 = y$ and 
+                $y_2 = y'$. Then the system is $y_1' = y_2$ and $y_2' =
+                y_1$.
+
+            \item What are the corresponding inital values for the system
+                of ODEs in (a)?
+
+                Since $y = y_1$ and $y' = y_2$ the initial values are just
+                $y_1(0) = 1$ and $y_2(0) = 1$.
+
+            \item Are solutions of this system stable? Justify your answer.
+
+                We have that $y_1' = f_1(t,y_2)$ and $y_2' = f(t,y_1)$, 
+                so analyzing the eigenvalues will give the stability 
+                of the system. First compute the matrix.
+                \begin{align*} 
+                    \begin{bmatrix}
+                        \partis{y_1}{f_1} & \partis{y_2}{f_1} \\
+                        \partis{y_1}{f_2} & \partis{y_2}{f_2}
+                    \end{bmatrix} 
+                    &=
+                    \begin{bmatrix}
+                        0 & 1 \\
+                        1 & 0
+                    \end{bmatrix} 
+                \end{align*}
+                Now to evaluate the eigenvalues of the matrix.
+                \begin{align*} 
+                    \begin{bmatrix}
+                        0 & 1 \\
+                        1 & 0
+                    \end{bmatrix} - \lambda I &= 
+                    \begin{bmatrix}
+                        -\lambda & 1 \\
+                        1 & -\lambda
+                    \end{bmatrix} \\
+                    \implies 
+                    \begin{vmatrix}
+                        -\lambda & 1 \\
+                        1 & -\lambda
+                    \end{vmatrix}
+                    &= (\lambda^2 - 1) = 0 \\
+                    \implies \lambda &= \pm 1
+                \end{align*}
+                There is both a positive and negative eigenvalue so it is
+                unstable in the general case, unless the interval of 
+                integration is sufficiently small. In that case, the 
+                instability won't start to effect the solution as much.
+                 
+            \item Perform one step of forward Euler method for this ODE
+                system using a step size of $h = 0.5$.
+
+            \begin{align*} 
+                y_k &\approx y(0) \\
+                y_{k+1} &= y_k + h_kf(t_k,y_k) \\
+                \implies y_{k+1} &= 1 + (0.5)f(0,1)
+                \implies y_{k+1} &= 1 + (0.5)f(0,1)
+            \end{align*}
+            \item Is the forward Euler method stable for this problem using
+                this step size? Justify your answer.
+            \item Is the backward Euler method stable for this problem using
+                this step size? Justify your answer.
+        \end{enumerate}
+    \item Consider the Trapezoidal Rule
+        \begin{equation}
+            y_{k+1} = y_k + \frac{h_k}{2}[f(t_k,y_k) + f(t_{k+1}, y{k+1})],
+            \, k = 0,1,2,\dots
+        \end{equation}
+        for integrating the general IVODE $y'(t) = f(t,y(t)),\,
+        y(t_0) = y_0$.
+        \begin{enumerate}
+            \item Show how (1) is derived by combining two appropriate 
+                Taylor expansions. What is the truncation error (local 
+                error) in (1)?
+            \item Derive the global error propagation formula for (1),
+                showing how the global error at $t_{k+1}$ is related
+                to the global error at $t_k$ and the local error $t_k$.
+                Recall that this is a \textit{general} IVP with $y,f:
+                \mathbb{R}^n \rightarrow \mathbb{R}^n$.
+            \item When applied to the model problem $y'(y) = \lambda y(t),
+                y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
+                \mathbb{R},$ (1) simplifies. Write out the simplified form.
+
+            \item Derive the growth factor for the simplified form.
+            \item Using the growth factor for the simplified form derived
+                in (d), define and sketch the region of absolute stability
+                for (1). \textit{Show all of your work.}
+            \item Is (1) A-stable? Is it L-stable? \textit{Justify your 
+                answer}.
+            \item (1) clearly is more expensive per step than both the
+                forward Euler method (FEM) and backward Euler method
+                (BEM) discussed in lecture. What advantage(s), if any,
+                does (1) have over FEM and BEM?
+        \end{enumerate}
+\end{enumerate}
+\end{document}

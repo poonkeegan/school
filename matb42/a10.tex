@@ -30,7 +30,9 @@ Apr 3rd 2018}
 
 \thispagestyle{fancy}
 \begin{enumerate}
-    \item Let $\boldsymbol F$ be a vector field on $\mathbb{R}^3$ given by $\boldsymbol F = (F_1, F_2, F_3)$ where $F_1$, $F_2$, and $F_3$ are $C^1$-functions from $\mathbb{R}^3 \rightarrow \mathbb{R}$
+    \item Let $\boldsymbol F$ be a vector field on $\mathbb{R}^3$ given by 
+        $\boldsymbol F = (F_1, F_2, F_3)$ where $F_1$, $F_2$, and $F_3$ 
+        are $C^1$-functions from $\mathbb{R}^3 \rightarrow \mathbb{R}$
     \begin{enumerate}
         \item Let $\eta$ be the 2-form given by
             \[ \eta = F_3 \, dx \, dy + F_1 \, dy \, dz + F_2 \, dz \, dx \]
@@ -518,7 +520,7 @@ Apr 3rd 2018}
             $z=4$ plane at the radius 2 disk.
 
             \begin{align*}
-                \int_{\boldsymbol \gamma} \omega &= \int_0^{2\pi} 
+                \int_{\boldsymbol \gamma} \omega &= \int_1^{2\pi} 
                 (2\sin t)(4)(-2\sin t) - (2\cos t)4(2\cos t) \, dt \\
                 &= \int_0^{2\pi}  -16(\sin ^2 t + \cos ^2 t) \, dt \\
                 &= \int_0^{2\pi} -16 \, dt  = -32 \pi\\
@@ -591,7 +593,7 @@ Apr 3rd 2018}
                 &= (-1 -1, -1 -1, -1 -1) &= -2(1,1,1) \\
                 \implies -2 \, d\omega &= -2(1,1,1)  \\
                 \overset{\text{Inspection}}{\implies} -2\omega &= 
-                -2(x,\, y,\, z)
+                -2(x + y + z)
             \end{align*} 
             
             Now to parametrize the curve of intersection of the sphere and
@@ -605,48 +607,106 @@ Apr 3rd 2018}
                 0 &= x^2 + x(y-1) + y^2 - y \\
                 0 &= x^2 + x(y-1) + \frac{(y-1)^2}{4} - \frac{(y-1)^2}{4} 
                 + y^2 - y \\
-                0 &= \bigg(x - \frac{y-1}{2}\bigg)^2 - \frac{(y-1)^2}{4} 
+                0 &= \bigg(x + \frac{y-1}{2}\bigg)^2 - \frac{(y-1)^2}{4} 
                 + y^2 - y \\
-                0 &= \bigg(x - \frac{y-1}{2}\bigg)^2 - \frac{y^2}{4} 
+                0 &= \bigg(x + \frac{y-1}{2}\bigg)^2 - \frac{y^2}{4} 
                 + \frac{y}{2} - \frac{1}{4} + y^2 - y \\
             \end{align*} 
             \begin{align*}
-                \frac{1}{4} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{4} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3y^2}{4} - \frac{y}{2} \\
-                \frac{1}{4} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{4} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3}{4} \bigg(y^2 - \frac{4y}{3(2)}\bigg) \\
-                \frac{1}{4} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{4} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3}{4} \bigg(y^2 - \frac{2y}{3} + \frac{1}{9}
                 \bigg) - \frac{3}{4(9)}\\
-                \frac{1}{4} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{4} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3}{4} \bigg( y - \frac{1}{3} \bigg)^2 - \frac{1}{12}\\
-                \frac{1}{4} + \frac{1}{12} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{4} + \frac{1}{12} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3}{4} \bigg( y - \frac{1}{3} \bigg)^2 \\
-                \frac{1}{3} &= \bigg(x - \frac{y-1}{2}\bigg)^2 
+                \frac{1}{3} &= \bigg(x + \frac{y-1}{2}\bigg)^2 
                 + \frac{3}{4} \bigg( y - \frac{1}{3} \bigg)^2 \\
             \end{align*} 
             \end{multicols}
-            Set 
-            \[y = \frac{1}{\sqrt{3}}\bigg(\sqrt{\frac{4}{3}} \cos \theta\bigg) 
-            + \frac{1}{3} 
-            = \frac{2}{3}\cos \theta + \frac{1}{3} \]
-            \[x = \bigg( \frac{\frac{2}{3}\cos \theta - \frac{5}{3}}{2}\bigg)
-                + \frac{1}{\sqrt{3}}\sin \theta = \frac{1}{\sqrt{3}}
-                \sin \theta + \frac{1}{3} \cos \theta - \frac{5}{6} \]
-            \[z = 1 - \frac{1}{\sqrt{3}} \sin \theta - \frac{1}{3} 
-            \cos \theta + \frac{5}{6} - \frac{2}{3} \cos \theta 
-            - \frac{1}{3} = \frac{3}{2} - \frac{1}{\sqrt 3 } \sin \theta 
-            - \cos \theta \]
+            The equation is that of a shifted ellipse. Solve both
+            terms in terms of cos and sin.
+            \begin{multicols}{2}
+                \noindent
+                \begin{align*}
+                    \frac{3}{4}\bigg(y-\frac{1}{3}\bigg)^2 &= 
+                    \frac{1}{3}\cos^2 \theta \\
+                    \frac{1}{4}\bigg(y-\frac{1}{3}\bigg)^2 &= 
+                    \frac{1}{9}\cos^2 \theta \\
+                    \bigg(y-\frac{1}{3}\bigg)^2 &= 
+                    \frac{4}{9}\cos^2 \theta \\
+                    y-\frac{1}{3} &= 
+                    \frac{2}{3}\cos \theta \\
+                    y &= \frac{2}{3}\cos \theta + \frac{1}{3} \\
+                \end{align*} 
+                \begin{align*}
+                    \bigg(x + \frac{y-1}{2}\bigg)^2 &= 
+                    \frac{1}{3} \sin^2 \theta \\
+                    x + \frac{y-1}{2} &= 
+                    \frac{1}{\sqrt{3}} \sin \theta \\
+                    x &= \frac{1}{\sqrt{3}} \sin \theta - \frac{y-1}{2} \\
+                    x &= \frac{1}{\sqrt{3}} \sin \theta 
+                    + \frac{1}{2}\bigg(\frac{2}{3} \cos \theta -
+                    \frac{1}{3} - 1 \bigg) \\
+                    x &= \frac{1}{\sqrt{3}} \sin \theta 
+                    - \frac{1}{3} \cos \theta + \frac{1}{3}\\
+                \end{align*}  
+            \end{multicols}
+            Plugging that back into the plane equation gives
+            \begin{align*}
+                z &= 1 - x - y \\
+                z &= 1 - \bigg(\frac{1}{\sqrt{3}} \sin \theta 
+                    - \frac{1}{3} \cos \theta + \frac{1}{3}\bigg) - 
+                    \bigg(\frac{2}{3}\cos \theta + \frac{1}{3}\bigg) \\
+                z &= 1  - \frac{1}{\sqrt{3}} \sin \theta 
+                    + \frac{1}{3} \cos \theta - \frac{1}{3} - 
+                    \frac{2}{3}\cos \theta - \frac{1}{3} \\
+                z &= \frac{1}{3}  - \frac{1}{\sqrt{3}} \sin \theta 
+                    - \frac{1}{3} \cos \theta \\
+            \end{align*}   
+
             So the curve is given as 
             \[ \boldsymbol \gamma (\theta) = 
-            \bigg( \frac{1}{\sqrt{3}} \sin \theta + \frac{1}{3} 
-            \cos \theta - \frac{5}{6}, \frac{2}{3}\cos \theta + \frac{1}{3}, 
-            \frac{3}{2} - \frac{1}{\sqrt 3 } 
-            \sin \theta - \cos \theta \bigg)\]
+            \bigg(
+            \frac{1}{\sqrt{3}} \sin \theta 
+            - \frac{1}{3} \cos \theta + \frac{1}{3} ,\,
+            \frac{2}{3}\cos \theta + \frac{1}{3} ,\,
+            \frac{1}{3}  - \frac{1}{\sqrt{3}} \sin \theta 
+            - \frac{1}{3} \cos \theta \bigg)\]
             \[ \boldsymbol \gamma' (\theta) = 
-            \bigg( \frac{1}{\sqrt{3}} \cos \theta - \frac{1}{3} \sin \theta, 
-            - \frac{2}{3}\sin \theta , \frac{-1}{\sqrt 3 } \cos \theta 
-            + \sin \theta \bigg)\]
+            \bigg( 
+            \frac{1}{\sqrt 3} \cos \theta + \frac{1}{3} \sin \theta,\,
+            -\frac{2}{3} \sin \theta,\,
+            \frac{-1}{\sqrt 3} \cos \theta + \frac{1}{3} \sin \theta
+            \bigg)\]
+            Examining the tangent at $\theta = 0$ shows that the direction
+            is the wrong way (clockwise), so when taking the intergral, the
+            orientation needs to be reversed.
+
+            \begin{align*}
+                \int_{\boldsymbol \gamma} \omega &= 
+                \int_0^{2\pi} 2(x(\theta)+y(\theta)+z(\theta)) 
+                \norm{\boldsymbol \gamma' (\theta)} \, d \theta \\
+                &= 2 \int_0^{2\pi}
+                \sqrt{\bigg(\frac{1}{\sqrt 3} \cos \theta \bigg)^2
+                + \bigg(-\frac{2}{3} \sin \theta \bigg)^2
+                + \bigg(\frac{-1}{\sqrt{3}} \cos \theta + \frac{1}{3}
+                \sin \theta \bigg)^2} \, d \theta \\
+                &= 2 \int_0^{2\pi}
+                \frac{1}{3} \cos ^2 \theta + \frac{4}{9} \sin ^2 \theta
+                + \frac{1}{3} \cos ^2 \theta - \frac{2}{3\sqrt 3} 
+                \sin \theta \cos \theta + \frac{1}{9} \sin^2 \theta 
+                \, d \theta \\
+                &= 2 \int_0^{2\pi}
+                \frac{1}{9} \cos ^2 \theta + \frac{5}{9} 
+                 - \frac{2}{3\sqrt 3} 
+                \sin \theta \cos \theta + \frac{1}{9} \sin^2 \theta 
+                \, d \theta \\
+            \end{align*}   
             
         \item Use symbolic algebra software to sketch the surfaces 
         in parts (a) and (b).
