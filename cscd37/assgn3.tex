@@ -100,16 +100,38 @@ poonkeeg\\
             \item Is the forward Euler method stable for this problem using
                 this step size? Justify your answer.
                 
-                The forward Euler method is stable since there
+                First calculate the amplification matrix for this instance
+                of FEM.
+                \[ I + h_k f_y(t_k,\eta_k) = 
+                \begin{pmatrix}
+                    1 & 0 \\
+                    0 & 1 \\
+                \end{pmatrix}
+                +
+                (0.5)
+                \begin{pmatrix}
+                    0 & 1 \\
+                    1 & 0 \\
+                \end{pmatrix}
+                = 
+                \begin{pmatrix}
+                    1 & 0.5 \\
+                    0.5 & 1 \\
+                \end{pmatrix}
+                \]
+                The norm of this matrix is greater than one, so performing
+                FEM must not be stable.
 
             \item Is the backward Euler method stable for this problem using
                 this step size? Justify your answer.
 
                 The backward Euler method is stable for the roblem
         \end{enumerate}
+
+    \newpage
     \item Consider the Trapezoidal Rule
         \begin{equation}
-            y_{k+1} = y_k + \frac{h_k}{2}[f(t_k,y_k) + f(t_{k+1}, y{k+1})],
+            y_{k+1} = y_k + \frac{h_k}{2}[f(t_k,y_k) + f(t_{k+1}, y_{k+1})],
             \, k = 0,1,2,\dots
         \end{equation}
         for integrating the general IVODE $y'(t) = f(t,y(t)),\,
