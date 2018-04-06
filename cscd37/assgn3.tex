@@ -166,11 +166,12 @@ poonkeeg\\
                 to the global error at $t_k$ and the local error $t_k$.
                 Recall that this is a \textit{general} IVP with $y,f:
                 \mathbb{R}^n \rightarrow \mathbb{R}^n$.
-                \[ y_{k+1} = y_k \frac{h}{2}[f(t_k,y_k) 
-                + f(t_{k+1}, y_{k+1})]\] 
             \item When applied to the model problem $y'(y) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{R},$ (1) simplifies. Write out the simplified form.
+                \begin{align*} y_{k+1} = y_k \frac{h}{2}[f(t_k,y_k) 
+                + f(t_{k+1}, y_{k+1})]
+                \end{align*}
             \item Derive the growth factor for the simplified form.
             \item Using the growth factor for the simplified form derived
                 in (d), define and sketch the region of absolute stability
