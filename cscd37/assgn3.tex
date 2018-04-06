@@ -178,10 +178,11 @@ poonkeeg\\
                &\text{Using MVT to simplify} \\
                y(t_{k+1}) - y_{k+1} &= 
                y'(t) - y'(t + h) + \frac{h}{2}
-               [f_y (t_k, \eta_k) + f_y (t_{k+1}, \eta_{k+1}]
+               [f_y (t_k, \eta_k)(y(t_k) - y_k) 
+               + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
                + \frac{h^3}{3!}y'''(\psi) \\
                y(t_{k+1}) - y_{k+1} &= 
-               y'(t) - y'(t + h) + \frac{h}{2}
+               [I(y(t_k) - y_k)(+ \frac{h}{2}
                [f_y (t_k, \eta_k)(y(t_k) - y_k) 
                + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
                + \frac{h^3}{3!}y'''(\psi) \\
