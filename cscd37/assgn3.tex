@@ -151,12 +151,15 @@ poonkeeg\\
                + \frac{h^2}{3!}y'''(\psi_1) 
                + \frac{h^2}{3!}y'''(\psi_2)] \text{ Since as }
                h \rightarrow 0,\, t + h \approx t\\
+               \text{Where } \psi_1 \in [t,\, t+h] \&
+               \psi_2 \in [t+h ,\, t] 
                \end{align*}
                Cutting this equation off at the first two terms, gives
                the approxmiation
                \[ y_{k+1}
                = y_k + \frac{h}{2}
                [f(t_k, y_k) + f(t_{k+1}, y_{k+1})] \]
+               and this has the evident truncation error of 
                Which is as given.
             \item Derive the global error propagation formula for (1),
                 showing how the global error at $t_{k+1}$ is related
