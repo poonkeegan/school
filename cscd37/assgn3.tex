@@ -146,7 +146,7 @@ poonkeeg\\
                - \frac{h}{2!} y''(t+h) 
                + \frac{h^2}{3!}y'''(\psi_1) 
                + \frac{h^2}{3!}y'''(\psi_2)] \\
-               y(t) \approx y(t) + \frac{h}{2}
+               y(t + h) \approx y(t) + \frac{h}{2}
                [y'(t) + y'(t + h) 
                + \frac{h^2}{3!}y'''(\psi_1) 
                + \frac{h^2}{3!}y'''(\psi_2)] \text{ Since as }
@@ -161,16 +161,18 @@ poonkeeg\\
                [f(t_k, y_k) + f(t_{k+1}, y_{k+1})] \]
                and this has the evident truncation error of 
                \[\frac{h^3}{2(3!)}y'''(\psi_1) 
-               + \frac{h^3}{2(3!)}y'''(\psi_1)\]
+               + \frac{h^3}{2(3!)}y'''(\psi_2)\]
             \item Derive the global error propagation formula for (1),
                 showing how the global error at $t_{k+1}$ is related
                 to the global error at $t_k$ and the local error $t_k$.
                 Recall that this is a \textit{general} IVP with $y,f:
                 \mathbb{R}^n \rightarrow \mathbb{R}^n$.
-                \[ y(t_{k+1}) - y_{k+1} = y(t_k) - y_k + + \frac{h}{2}
-                [f(t_k, y_k) - f(t_{k+1}, y_{k+1}] +
-               \frac{h^3}{2(3!)}y'''(\psi_1) 
-               + \frac{h^3}{2(3!)}y'''(\psi_1)\]
+                \[ y(t_{k+1}) - y_{k+1} = y(t_k) 
+               y(t) + \frac{h}{2}
+               [y'(t) + y'(t + h) 
+               + \frac{h^2}{3!}y'''(\psi_1) 
+               + \frac{h^2}{3!}y'''(\psi_2)]
+                \]
             \item When applied to the model problem $y'(y) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{r},$ (1) simplifies. write out the simplified form.
