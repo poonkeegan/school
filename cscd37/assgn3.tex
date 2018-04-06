@@ -152,7 +152,11 @@ poonkeeg\\
                + \frac{h^2}{3!}y'''(\psi_2)] \text{ Since as }
                h \rightarrow 0,\, t + h \approx t\\
                \text{Where } \psi_1 \in [t,\, t+h] \& \,
-               \psi_2 \in [t+h ,\, t] 
+               \psi_2 \in [t+h ,\, t] \\
+               y(t + h) \approx y(t) + \frac{h}{2}
+               [y'(t) + y'(t + h)]
+               + \frac{h^3}{3!}y'''(\psi) 
+               \text{Where } \psi \in [t,\, t+h] \& \,
                \end{align*}
                Cutting this equation off at the first two terms, gives
                the approxmiation
@@ -160,8 +164,7 @@ poonkeeg\\
                = y_k + \frac{h}{2}
                [f(t_k, y_k) + f(t_{k+1}, y_{k+1})] \]
                and this has the evident truncation error of 
-               \[\frac{h^3}{2(3!)}y'''(\psi_1) 
-               + \frac{h^3}{2(3!)}y'''(\psi_2)\]
+               \[\frac{h^3}{2(3!)}y'''(\psi) \]
             \item Derive the global error propagation formula for (1),
                 showing how the global error at $t_{k+1}$ is related
                 to the global error at $t_k$ and the local error $t_k$.
