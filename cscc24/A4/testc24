@@ -1,0 +1,3 @@
+*A4TermParser> parseFile "test.txt"
+Just (Let [("x",Prim2 "*" (Num 4) (Prim2 "+" (Num 5) (Num 6))),("z",Bln True),("y",Prim2 "+" (Var "x") (Prim2 "*" (Var "x") (Var "x")))] (Lambda "y" (Lambda "z" (Cond (Prim2 "<" (Var "x") (Var "y")) (Prim2 "*" (Var "x") (Var "y")) (Var "z")))))
+
