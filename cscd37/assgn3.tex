@@ -122,9 +122,11 @@ poonkeeg\\
                 error) in (1)?
                 
                 From FEM and BEM we have.
-               \[ y(t + h) = y(t) + hy'(t) + \frac{h^2}{2!} y''(\psi_1) \]
+               \[ y(t + h) = y(t) + hy'(t) + \frac{h^2}{2!} y''(t)
+               + \frac{h^3}{3!}y'''(\psi_1)\]
                \[ y([t + h] - h) = y(t + h) - hy'(t + h) 
-               + \frac{(-h)^2}{2!} y''(\psi_2) \]
+               + \frac{(-h)^2}{2!} y''(t+h) 
+               + \frac{(-h)^3}{3!}y'''(\psi_2) \]
                
                Adding them together gives 
                \begin{align*}
@@ -147,7 +149,9 @@ poonkeeg\\
                y_{k+1}
                = y_k + \frac{h}{2}
                [f(t_k, y_k) + y'(t + h) + \frac{h}{2!} y''(\psi_1) 
-               - \frac{h}{2!} y''(\psi_2)] \\
+               - \frac{h}{2!} y''(\psi_2) 
+               + \frac{h^2}{3!}y'''(\psi_1) 
+               + \frac{h^2}{3!}y'''(\psi_2)] \\
                \end{align*}
             \item Derive the global error propagation formula for (1),
                 showing how the global error at $t_{k+1}$ is related
