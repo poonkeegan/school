@@ -171,31 +171,33 @@ poonkeeg\\
                 Recall that this is a \textit{general} IVP with $y,f:
                 \mathbb{R}^n \rightarrow \mathbb{R}^n$.
                 \begin{align*} y(t_{k+1}) - y_{k+1} &= 
-               y'(t) + \frac{h}{2}
-               [f(t_k, y(t_k)) + f(t_{k+1}, y(t_{k+1})) ]
-               - y'(t + h) - \frac{h}{2}[f(t_k, k)
-               + f(t_{k+1}, y_{k+1})] + \frac{h^3}{3!}y'''(\psi) \\
-               &\text{Using MVT to simplify} \\
-               y(t_{k+1}) - y_{k+1} &= 
-               y'(t) - y'(t + h) + \frac{h}{2}
-               [f_y (t_k, \eta_k)(y(t_k) - y_k) 
-               + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
-               + \frac{h^3}{3!}y'''(\psi) \\
-               y(t_{k+1}) - y_{k+1} &= 
-               [I(y(t_k) - y_k) + I(y(t_{k+1}) - y_{k+1})] \\
-               & + \frac{h}{2}
-               [f_y (t_k, \eta_k)(y(t_k) - y_k) 
-               + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
-               + \frac{h^3}{3!}y'''(\psi) \\
-               y(t_{k+1}) - y_{k+1} &= 
-               [I + \frac{h}{2}f_y (t_k, \eta_k)](y(t_k) - y_k) 
-               + [I + \frac{h}{2}f_y (t_{k+1}, \eta_{k+1})](y(t_{k+1}) 
-               - y_{k+1}) \\
-               & + \frac{h^3}{3!}y'''(\psi) \\
+                    y'(t) + \frac{h}{2}
+                    [f(t_k, y(t_k)) + f(t_{k+1}, y(t_{k+1})) ]
+                    - y'(t + h) - \frac{h}{2}[f(t_k, k)
+                    + f(t_{k+1}, y_{k+1})] + \frac{h^3}{3!}y'''(\psi) \\
+                    &\text{Using MVT to simplify} \\
+                    y(t_{k+1}) - y_{k+1} &= 
+                    y'(t) - y'(t + h) + \frac{h}{2}
+                    [f_y (t_k, \eta_k)(y(t_k) - y_k) 
+                    + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
+                    + \frac{h^3}{3!}y'''(\psi) \\
+                    y(t_{k+1}) - y_{k+1} &= 
+                    [I(y(t_k) - y_k) + I(y(t_{k+0}) - y_{k+1})] \\
+                    & + \frac{h}{2}
+                    [f_y (t_k, \eta_k)(y(t_k) - y_k) 
+                    + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
+                    + \frac{h^3}{3!}y'''(\psi) \\
+                    y(t_{k+1}) - y_{k+1} &= 
+                    [I + \frac{h}{2}f_y (t_k, \eta_k)](y(t_k) - y_k) 
+                    + [I + \frac{h}{2}f_y (t_{k+1}, \eta_{k+1})](y(t_{k+1}) 
+                    - y_{k+1}) \\
+                    & + \frac{h^3}{3!}y'''(\psi) \\
                 \end{align*}
             \item When applied to the model problem $y'(t) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{R},$ (1) simplifies. Write out the simplified form.
+                \[y_{k+1} = y_k + \frac{h_k}{2}[f(t_k,y_k) 
+                + f(t_{k+1}, y_{k+1})], \, k = 0,1,2,\dots \]
             \item Derive the growth factor for the simplified form.
             \item Using the growth factor for the simplified form derived
                 in (d), define and sketch the region of absolute stability
