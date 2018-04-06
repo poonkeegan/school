@@ -171,13 +171,13 @@ poonkeeg\\
                 Recall that this is a \textit{general} IVP with $y,f:
                 \mathbb{R}^n \rightarrow \mathbb{R}^n$.
                 \begin{align*} y(t_{k+1}) - y_{k+1} &= 
-                    y'(t) + \frac{h}{2}
+                    y'(t_k) + \frac{h}{2}
                     [f(t_k, y(t_k)) + f(t_{k+1}, y(t_{k+1})) ]
                     - y_k - \frac{h}{2}[f(t_k, k)
                     + f(t_{k+1}, y_{k+1})] + \frac{h^3}{3!}y'''(\psi) \\
                     &\text{Using MVT to simplify} \\
                     y(t_{k+1}) - y_{k+1} &= 
-                    y'(t) - y'(t + h) + \frac{h}{2}
+                    y'(t_k) - y'(t + h) + \frac{h}{2}
                     [f_y (t_k, \eta_k)(y(t_k) - y_k) 
                     + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
                     + \frac{h^3}{3!}y'''(\psi) \\
