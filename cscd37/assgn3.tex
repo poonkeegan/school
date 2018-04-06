@@ -95,14 +95,14 @@ poonkeeg\\
                 y_k &\approx y(0) \\
                 y_{k+1} &= y_k + h_kf(t_k,y_k) \\
                 \implies y_{k+1} &= 1 + (0.5)f(0,1) \\
-                \implies y_{k+1} &= 1.5
+                \implies y_{k+1} &= 1 + (0.5)y' \\
             \end{align*}
             \item Is the forward Euler method stable for this problem using
                 this step size? Justify your answer.
                 
-                The forward Euler method is not stable here since the step
-                size 
-                
+                The forward Euler method is not stable here since the
+                equation $\norm{I + hf_y}$ of the amplifcation matrix
+                is $> 1$.
 
             \item Is the backward Euler method stable for this problem using
                 this step size? Justify your answer.
