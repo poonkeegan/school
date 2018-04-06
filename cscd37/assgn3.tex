@@ -180,6 +180,11 @@ poonkeeg\\
                y'(t) - y'(t + h) + \frac{h}{2}
                [f_y (t_k, \eta_k) + f_y (t_{k+1}, \eta_{k+1}]
                + \frac{h^3}{3!}y'''(\psi) \\
+               y(t_{k+1}) - y_{k+1} &= 
+               y'(t) - y'(t + h) + \frac{h}{2}
+               [f_y (t_k, \eta_k)(y(t_k) - y_k) 
+               + f_y (t_{k+1}, \eta_{k+1})(y(t_{k+1}) - y_{k+1})]
+               + \frac{h^3}{3!}y'''(\psi) \\
                 \end{align*}
             \item When applied to the model problem $y'(t) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
