@@ -196,8 +196,10 @@ poonkeeg\\
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{R},$ (1) simplifies. Write out the simplified form.
                 \begin{align*}
-                y_{k+1} = y_k + \frac{h_k}{2}[f(t_k,y_k) 
-                + f(t_{k+1}, y_{k+1})] 
+                y_{k+1} &= y_k + \frac{h_k}{2}[f(t_k,y_k) 
+                + f(t_{k+1}, y_{k+1})] \\
+                y_{k+1} &= y_k + \frac{h_k}{2}[\lambda y_k
+                + \lambda y_{k+1}]
                 \end{align*}
             \item Derive the growth factor for the simplified form.
             \item Using the growth factor for the simplified form derived
