@@ -214,7 +214,8 @@ poonkeeg\\
                 - y_{k+1}$ is determined by the global error at $t_k$ which
                 is $y(t_k) - y_k)$ amplified by the matrix
                 $\frac{h}{2}[I + f_y(t_{k+1}, \eta_{k+1})]^{-1}
-                [I + f_y(t_k, \eta_k)]$
+                [I + f_y(t_k, \eta_k)]$ with the additional local error
+                $\frac{h^3}{3!}y'''(\psi)$.
             \item When applied to the model problem $y'(t) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{R},$ (1) simplifies. Write out the simplified form.
