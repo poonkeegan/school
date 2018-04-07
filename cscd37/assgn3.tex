@@ -234,6 +234,13 @@ poonkeeg\\
                 forward Euler method (FEM) and backward Euler method
                 (BEM) discussed in lecture. What advantage(s), if any,
                 does (1) have over FEM and BEM?
+                
+                This iteration has a much smaller local error, with a 
+                cubed factor of the stepsize so it is much more accurate
+                then either of the other methods, having a $2^{\text{nd}}$
+                derivative multiplied by $h^2$. Not only this, but it also
+                maintains the A-stability that BEM has, so it also will
+                work very well on stiff ODEs.
         \end{enumerate}
 \end{enumerate}
 \end{document}
