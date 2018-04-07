@@ -102,7 +102,13 @@ poonkeeg\\
                 
                 The forward Euler method is not stable here since the
                 equation $\twonorm{I + hf_y}$ of the amplifcation matrix
-                is $> 1$.
+                is 
+                \[
+                    \text{2norm }
+                    \begin{bmatrix} 1 & 0.5 \\ 0.5 & 1 
+                    \end{bmatrix} = 1.5
+                \]
+                Which is $>1$.
 
             \item Is the backward Euler method stable for this problem using
                 this step size? Justify your answer.
