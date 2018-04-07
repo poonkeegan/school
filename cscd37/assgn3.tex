@@ -210,6 +210,11 @@ poonkeeg\\
                     + [I + f_y (t_{k+1}, \eta_{k+1})]^{-1}
                     + \frac{h^3}{3!}y'''(\psi) \\
                 \end{align*}
+                Where the global error at $t_{k+1}$ i.e. $y(t_{k+1})
+                - y_{k+1}$ is determined by the global error at $t_k$ which
+                is $y(t_k) - y_k)$ amplified by the matrix
+                $\frac{h}{2}[I + f_y(t_{k+1}, \eta_{k+1})]^{-1}
+                [I + f_y(t_k, \eta_k)]$
             \item When applied to the model problem $y'(t) = \lambda y(t),
                 y: \mathbb{R} \rightarrow \mathbb{R}, \lambda \in 
                 \mathbb{R},$ (1) simplifies. Write out the simplified form.
